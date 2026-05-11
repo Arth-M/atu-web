@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ----------------------------------------------------------------
+   1. THEME PALETTES — each [data-theme] sets the same CSS variables
+   ---------------------------------------------------------------- */
+
+/* Classic — warm neutral, editorial feel */
+[data-theme="classic"] {
+  --color-bg: #fffefb;
+  --color-atu: var(--color-purple-500);
+  --color-bg-soft: #f0eee9;
+  --color-bg-muted: #e5e2dc;
+  --color-text: #1a1a1a;
+  --color-text-soft: #555555;
+  --color-text-muted: #888888;
+  --color-primary: #2a4d6e;
+  --color-primary-hover: #1e3a54;
+  --color-accent: #c47a3a;
+  --color-border: #d6d3cd;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f3ef;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark — deep charcoal with cool accents */
+[data-theme="dark"] {
+  --color-bg: #0e0e10;
+  --color-atu: var(--color-fuchsia-500);
+  --color-bg-soft: #1a1a1f;
+  --color-bg-muted: #26262d;
+  --color-text: #fbfbfb;
+  --color-text-soft: #a0a0a8;
+  --color-text-muted: #68687a;
+  --color-primary: #6ea1ff;
+  --color-primary-hover: #8fb8ff;
+  --color-accent: #ff6eb4;
+  --color-border: #2e2e38;
+  --color-surface: #16161b;
+  --color-surface-hover: #1f1f26;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Colorful — vibrant, playful pop */
+[data-theme="colorful"] {
+  --color-bg: #fdf6ff;
+  --color-atu: var(--color-fuchsia-500);
+  --color-bg-soft: #f0e4ff;
+  --color-bg-muted: #e2d0f8;
+  --color-text: #ea1ec8;
+  --color-text-soft: #4a3766;
+  --color-text-muted: #7d6b96;
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-accent: #f59e0b;
+  --color-border: #d4bfed;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f7f0ff;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ----------------------------------------------------------------
+   2. TAILWIND v4 — register tokens via @theme
+   ---------------------------------------------------------------- */
+
+@theme {
+  --color-bg: var(--color-bg);
+  --color-logo: var(--color-atu);
+  --color-bg-soft: var(--color-bg-soft);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
+  --color-text-muted: var(--color-text-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-accent: var(--color-accent);
+  --color-border: var(--color-border);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+}
+
+/* ----------------------------------------------------------------
+   3. SMOOTH TRANSITIONS between themes
+   ---------------------------------------------------------------- */
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Transition on all themed elements — scoped to color properties only */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.stack-sans-notch {
+  font-family: "Stack Sans Notch", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.stack-sans-text {
+  font-family: "Stack Sans Text", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
