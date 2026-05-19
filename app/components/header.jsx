@@ -38,7 +38,7 @@ export default function Header() {
         < Logo />
       </div>
       <div className="hidden text-text lg:absolute top-8 right-5 lg:flex items-center justify-end">
-        <div className="space-x-2 justify-end items-center">
+        <div className="space-x-2 justify-end items-center stack-sans-text">
           <a
             href="/notre-expertise"
             className={`rounded font-light text-md hover:text-copperfield-500 hover:bg-copperfield-100 hover:-translate-y-0.5 ease-in-out duration-200 hover:scale-102 px-2 py-1 ${pathname === '/notre-expertise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
