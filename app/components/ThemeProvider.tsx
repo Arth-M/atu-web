@@ -30,6 +30,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // will have already set the correct data-theme before React hydrates.
   const [theme, setThemeState] = useState<Theme>("classic");
 
+
   // On mount, read what the anti-flash script already applied
   useEffect(() => {
     const stored = document.documentElement.dataset.theme as Theme | undefined;

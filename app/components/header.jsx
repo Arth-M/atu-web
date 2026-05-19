@@ -1,5 +1,7 @@
 'use client'
-import Image from 'next/image';
+
+import Logo from "./logo"
+import { useTheme } from "./ThemeProvider"
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
@@ -8,6 +10,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const pathname = usePathname()
+  const { theme } = useTheme()
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -30,17 +33,11 @@ export default function Header() {
       className="bg-transparent relative"
       ref={menuRef}
     >
-      <Image
-        src="/logo_monkey_nickel.svg"
-        width={1024}
-        height={1024}
-        alt="Logo de Atu-Web"
-        preload={true}
-        className="bg-bg md:w-45 md:h-45 md:-mt-3 w-30 h-30 -mt-1 -ml-2"
-      />
-      <p className="absolute md:left-30 md:top-10 left-19 top-5 text-text stack-sans-notch font-semibold text-4xl"><span className="text-logo">atu</span>-web</p>
-
-      <div className="hidden text-text lg:absolute md:top-10 md:right-5 left-19 top-5 lg:flex items-center justify-end">
+      <div className="w-fit relative md:pl-5">
+        <p className="absolute md:left-30 md:top-14 md:text-4xl md:leading-6 left-24.5 top-15 text-3xl leading-5 tracking-tighter text-text stack-sans-notch font-semibold"><span className="text-logo">atu</span>-web</p>
+        < Logo />
+      </div>
+      <div className="hidden text-text lg:absolute top-8 right-5 lg:flex items-center justify-end">
         <div className="space-x-2 justify-end items-center">
           <a
             href="/notre-expertise"
@@ -72,7 +69,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="absolute md:top-10 md:right-5 right-5 top-7 text-text flex items-center justify-center lg:hidden">
+      <div className="absolute right-5 top-10 text-text flex items-center justify-center lg:hidden">
         <div className="mr-7">
             <Link
               href="/"

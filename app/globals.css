@@ -19,7 +19,9 @@
   --color-border: #d6d3cd;
   --color-surface: #ffffff;
   --color-surface-hover: #f5f3ef;
+  .logo-fill { fill: #464545; transition: fill 0.3s ease; }
 }
+
 
 /* Dark — deep charcoal with cool accents */
 [data-theme="dark"] {
@@ -36,6 +38,8 @@
   --color-border: #2e2e38;
   --color-surface: #16161b;
   --color-surface-hover: #1f1f26;
+  /* .logo-fill { fill: #e4d9d9; } */
+  .logo-fill { fill: #dad0d0; transition: fill 0.3s ease; }
 }
 
 /* Colorful — vibrant, playful pop */
@@ -53,6 +57,7 @@
   --color-border: #d4bfed;
   --color-surface: #ffffff;
   --color-surface-hover: #f7f0ff;
+  .logo-fill { fill: #3572ff; transition: fill 0.3s ease;}
 }
 
 /* ----------------------------------------------------------------
