@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="mx-auto max-w-2xl px-6 pt-5 pb-90">
-      <h1 className="text-4xl font-bold tracking-tight text-primary">
+    <main className="mx-auto max-w-2xl px-6 pt-5 pb-90 font-primary">
+      <h1 className="text-4xl font-bold text-primary">
         Multi-thème en Tailwind&nbsp;v4
       </h1>
 
@@ -13,7 +13,7 @@ export default function Home() {
       </p>
 
       {/* Example cards */}
-      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 text-primary">
         {["Composant A", "Composant B"].map((title) => (
           <div
             key={title}

@@ -12,6 +12,18 @@
   --color-second: #4645FF;
   --color-tert: #FF4E45;
   .logo-fill { fill: #464545; transition: fill 0.3s ease; }
+  .font-primary {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 0px;
+  transition: letter-spacing 0.3s ease;
+  }
+  .font-secondary {
+    font-family: "Playfair Display", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
 }
 
 
@@ -23,6 +35,20 @@
   --color-second: #2AFAC1;
   --color-tert: #2AFAC1;
   .logo-fill { fill: #dad0d0; transition: fill 0.3s ease; }
+  .font-primary {
+  font-family: "Syne Mono", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: -1px;
+  transition: letter-spacing 0.3s ease;
+  }
+  .font-secondary {
+  font-family: "Ranchers", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 2px;
+  transition: letter-spacing 0.3s ease;
+  }
 }
 
 /* Colorful — vibrant, playful pop */
@@ -33,6 +59,20 @@
   --color-second: #FA8D43;
   --color-tert: #C71B78;
   .logo-fill { fill: #C71B78; transition: fill 0.3s ease;}
+  .font-primary {
+  font-family: "Spicy Rice", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 2px;
+  transition: letter-spacing 0.3s ease;
+  }
+  .font-secondary {
+  font-family: "Ranchers", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 2px;
+  transition: letter-spacing 0.3s ease;
+  }
 }
 
 /* ----------------------------------------------------------------
@@ -78,18 +118,6 @@ html {
 
 .stack-sans-notch {
   font-family: "Stack Sans Notch", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.font-primary {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.font-secondary {
-  font-family: "Playfair Display", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }

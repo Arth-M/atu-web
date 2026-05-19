@@ -4,24 +4,40 @@ import { ThemeSwitch } from "./components/ThemeSwitch";
 import Header from "./components/header";
 import Script from "next/script";
 import "./globals.css";
-import { Stack_Sans_Notch, Arimo, Playfair_Display } from "next/font/google";
+import { Stack_Sans_Notch, Arimo, Playfair_Display, Ranchers, Spicy_Rice, Syne_Mono} from "next/font/google";
 
 const stackSansNotch = Stack_Sans_Notch({
   subsets: ["latin"],
   variable: "--font-stack-notch",
   display: "swap",
 });
-
-const roboto = Arimo({
+const arimo = Arimo({
   subsets: ["latin"],
   variable: "--font-arimo",
   display: "swap",
 });
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair-display",
   display: "swap",
+});
+const ranchers = Ranchers({
+  subsets: ["latin"],
+  variable: "--font-ranchers",
+  display: "swap",
+  weight: "400"
+});
+const spicyRice = Spicy_Rice({
+  subsets: ["latin"],
+  variable: "--font-spicy-rice",
+  display: "swap",
+  weight: "400"
+});
+const syneMono = Syne_Mono({
+  subsets: ["latin"],
+  variable: "--font-syne-mono",
+  display: "swap",
+  weight: "400"
 });
 
 export const metadata: Metadata = {

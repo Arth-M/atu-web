@@ -4,11 +4,13 @@ import Logo from "./logo"
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
+import { useTheme } from "./ThemeProvider";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const pathname = usePathname()
+  const { theme } = useTheme();
 
   useEffect(() => {
     function handleClickOutside(event) {
