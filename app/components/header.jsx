@@ -1,7 +1,6 @@
 'use client'
 
 import Logo from "./logo"
-import { useTheme } from "./ThemeProvider"
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
@@ -10,7 +9,6 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const pathname = usePathname()
-  const { theme } = useTheme()
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -34,42 +32,42 @@ export default function Header() {
       ref={menuRef}
     >
       <div className="w-fit relative md:pl-5">
-        <p className="absolute md:left-30 md:top-14 md:text-4xl md:leading-6 left-24.5 top-15 text-3xl leading-5 tracking-tighter text-text stack-sans-notch font-semibold"><span className="text-logo">atu</span>-web</p>
+        <p className="absolute md:left-30 md:top-14 md:text-4xl md:leading-6 left-24.5 top-15 text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span>-web</p>
         < Logo />
       </div>
-      <div className="hidden text-text lg:absolute top-8 right-5 lg:flex items-center justify-end">
-        <div className="space-x-2 justify-end items-center stack-sans-text">
+      <div className="hidden text-primary lg:absolute top-8 right-5 lg:flex items-center justify-end">
+        <div className="space-x-2 justify-end items-center font-primary text-lg">
           <a
             href="/notre-expertise"
-            className={`rounded font-light text-md hover:text-copperfield-500 hover:bg-copperfield-100 hover:-translate-y-0.5 ease-in-out duration-200 hover:scale-102 px-2 py-1 ${pathname === '/notre-expertise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
+            className={`rounded hover:scale-102 px-2 py-1 ${pathname === '/notre-expertise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
           >
             Notre expertise
           </a>
           <a
             href="/nos-realisations"
-            className={`rounded font-light text-md hover:text-copperfield-500 hover:bg-copperfield-100 hover:-translate-y-0.5 ease-in-out duration-200 hover:scale-102 px-2 py-1 ${pathname === '/nos-realisations' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
+            className={`rounded hover:scale-102 px-2 py-1 ${pathname === '/nos-realisations' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
           >
             Nos réalisations
           </a>
           <a
             href="/entreprise"
-            className={`rounded font-light text-md hover:text-copperfield-500 hover:bg-copperfield-100 hover:-translate-y-0.5 ease-in-out duration-200 hover:scale-102 px-2 py-1 ${pathname === '/entreprise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
+            className={`rounded hover:scale-102 px-2 py-1 ${pathname === '/entreprise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
           >
             L'entreprise
           </a>
 
-          <div className="ml-7 inline">
-            <Link
+          <div className="ml-1 inline">
+            <a
               href="/"
-              className="inline-block px-4 py-2 border border-seagull-500 text-seagull-500 hover:-translate-y-0.5 hover:scale-105 hover:shadow hover:bg-seagull-400 hover:border-seagull-400 hover:text-white ease-in-out duration-100"
+              className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary/80 shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
             >
               Contact
-            </Link>
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="absolute right-5 top-10 text-text flex items-center justify-center lg:hidden">
+      <div className="absolute right-5 top-10 text-primary flex items-center justify-center lg:hidden">
         <div className="mr-7">
             <Link
               href="/"

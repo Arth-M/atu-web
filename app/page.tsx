@@ -1,15 +1,15 @@
 export default function Home() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-20">
-      <h1 className="text-4xl font-bold tracking-tight text-text">
+    <main className="mx-auto max-w-2xl px-6 pt-5 pb-90">
+      <h1 className="text-4xl font-bold tracking-tight text-primary">
         Multi-thème en Tailwind&nbsp;v4
       </h1>
 
-      <p className="mt-4 text-lg text-text-soft">
+      <p className="mt-4 text-lg text-secondary">
         Utilise l'encart en bas à droite pour switcher entre
         <strong className="text-primary"> Classique</strong>,
         <strong className="text-primary"> Sombre </strong>
-        et <strong className="text-accent">Coloré</strong>.
+        et <strong className="text-tertiary">Coloré</strong>.
       </p>
 
       {/* Example cards */}
