@@ -30,13 +30,13 @@ export default function Header() {
 
   return (
     <nav
-      className="bg-transparent relative"
+      className="bg-transparent relative flex"
       ref={menuRef}
     >
-      <div className="w-fit relative md:pl-5">
-        <p className="absolute md:left-30 md:top-14 md:text-4xl md:leading-6 left-24.5 top-15 text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span>-web</p>
+      <Link href="/" className="w-fit md:pl-5">
         < Logo />
-      </div>
+        <p className="absolute md:left-29.5 md:top-14.5 md:text-4xl md:leading-6 left-24.5 top-15 text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span>-<br />web</p>
+      </Link>
       <div className="hidden text-primary lg:absolute top-8 right-5 lg:flex items-center justify-end">
         <div className="space-x-2 justify-end items-center font-primary text-lg">
           <a
@@ -69,11 +69,11 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="absolute right-5 top-10 text-primary flex items-center justify-center lg:hidden">
+      <div className="absolute right-5 top-8 text-primary flex items-center justify-center lg:hidden">
         <div className="mr-7">
             <Link
               href="/"
-              className="px-4 py-2 border rounded border-seagull-500 text-seagull-500 "
+              className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary/80 shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
             >
               Contact
             </Link>

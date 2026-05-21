@@ -5,7 +5,7 @@ export default function Home() {
         Multi-thème en Tailwind&nbsp;v4
       </h1>
 
-      <p className="mt-4 text-lg text-secondary">
+      <p className="mt-4 text-lg font-secondary text-primary">
         Utilise l'encart en bas à droite pour switcher entre
         <strong className="text-primary"> Classique</strong>,
         <strong className="text-primary"> Sombre </strong>
@@ -13,7 +13,7 @@ export default function Home() {
       </p>
 
       {/* Example cards */}
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 text-primary">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 font-secondary text-primary">
         {["Composant A", "Composant B"].map((title) => (
           <div
             key={title}
@@ -24,7 +24,7 @@ export default function Home() {
               Les couleurs, bordures et ombres s'adaptent automatiquement au
               thème actif grâce aux tokens CSS.
             </p>
-            <button className="mt-4 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover">
+            <button className="mt-4 rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover">
               Action
             </button>
           </div>

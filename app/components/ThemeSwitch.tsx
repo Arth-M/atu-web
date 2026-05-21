@@ -24,7 +24,7 @@ export function ThemeSwitch() {
               cursor-pointer px-3 py-1.5 text-xs text-center
               transition-all duration-200 font-light rounded-2xl
               ${active
-                ? "bg-secondary/80 text-white "
+                ? "bg-secondary text-white "
                 : "hover:bg-surface-hover"
               }
             `}

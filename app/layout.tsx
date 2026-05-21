@@ -4,7 +4,7 @@ import { ThemeSwitch } from "./components/ThemeSwitch";
 import Header from "./components/header";
 import Script from "next/script";
 import "./globals.css";
-import { Stack_Sans_Notch, Arimo, Playfair_Display, Ranchers, Spicy_Rice, Syne_Mono} from "next/font/google";
+import { Stack_Sans_Notch, Arimo, Playfair_Display, Ranchers, Spicy_Rice, Luxurious_Roman} from "next/font/google";
 
 const stackSansNotch = Stack_Sans_Notch({
   subsets: ["latin"],
@@ -33,7 +33,7 @@ const spicyRice = Spicy_Rice({
   display: "swap",
   weight: "400"
 });
-const syneMono = Syne_Mono({
+const luxuriousRoman = Luxurious_Roman({
   subsets: ["latin"],
   variable: "--font-syne-mono",
   display: "swap",
