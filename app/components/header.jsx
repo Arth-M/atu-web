@@ -38,27 +38,27 @@ export default function Header() {
       <div className="hidden text-primary lg:absolute top-8 right-5 lg:flex items-center justify-end">
         <div className="space-x-2 justify-end items-center font-primary text-lg">
           <a
-            href="/notre-expertise"
-            className={`rounded hover:scale-102 px-2 py-1 ${pathname === '/notre-expertise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
+            href="#notre-expertise"
+            className="rounded hover:scale-102 px-2 py-1"
           >
             Notre expertise
           </a>
           <a
-            href="/nos-realisations"
-            className={`rounded hover:scale-102 px-2 py-1 ${pathname === '/nos-realisations' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
+            href="#nos-realisations"
+            className="rounded hover:scale-102 px-2 py-1"
           >
             Nos réalisations
           </a>
           <a
-            href="/entreprise"
-            className={`rounded hover:scale-102 px-2 py-1 ${pathname === '/entreprise' ? 'bg-copperfield-300 text-copperfield-50' : ''}`}
+            href="#entreprise"
+            className="rounded hover:scale-102 px-2 py-1"
           >
             L'entreprise
           </a>
 
           <div className="ml-1 inline">
             <a
-              href="/"
+              href="#contact"
               className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary/80 shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
             >
               Contact
@@ -69,12 +69,12 @@ export default function Header() {
 
       <div className="absolute right-5 top-8 text-primary flex items-center justify-center lg:hidden">
         <div className="mr-7">
-            <Link
-              href="/"
+            <a
+              href="#contact"
               className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary/80 shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
             >
               Contact
-            </Link>
+            </a>
           </div>
         {/* Mobile menu button with hamburger icon */}
         <button
@@ -113,33 +113,40 @@ export default function Header() {
         className={`z-90 lg:hidden absolute shadow rounded border border-gray-200 right-0 max-w-2/3 ${isMobileMenuOpen ? "block" : "hidden"} flex justify-end`}
       >
         <div className="z-90 space-y-1 px-2 pt-2 pb-3 bg-gray-50 w-fit">
-          <Link
-            href="/"
+          <a
+            href="#accueil"
             className="block font-light rounded-md px-3 py-2 text-base text-gray-700  hover:text-gray-950 hover:text-xl text-right whitespace-nowrap"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Accueil
-          </Link>
+          </a>
           <a
-            href="/notre-expertise"
+            href="#notre-expertise"
             className="block font-light rounded-md px-3 py-2 text-base text-gray-700  hover:text-gray-950 hover:text-xl text-right whitespace-nowrap"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Notre expertise
           </a>
           <a
-            href="/nos-realisations"
+            href="#nos-realisations"
             className="block font-light rounded-md px-3 py-2 text-base text-gray-700  hover:text-gray-950 hover:text-xl text-right whitespace-nowrap"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Nos réalisations
           </a>
           <a
-            href="/entreprise"
+            href="#entreprise"
             className="block font-light rounded-md px-3 py-2 text-base text-gray-700  hover:text-gray-950 hover:text-xl text-right whitespace-nowrap"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             L'entreprise
+          </a>
+          <a
+            href="#contact"
+            className="block font-light rounded-md px-3 py-2 text-base text-gray-700  hover:text-gray-950 hover:text-xl text-right whitespace-nowrap"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
           </a>
         </div>
       </div>
