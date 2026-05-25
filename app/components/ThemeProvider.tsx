@@ -25,13 +25,16 @@ export function useTheme() {
   return ctx;
 }
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Start with "classic" — the anti-flash script (see layout.tsx)
-  // will have already set the correct data-theme before React hydrates.
-  const [theme, setThemeState] = useState<Theme>("classic");
+export function ThemeProvider({
+  children,
+  initialTheme = "classic",
+}: {
+  children: ReactNode;
+  initialTheme?: Theme;
+}) {
+  const [theme, setThemeState] = useState<Theme>(initialTheme);
 
-
-  // On mount, read what the anti-flash script already applied
+  // Reconcile with theme-init / localStorage after hydration
   useEffect(() => {
     const stored = document.documentElement.dataset.theme as Theme | undefined;
     if (stored && THEMES.includes(stored)) {
@@ -43,6 +46,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setThemeState(t);
     document.documentElement.dataset.theme = t;
     localStorage.setItem("theme", t);
+    document.cookie = `theme=${t};path=/;max-age=2592000;SameSite=Lax`;
   }
 
   return (

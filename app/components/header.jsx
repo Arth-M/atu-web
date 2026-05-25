@@ -4,14 +4,12 @@ import Logo from "./logo"
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import { useTheme } from "./ThemeProvider";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const pathname = usePathname()
-  const { theme } = useTheme();
-
+  
   useEffect(() => {
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -34,8 +32,8 @@ export default function Header() {
       ref={menuRef}
     >
       <Link href="/" className="w-fit md:pl-5">
-        < Logo />
-        <p className="absolute md:left-29.5 md:top-14.5 md:text-4xl md:leading-6 left-24.5 top-15 text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span>-<br />web</p>
+        <Logo />
+        <span className="absolute md:left-29.5 md:top-14.5 md:text-4xl md:leading-6 left-24.5 top-15 block text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span>-<br />web</span>
       </Link>
       <div className="hidden text-primary lg:absolute top-8 right-5 lg:flex items-center justify-end">
         <div className="space-x-2 justify-end items-center font-primary text-lg">

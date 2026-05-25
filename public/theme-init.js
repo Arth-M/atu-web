@@ -9,6 +9,7 @@
     var t = localStorage.getItem("theme");
     if (t && ["classic", "dark", "colorful"].includes(t)) {
       document.documentElement.dataset.theme = t;
+      document.cookie = "theme=" + t + ";path=/;max-age=2592000;SameSite=Lax";
     } else {
       document.documentElement.dataset.theme = "classic";
     }
