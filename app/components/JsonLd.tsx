@@ -35,7 +35,6 @@ export function JsonLd() {
           "Node.js",
           "React",
           "Next.js",
-          "TypeScript",
           "Psychologie cognitive",
           "UX",
           "Développement web",
@@ -58,7 +57,7 @@ export function JsonLd() {
         name: SITE_NAME,
         url: SITE_URL,
         description:
-          "Création de sites vitrines et applications web sur mesure pour indépendants et PME.",
+          "Création de sites vitrines et applications web sur mesure.",
         provider: { "@id": `${SITE_URL}/#person` },
         areaServed: { "@type": "Country", name: "France" },
         serviceType: [
