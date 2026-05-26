@@ -2,10 +2,9 @@ import Link from "next/link";
 import { LINKS, PERSON } from "../lib/site";
 
 const TRUST_MARKERS = [
+  "Ingénieur développement logiciel CNRS (LIRMM)",
   "Doctorat en psychologie cognitive",
-  "Ingénieur de recherche CNRS (LIRMM)",
   "Publications internationales",
-  "Expérience éditeur de logiciels",
 ];
 
 const SERVICES = [
@@ -46,7 +45,7 @@ const APPROACH = [
 
 const TIMELINE = [
   {
-    period: "2019",
+    period: "2015-2019",
     title: "Doctorat en psychologie cognitive",
     body: "Thèse sur les relations entre cognition et motricité manuelle, interactions humain–machine (LIRMM / Univ. Montpellier 3).",
     href: LINKS.thesis,
@@ -55,23 +54,30 @@ const TIMELINE = [
   {
     period: "2019–2021",
     title: "Recherche internationale",
-    body: "Post-doctorat à Rome (BALLAB, Sapienza) sur l'incarnation des concepts et les affordances — publié dans Brain Sciences.",
-    href: LINKS.publication,
+    body: "Post-doctorat à Rome (BALLAB, Sapienza) sur l'incarnation des concepts et les affordances.",
+    href: LINKS.scholar,
     hrefLabel: "Publication PMC",
   },
   {
-    period: "2021",
+    period: "2021-2022",
     title: "Environnements intelligents",
-    body: "Travaux sur la cognition spatiale, la space syntax et les smart buildings (projet HUT, Montpellier).",
+    body: "Travaux sur l'expérience utilisateur, la cognition spatiale, la space syntax et les smart buildings (projet HUT, Montpellier).",
     href: LINKS.halSpaceSyntax,
     hrefLabel: "Publication HAL",
   },
   {
-    period: "Aujourd'hui",
+    period: "2022-2024",
+    title: "Recherche UX",
+    body: "Travaux sur l'expérience utilisateur à la fondation i2ml et chez l'éditeur de logiciel Berger Levrault.",
+    href: LINKS.halSpaceSyntax,
+    hrefLabel: "Publication HAL",
+  },
+  {
+    period: "2024 - Aujourd'hui",
     title: "Ingénierie & édition logicielle",
-    body: "Ingénieur de recherche CNRS au LIRMM (équipe SLICE), projets comme WebIris. Expérience chez Berger Levrault, éditeur de solutions numériques.",
+    body: "Freelance et Ingénieur de recherche CNRS au LIRMM (équipe Web3).",
     href: LINKS.lirmm,
-    hrefLabel: "Profil LIRMM",
+    hrefLabel: "L'équipe Web3 du LIRMM",
   },
 ];
 
@@ -80,7 +86,6 @@ const STACK = [
   "Node.js",
   "React",
   "Next.js",
-  "TypeScript",
   "PostgreSQL",
   "APIs REST",
 ];
@@ -89,7 +94,7 @@ const PROCESS = [
   {
     step: "01",
     title: "Échange gratuit",
-    body: "15–30 min pour comprendre votre contexte, vos objectifs et vos contraintes.",
+    body: "1 heure d'échange pour comprendre vos objectifs, le contexte de votre demande et vos contraintes.",
   },
   {
     step: "02",
@@ -104,42 +109,45 @@ const PROCESS = [
   {
     step: "04",
     title: "Livraison & autonomie",
-    body: "Mise en production, tests, passation. Vous repartez avec un produit utilisable.",
+    body: "Tests, mise en production, livraison. Vous repartez avec un produit utilisable.",
   },
 ];
 
 const PROJECTS = [
   {
-    title: "WebIris",
-    tag: "Application web · Santé / prévention",
-    body: "Outil web accessible pour sensibiliser à la santé visuelle, développé au LIRMM (équipe SLICE).",
-    href: LINKS.webIris,
-    hrefLabel: "web-iris.lirmm.fr",
+    title: "NumDiag",
+    tag: "Application web · RGPD",
+    body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
+    href: LINKS.numdiag,
+    hrefLabel: "NumDiag.fr",
+    images: ["/numdiag.svg"],
+  },
+  {
+    title: "Kevin",
+    tag: "Site web · Psychologue",
+    body: "Site personnalisé pour un psychologue basé à Baillargues, mon premier site en indépendant!",
+    href: LINKS.kevin,
+    hrefLabel: "Psychologue-Baillargues.fr",
+    images: ["/kev_all.svg"],
   },
   {
     title: "Recherche & publications",
     tag: "Cognition · Interaction humain–machine",
-    body: "Travaux sur les affordances, la cognition spatiale et les environnements intelligents — publiés et cités internationalement.",
+    body: "Travaux sur l'expérience utilisateur, le langage, la cognition spatiale et les environnements intelligents — publiés et cités internationalement.",
     href: LINKS.scholar,
     hrefLabel: "Google Scholar",
-  },
-  {
-    title: "Berger Levrault",
-    tag: "Éditeur de logiciels · Produit métier",
-    body: "Développement au sein d'un éditeur majeur du secteur public — exigences de qualité, sécurité et maintenance long terme.",
-    href: null,
-    hrefLabel: null,
+    images: ["/publis.svg"],
   },
 ];
 
 const FAQ = [
   {
     q: "Pourquoi un développeur avec un doctorat en psychologie ?",
-    a: "Parce que le web, c'est avant tout des humains qui lisent, hésitent, cliquent ou abandonnent. Ma formation me permet de concevoir des interfaces qui respectent ces mécanismes — pas seulement des tendances visuelles.",
+    a: "Parce que le web, c'est avant tout des humains qui lisent, hésitent, cliquent ou abandonnent, même quand ils interagissent avec une IA. Ma formation me permet de concevoir des interfaces qui respectent ces mécanismes — pas seulement des tendances visuelles.",
   },
   {
     q: "Quelles technologies utilisez-vous ?",
-    a: "Ruby on Rails pour des backends robustes, Node.js pour des services et APIs, React et Next.js pour le frontend. Le choix dépend de votre projet, pas de ma préférence.",
+    a: "Ruby on Rails, Node.js, React et Next.js. Le choix dépend de votre projet, pas de ma préférence.",
   },
   {
     q: "Travaillez-vous seul ?",
@@ -151,7 +159,7 @@ const FAQ = [
   },
   {
     q: "Pouvez-vous reprendre un projet existant ?",
-    a: "Oui — audit, refonte partielle ou reconstruction. J'ai l'habitude de naviguer dans du code hérité (recherche, éditeur, produits en production).",
+    a: "Oui — audit, refonte partielle ou reconstruction. J'ai l'habitude de naviguer dans du code existant.",
   },
 ];
 
@@ -234,8 +242,7 @@ function ExternalLink({
     <a
       href={href}
       target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm font-medium text-secondary underline-offset-4 transition hover:text-primary hover:underline"
+      className="text-sm font-medium underline-offset-4 transition hover:text-primary hover:underline"
     >
       {children}
     </a>
@@ -323,6 +330,7 @@ export default function Home() {
       {/* Trust strip — mobile */}
       <section className="border-b border-primary/8 bg-primary/[0.02] lg:hidden">
         <div className="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-2 px-6 py-5 md:px-10">
+          Un site beau ET utilisé
           {TRUST_MARKERS.map((item) => (
             <span
               key={item}
@@ -490,7 +498,7 @@ export default function Home() {
               Des outils modernes, choisis pour le bon problème
             </SectionTitle>
             <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Rails pour des backends structurés. Node pour des APIs légères.
+              Rails ou Node pour des backends structurés et des APIs légères.
               React et Next.js pour des interfaces performantes et bien
               référencées.
             </p>
@@ -511,34 +519,37 @@ export default function Home() {
       {/* Portfolio */}
       <section
         id="nos-realisations"
-        className="border-t border-primary/8 bg-primary/[0.02] py-20 md:py-28"
+        className="border-t border-primary/8 py-20 md:py-28 bg-secondary/90 text-white"
       >
         <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <SectionLabel>Nos réalisations</SectionLabel>
           <SectionTitle>Projets & expériences</SectionTitle>
-          <p className="mt-4 max-w-2xl text-base text-primary/70">
+          <p className="mt-4 max-w-2xl text-base">
             Chaque projet part d&apos;un besoin concret — visibilité, crédibilité,
             ou outil métier. Mes réalisations clients arrivent ; voici ce qui
             nourrit ma pratique aujourd&apos;hui.
           </p>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 lg:grid-cols-3 ">
             {PROJECTS.map((project) => (
               <article
                 key={project.title}
-                className="flex flex-col rounded-2xl border border-primary/10 bg-bg p-7"
+                className="flex flex-col p-7"
               >
-                <p className="text-xs font-medium uppercase tracking-wide text-secondary">
+                <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
                   {project.tag}
                 </p>
-                <h3 className="mt-3 font-secondary text-xl font-medium text-primary">
+                <h3 className="mt-3 font-secondary text-xl font-medium">
                   {project.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-primary/65">
+                <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
+                {project.images.map((image) => (
+                  <img key={image} src={image} alt={project.title} className={`w-full h-[400px] rounded ${image === "/publis.svg" ? "object-contain" : "object-cover object-[50%-0%]"}`} />
+                ))}
                 {project.href && project.hrefLabel && (
-                  <p className="mt-5">
+                  <p className="mt-5 text-tertiary">
                     <ExternalLink href={project.href}>
                       {project.hrefLabel} ↗
                     </ExternalLink>
