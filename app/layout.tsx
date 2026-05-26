@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Docteur en psychologie cognitive, développeur web freelance. Sites vitrines et applications web (Ruby on Rails, Node, React, Next.js) pensés pour la clarté et l'action utilisateur. Montpellier · France.",
+    "Développeur web freelance & docteur en psychologie cognitive. Sites vitrines et applications web pensés pour l'utilisateur. Des interfaces et un code clairs (Ruby on Rails, Node, React, Next.js). Montpellier · France.",
   keywords: [
     "développeur web freelance",
     "Ruby on Rails",
@@ -72,13 +72,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — Sites web & applications sur mesure`,
     description:
-      "Du doctorat en psychologie cognitive au code en production. Un seul interlocuteur pour vos projets web.",
+      "Du code et des interfaces pensés pour l'utilisateur. Un seul interlocuteur pour vos projets web.",
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Arthur-Henri Michalland`,
     description:
-      "Développeur web · Doctorat psychologie cognitive · Rails · React · Next.js",
+      "Développeur web · Doctorat psychologie cognitive · Rails · Node · React · Next.js",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: SITE_URL },
