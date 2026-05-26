@@ -10,7 +10,7 @@ export function JsonLd() {
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          "Sites web et applications sur mesure — Ruby on Rails, Node, React, Next.js, avec une approche fondée en psychologie cognitive.",
+          "Sites web et applications sur mesure — Ruby on Rails, Node, React, Next.js. Choisissez un développeur qui est aussi docteur en psychologie cognitive.",
         inLanguage: "fr-FR",
         publisher: { "@id": `${SITE_URL}/#organization` },
       },
