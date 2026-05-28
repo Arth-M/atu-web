@@ -542,6 +542,9 @@ export default function Home() {
                 <h3 className="mt-3 font-secondary text-xl font-medium">
                   {project.title}
                 </h3>
+
+
+                
                 <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
