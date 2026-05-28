@@ -128,7 +128,7 @@ const PROJECTS = [
     body: "Site personnalisé pour un psychologue basé à Baillargues, mon premier site en indépendant!",
     href: LINKS.kevin,
     hrefLabel: "Psychologue-Baillargues.fr",
-    images: ["/kev_all.svg"],
+    images: ["/kev_site.svg"],
   },
   {
     title: "Recherche & publications",
