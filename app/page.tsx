@@ -545,6 +545,8 @@ export default function Home() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
+
+                
                 {project.images.map((image) => (
                   <img key={image} src={image} alt={project.title} className={`w-full h-[400px] rounded ${image === "/publis.svg" ? "object-contain" : "object-cover object-[50%-0%]"}`} />
                 ))}
