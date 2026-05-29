@@ -27,4 +27,7 @@ export const LINKS = {
   thesis: "https://theses.hal.science/tel-02574831/",
   halSpaceSyntax: "https://hal.science/hal-03774890v1",
   ballab: "https://sites.google.com/view/annaborghilab/members",
+  lirmm: "https://www.lirmm.fr/equipes/web3/",
+  numdiag: "https://numdiag.fr/",
+  kevin: "https://psychologue-baillargues.fr",
 } as const;
