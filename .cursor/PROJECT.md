@@ -2,6 +2,8 @@
 
 Document de référence pour les sessions agent. Mettre à jour quand la structure ou les conventions changent.
 
+_Dernière vérif : 29 mai 2026 — build OK, audit 0 vuln._
+
 ## Objectif
 
 Site vitrine freelance pour **AtuWeb** — **Arthur-Henri Michalland**, développeur web freelance et docteur en psychologie cognitive. Cible : clients en France (Montpellier et au-delà). Langue : **français uniquement** (pas d'i18n prévu).
@@ -21,7 +23,7 @@ Site vitrine freelance pour **AtuWeb** — **Arthur-Henri Michalland**, dévelop
 
 ```
 app/
-  page.tsx              # Landing page (~830 lignes) — contenu éditorial en constantes en tête de fichier
+  page.tsx              # Landing page (~831 lignes) — contenu éditorial en constantes en tête de fichier
   layout.tsx            # Metadata SEO, fonts, ThemeProvider, Header, cookies() pour thème
   globals.css           # Palettes CSS via [data-theme="classic|dark|colorful"]
   sitemap.ts
@@ -71,7 +73,7 @@ Pas de script `test` configuré.
 
 ## Dépendances & sécurité
 
-- **Audit npm** (vérifié) : 0 vulnérabilité.
+- **Audit npm** (29/05/2026) : 0 vulnérabilité.
 - PostCSS requis (Tailwind v4 + Next) — ne pas supprimer.
 - Override dans `package.json` : `"postcss": "^8.5.10"` pour corriger l'audit CVE sur la copie nested de Next.
 - Ne pas passer en canary Next juste pour PostCSS ; l'override suffit.
@@ -84,11 +86,11 @@ Pas de script `test` configuré.
 | `refactor/landing` | **Branche active** — refonte landing (style, contenu, réalisations) |
 | `cursor/landing-content` | Proposition de contenu IA à revoir |
 
-État actuel : `refactor/landing`, à jour avec `origin/refactor/landing`, working tree clean.
+État actuel : `refactor/landing`, à jour avec `origin/refactor/landing`. Modifications locales non commitées dans `app/page.tsx` (copy trust markers + section services).
 
 ## Points d'attention connus
 
-1. **`lib/site.ts` — `SITE_URL` mal formé** : la ligne env est syntaxiquement incorrecte ; `SITE_URL` vaut toujours `"https://atuweb.fr"`. Forme attendue :
+1. **`lib/site.ts` — `SITE_URL` mal formé** : syntaxe incorrecte ; `SITE_URL` vaut toujours `"https://atuweb.fr"`. Forme attendue :
    ```ts
    export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://atuweb.fr";
    ```
@@ -106,7 +108,7 @@ Hero · Trust markers · Problème · Services · Approche · Parcours (timeline
 |--------|-------|------|
 | NumDiag | `/numdiag.svg` | `LINKS.numdiag` |
 | Kevin | `/kev_site.svg` | `LINKS.kevin` |
-| Recherche | `/publis.svg` | `LINKS.scholar |
+| Recherche | `/publis.svg` | `LINKS.scholar` |
 
 ## Env
 

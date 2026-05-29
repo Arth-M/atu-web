@@ -1,9 +1,11 @@
-import Link from "next/link";
+import SectionLabel from "./components/SectionLabel";
+import { PrimaryButton, SecondaryLink } from "./components/PageLinks";
 import { LINKS, PERSON } from "../lib/site";
+import Image from "next/image";
 
 const TRUST_MARKERS = [
   "Ingénieur développement logiciel CNRS (LIRMM)",
-  "Doctorat en psychologie cognitive",
+  "Docteur en psychologie cognitive",
   "Publications internationales",
 ];
 
@@ -30,16 +32,17 @@ const SERVICES = [
 
 const APPROACH = [
   {
-    title: "Clarté cognitive",
-    body: "Hiérarchie visuelle, libellés, parcours : tout est pensé pour réduire l'effort mental. L'utilisateur sait où il est, quoi faire, et pourquoi.",
+    title: "Clarté",
+    body: "Hiérarchie visuelle, libellés, parcours : l'utilisateur sait où il est, quoi faire, et pourquoi.",
+
   },
   {
     title: "Action guidée",
-    body: "Chaque CTA, formulaire et étape suit une logique d'affordance : ce qui est possible doit être évident, ce qui est secondaire reste accessible sans distraire.",
+    body: "Chaque élément explicite sa logique : ce qui est possible doit être évident, ce qui est secondaire accessible.",
   },
   {
     title: "Code durable",
-    body: "Mon expérience en ingénierie logicielle (LIRMM, éditeur) m'a appris que la meilleure UX meurt si le code est fragile. Je livre des bases solides, documentées, maintenables.",
+    body: "La meilleure UX meurt si le code est fragile. Je vous livre des bases solides, documentées, et maintenables.",
   },
 ];
 
@@ -171,14 +174,6 @@ const PROFILE_LINKS = [
   { label: "ResearchGate", href: "https://www.researchgate.net/profile/Arthur_Henri_Michalland" },
 ];
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
-      {children}
-    </p>
-  );
-}
-
 function SectionTitle({
   children,
   id,
@@ -193,41 +188,6 @@ function SectionTitle({
     >
       {children}
     </h2>
-  );
-}
-
-function PrimaryButton({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center rounded-lg border border-tertiary bg-tertiary px-6 py-3 text-sm font-medium text-white shadow-sm shadow-tertiary/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-tertiary/25"
-    >
-      {children}
-    </Link>
-  );
-}
-
-function SecondaryLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center gap-1 text-sm font-medium text-secondary underline-offset-4 transition hover:text-primary hover:underline"
-    >
-      {children}
-      <span aria-hidden="true">→</span>
-    </Link>
   );
 }
 
@@ -251,42 +211,30 @@ function ExternalLink({
 
 export default function Home() {
   return (
-    <>
+    <div className="space-y-15">
       {/* Hero */}
       <section
         id="accueil"
-        className="relative overflow-hidden border-b border-primary/8"
+        className="relative overflow-hidden"
       >
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.35]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(1,0,8,0.07) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -right-24 top-32 h-96 w-96 rounded-full bg-secondary/8 blur-3xl"
-          aria-hidden="true"
-        />
+        <img
+    src="/soleil-brillant copie.svg"
+    alt=""
+    aria-hidden="true"
+    className="h-7 w-7 shrink-0 text-primary fill-secondary stroke-secondary"
+  />
 
-        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-8 md:px-10 md:pb-32 md:pt-12 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+        <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
             <div className="max-w-2xl">
-              <SectionLabel>
-                Développeur web · Doctorat en psychologie cognitive
-              </SectionLabel>
-              <h1 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des sites et des apps que vos utilisateurs{" "}
-                <span className="text-secondary">comprennent</span> — et
-                utilisent.
+              <h1 className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
+                Développeur web · Docteur en psychologie cognitive
               </h1>
+              <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
+                Des applications pour vous et vos utilisateurs.
+              </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary/75">
-                Je suis {PERSON.name} : docteur en psychologie cognitive,
-                développeur web en Ruby on Rails, Node, React et Next.js. De la
-                recherche au code en production — un seul interlocuteur pour vos
-                projets.
+                Un seul interlocuteur pour vos
+                projets - de l'élaboration au code en production.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <PrimaryButton href="#contact">
@@ -296,102 +244,69 @@ export default function Home() {
                   Voir mes réalisations
                 </SecondaryLink>
               </div>
-              <p className="mt-5 text-sm text-primary/50">
-                15 minutes · Sans engagement · Réponse sous 48 h
-              </p>
             </div>
-
-            <div className="hidden lg:block">
-              <div className="rounded-2xl border border-primary/10 bg-white/60 p-8 backdrop-blur-sm">
-                <p className="font-secondary text-xl leading-snug text-primary">
-                  « Un site ne devrait pas seulement être beau. Il devrait être{" "}
-                  <em className="not-italic text-secondary">compris</em>. »
-                </p>
-                <div className="mt-8 space-y-3 border-t border-primary/8 pt-6">
-                  {TRUST_MARKERS.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-3 text-sm text-primary/70"
-                    >
-                      <span
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tertiary"
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Trust strip — mobile */}
-      <section className="border-b border-primary/8 bg-primary/[0.02] lg:hidden">
-        <div className="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-2 px-6 py-5 md:px-10">
-          Un site beau ET utilisé
-          {TRUST_MARKERS.map((item) => (
-            <span
-              key={item}
-              className="text-xs font-medium uppercase tracking-wide text-primary/55"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
 
       {/* Problem */}
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12">
-        <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
-          <p className="font-secondary text-6xl font-medium leading-none text-primary/8">
-            ?
-          </p>
-          <div>
-            <SectionLabel>Le constat</SectionLabel>
+      <section className="mx-auto py-10">
+          <div className="max-w-3xl mx-auto">
+            <SectionLabel>Mon approche</SectionLabel>
             <SectionTitle>
-              Un site joli que personne ne comprend — ou un outil métier que
-              personne n&apos;adopte ?
+              Prendre en compte à la fois la technologie et les utilisateurs n'est pas toujours évident
             </SectionTitle>
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-primary/70">
+            <div className="mt-6 space-y-2 leading-relaxed text-primary/70">
               <p>
-                Vous investissez dans un site ou une application. Le rendu est
-                propre. Pourtant : les visiteurs ne contactent pas, les équipes
-                contournent l&apos;outil, les parcours sont confus.
+                Le travail de développeur nécessite une logique et une rigueur qui ne correspondent pas
+                nécessairement à l'état d'esprit des utilisateurs.
+                AtuWeb vous propose de ne négliger aucun de ces aspects : un produit centré sur l'utilisateur,
+                réalisé avec des technologies performantes.
               </p>
-              <p>
-                Souvent, ce n&apos;est pas un problème de design au sens
-                décoratif. C&apos;est un problème de{" "}
-                <strong className="font-medium text-primary">
-                  charge cognitive
-                </strong>{" "}
-                : trop d&apos;options, des libellés flous, une friction au
-                mauvais endroit.
-              </p>
-              <p>
-                C&apos;est précisément le lien que j&apos;ai appris à construire
-                — d&apos;abord en laboratoire, ensuite en développant des
-                applications réelles.
-              </p>
+
+              <p className="leading-relaxed text-primary/70">
+              Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
+              anticipent et interagissent — avec des objets, des interfaces, des
+              espaces. Puis j&apos;ai appris à traduire ça en logiciel.
+            </p>
+            {/* <p className="text-sm leading-relaxed text-primary/55">
+              Je ne promets pas la magie d&apos;une refonte miracle en 48 h. Je
+              promets une méthode rigoureuse — sans oublier le fun.
+            </p> */}
+
             </div>
           </div>
-        </div>
+          <div className="flex items-center justify-center space-x-4 mt-7 px-15">
+            {APPROACH.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-primary/10 p-6 w-1/3 h-full"
+              >
+                <div className="flex">
+                  <h3 className="font-secondary text-lg font-medium text-primary">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-primary/65">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
       </section>
 
       {/* Expertise */}
       <section
         id="notre-expertise"
-        className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28"
+        className="bg-tertiary py-10 text-bg"
       >
         <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <div className="max-w-2xl">
-            <SectionLabel>Notre expertise</SectionLabel>
+            {/* <SectionLabel>Mon expertise</SectionLabel> */}
             <SectionTitle>Ce que je construis pour vous</SectionTitle>
             <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Site vitrine, landing page, outil métier ou MVP produit : je
-              m&apos;adapte à votre stade — lancement, refonte ou premier produit
-              digital.
+              Site vitrine, landing page, workflows IA, outil métier ou MVP produit : je
+              m&apos;adapte à votre stade — lancement, ajout de fonctionnalités, refonte.
             </p>
           </div>
 
@@ -423,46 +338,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <SectionLabel>Mon approche</SectionLabel>
-            <SectionTitle>
-              Pourquoi un doctorat en psychologie change la façon de coder
-            </SectionTitle>
-            <p className="mt-5 text-base leading-relaxed text-primary/70">
-              Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
-              anticipent et interagissent — avec des objets, des interfaces, des
-              espaces. Puis j&apos;ai appris à traduire ça en logiciel.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-primary/55">
-              Je ne promets pas la magie d&apos;une refonte miracle en 48 h. Je
-              promets une méthode rigoureuse — la même qu&apos;en recherche et
-              en production.
-            </p>
-          </div>
-
-          <div className="space-y-5">
-            {APPROACH.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-primary/10 p-6"
-              >
-                <h3 className="font-secondary text-lg font-medium text-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-primary/65">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Process */}
-      <section className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28">
+      <section className="bg-primary/[0.02] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <SectionLabel>Processus</SectionLabel>
           <SectionTitle>Comment on travaille ensemble</SectionTitle>
@@ -519,7 +397,7 @@ export default function Home() {
       {/* Portfolio */}
       <section
         id="nos-realisations"
-        className="border-t border-primary/8 py-20 md:py-28 bg-secondary/90 text-white"
+        className="py-20 md:py-28 bg-secondary/90 text-white"
       >
         <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <SectionLabel>Nos réalisations</SectionLabel>
@@ -544,7 +422,7 @@ export default function Home() {
                 </h3>
 
 
-                
+
                 <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
@@ -827,6 +705,6 @@ export default function Home() {
           réservés
         </p>
       </footer>
-    </>
+    </div>
   );
 }

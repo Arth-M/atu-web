@@ -48,7 +48,7 @@ const luxuriousRoman = Luxurious_Roman({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${PERSON.name} | Développeur web · Rails · React · Next.js`,
+    default: `${SITE_NAME} — ${PERSON.name} | Développeur web · Rails · Node React · Next.js`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
