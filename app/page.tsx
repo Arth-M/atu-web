@@ -1,6 +1,8 @@
 import SectionLabel from "./components/SectionLabel";
 import { PrimaryButton, SecondaryLink } from "./components/PageLinks";
 import { LINKS, PERSON } from "../lib/site";
+import Soleil from "./components/images/soleil";
+import HeroLottie from "./components/images/heroLottie";
 import Image from "next/image";
 
 const TRUST_MARKERS = [
@@ -34,15 +36,17 @@ const APPROACH = [
   {
     title: "Clarté",
     body: "Hiérarchie visuelle, libellés, parcours : l'utilisateur sait où il est, quoi faire, et pourquoi.",
-
+    icon: `<Soleil />`,
   },
   {
     title: "Action guidée",
     body: "Chaque élément explicite sa logique : ce qui est possible doit être évident, ce qui est secondaire accessible.",
+    icon: `<Soleil />`,
   },
   {
     title: "Code durable",
-    body: "La meilleure UX meurt si le code est fragile. Je vous livre des bases solides, documentées, et maintenables.",
+    body: "Même la meilleure UX meurt lorsque le code est fragile. Je vous livre une codebase claire, documentée, et maintenable.",
+    icon: `<Soleil />`,
   },
 ];
 
@@ -217,20 +221,16 @@ export default function Home() {
         id="accueil"
         className="relative overflow-hidden"
       >
-        <img
-    src="/soleil-brillant copie.svg"
-    alt=""
-    aria-hidden="true"
-    className="h-7 w-7 shrink-0 text-primary fill-secondary stroke-secondary"
-  />
+
 
         <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+          <div className="flex flex-wrap items-center md:justify-between">
             <div className="max-w-2xl">
               <h1 className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
                 Développeur web · Docteur en psychologie cognitive
               </h1>
               <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des applications pour vous et vos utilisateurs.
+                Des applications<br/> qui vous ressemblent,<br/> pour vos utilisateurs.
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary/75">
                 Un seul interlocuteur pour vos
@@ -245,6 +245,10 @@ export default function Home() {
                 </SecondaryLink>
               </div>
             </div>
+            <div className="self-center mx-auto">
+              <HeroLottie />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -276,39 +280,22 @@ export default function Home() {
 
             </div>
           </div>
-          <div className="flex items-center justify-center space-x-4 mt-7 px-15">
+          <div className="flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
             {APPROACH.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-primary/10 p-6 w-1/3 h-full"
+                className="rounded-xl border border-primary/10 h-full w-[219px] px-6 py-5"
               >
-                <div className="flex">
-                  <h3 className="font-secondary text-lg font-medium text-primary">
+                <div className="flex space-x-2 justify-start items-center">
+                  <Soleil />
+                  <h3 className="font-secondary text-lg font-medium text-secondary">
                     {item.title}
                   </h3>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-primary/65">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-      </section>
-
-      {/* Expertise */}
-      <section
-        id="notre-expertise"
-        className="bg-tertiary py-10 text-bg"
-      >
-        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
-          <div className="max-w-2xl">
-            {/* <SectionLabel>Mon expertise</SectionLabel> */}
-            <SectionTitle>Ce que je construis pour vous</SectionTitle>
             <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Site vitrine, landing page, workflows IA, outil métier ou MVP produit : je
-              m&apos;adapte à votre stade — lancement, ajout de fonctionnalités, refonte.
+              {item.body}
             </p>
-          </div>
+          </div>))}
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {SERVICES.map((service, i) => (
@@ -340,7 +327,7 @@ export default function Home() {
 
 
       {/* Process */}
-      <section className="bg-primary/[0.02] py-20 md:py-28">
+      <section className="bg-primary/2 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <SectionLabel>Processus</SectionLabel>
           <SectionTitle>Comment on travaille ensemble</SectionTitle>
