@@ -2,7 +2,7 @@ export default function Soleil() {
   return (
     <div>
     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 412.288 412.288" className="h-7 w-7 shrink-0 fill-tertiary" style={{enableBackground:"new 0 0 412.288 412.288"}} xmlSpace="preserve">
+      viewBox="0 0 412.288 412.288" className="h-8 w-8 shrink-0 fill-tertiary" style={{enableBackground:"new 0 0 412.288 412.288"}} xmlSpace="preserve">
     <g>
       <path d="M104.101,206.144c0-3.866-3.134-7-7-7H7c-3.866,0-7,3.134-7,7s3.134,7,7,7h90.101
         C100.967,213.144,104.101,210.01,104.101,206.144z"/>

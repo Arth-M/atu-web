@@ -6,9 +6,9 @@ import { useTheme } from "../ThemeProvider";
 export default function HeroLottie() {
   const { theme } = useTheme();
   const LOTTIE_BY_THEME = {
-    classic: "/hero.lottie",
+    classic: "/hero_classic.lottie",
     dark: "/hero_dark.lottie",
-    // colorful: "/hero_colorful.lottie", // si tu l’ajoutes
+    colorful: "/hero_colorful.lottie", // si tu l’ajoutes
   };
   const src = LOTTIE_BY_THEME[theme] ?? "/hero.lottie";
 

@@ -3,6 +3,8 @@ import { PrimaryButton, SecondaryLink } from "./components/PageLinks";
 import { LINKS, PERSON } from "../lib/site";
 import Soleil from "./components/images/soleil";
 import HeroLottie from "./components/images/heroLottie";
+import Help from "./components/images/help";
+import Horloge from "./components/images/horloge";
 import Image from "next/image";
 
 const TRUST_MARKERS = [
@@ -36,17 +38,17 @@ const APPROACH = [
   {
     title: "Clarté",
     body: "Hiérarchie visuelle, libellés, parcours : l'utilisateur sait où il est, quoi faire, et pourquoi.",
-    icon: `<Soleil />`,
+    icon: <Soleil />,
   },
   {
     title: "Action guidée",
     body: "Chaque élément explicite sa logique : ce qui est possible doit être évident, ce qui est secondaire accessible.",
-    icon: `<Soleil />`,
+    icon: <Help />,
   },
   {
     title: "Code durable",
     body: "Même la meilleure UX meurt lorsque le code est fragile. Je vous livre une codebase claire, documentée, et maintenable.",
-    icon: `<Soleil />`,
+    icon: <Horloge />,
   },
 ];
 
@@ -88,15 +90,19 @@ const TIMELINE = [
   },
 ];
 
-const STACK = [
-  "Ruby on Rails",
-  "Node.js",
-  "React",
-  "Next.js",
-  "PostgreSQL",
-  "APIs REST",
+const STACK1 = [
+  { image: "/dev/nodejs.svg", alt: "Node.js", mono: true  },
+  { image: "/dev/nextjs.svg", alt: "Next.js", mono: true  },
+  { image: "/dev/cloudflare.svg", alt: "Cloudflare" },
+  { image: "/dev/rails.svg", alt: "Ruby on Rails" },
 ];
 
+const STACK2 = [
+  { image: "/dev/redis.svg", alt: "Redis" },
+  { image: "/dev/postgresql.svg", alt: "PostgreSQL" },
+  { image: "/dev/react.svg", alt: "React" },
+  { image: "/dev/figma.svg", alt: "Figma" },
+];
 const PROCESS = [
   {
     step: "01",
@@ -127,23 +133,23 @@ const PROJECTS = [
     body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
     href: LINKS.numdiag,
     hrefLabel: "NumDiag.fr",
-    images: ["/numdiag.svg"],
+    image: "/numdiag.svg",
   },
   {
-    title: "Kevin",
+    title: "Kevin Nicolas",
     tag: "Site web · Psychologue",
-    body: "Site personnalisé pour un psychologue basé à Baillargues, mon premier site en indépendant!",
+    body: "Site personnalisé pour un psychologue basé à Baillargues.",
     href: LINKS.kevin,
     hrefLabel: "Psychologue-Baillargues.fr",
-    images: ["/kev_site.svg"],
+    image: "/kev_site.svg",
   },
   {
     title: "Recherche & publications",
     tag: "Cognition · Interaction humain–machine",
-    body: "Travaux sur l'expérience utilisateur, le langage, la cognition spatiale et les environnements intelligents — publiés et cités internationalement.",
+    body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
     href: LINKS.scholar,
     hrefLabel: "Google Scholar",
-    images: ["/publis.svg"],
+    image: "/publis.svg",
   },
 ];
 
@@ -188,7 +194,7 @@ function SectionTitle({
   return (
     <h2
       id={id}
-      className="font-secondary text-3xl font-medium leading-tight text-primary sm:text-4xl lg:text-[2.75rem]"
+      className="font-secondary text-3xl font-medium leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
     >
       {children}
     </h2>
@@ -215,7 +221,7 @@ function ExternalLink({
 
 export default function Home() {
   return (
-    <div className="space-y-15">
+    <div className="">
       {/* Hero */}
       <section
         id="accueil"
@@ -225,27 +231,27 @@ export default function Home() {
 
         <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <div className="flex flex-wrap items-center md:justify-between">
-            <div className="max-w-2xl">
+            <div className="lg:w-2/3">
               <h1 className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
                 Développeur web · Docteur en psychologie cognitive
               </h1>
               <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des applications<br/> qui vous ressemblent,<br/> pour vos utilisateurs.
+                Des applications<br/> qui vous ressemblent,<br/> pensées pour vos utilisateurs.
               </h2>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary/75">
+              <p className="mt-6 text-lg leading-relaxed text-primary/75">
                 Un seul interlocuteur pour vos
                 projets - de l'élaboration au code en production.
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <PrimaryButton href="#contact">
+              <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
+                {/* <PrimaryButton href="#contact">
                   Réserver un échange gratuit
-                </PrimaryButton>
+                </PrimaryButton> */}
                 <SecondaryLink href="#nos-realisations">
                   Voir mes réalisations
                 </SecondaryLink>
               </div>
             </div>
-            <div className="self-center mx-auto">
+            <div className="self-center mx-auto mt-5 lg:mt-0">
               <HeroLottie />
             </div>
           </div>
@@ -254,11 +260,11 @@ export default function Home() {
 
 
       {/* Problem */}
-      <section className="mx-auto py-10">
+      <section className="mx-auto lg:mt-20 pt-5 pb-10">
           <div className="max-w-3xl mx-auto">
             <SectionLabel>Mon approche</SectionLabel>
             <SectionTitle>
-              Prendre en compte à la fois la technologie et les utilisateurs n'est pas toujours évident
+              Prendre en compte à la fois la technologie et les utilisateurs
             </SectionTitle>
             <div className="mt-6 space-y-2 leading-relaxed text-primary/70">
               <p>
@@ -270,7 +276,7 @@ export default function Home() {
 
               <p className="leading-relaxed text-primary/70">
               Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
-              anticipent et interagissent — avec des objets, des interfaces, des
+              anticipent et interagissent — avec des objets connectés, des interfaces, des
               espaces. Puis j&apos;ai appris à traduire ça en logiciel.
             </p>
             {/* <p className="text-sm leading-relaxed text-primary/55">
@@ -280,14 +286,14 @@ export default function Home() {
 
             </div>
           </div>
-          <div className="flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
+          <div className="lg:flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
             {APPROACH.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-primary/10 h-full w-[219px] px-6 py-5"
+                className="rounded-xl border border-primary/10 h-full lg:w-[219px] px-6 py-5"
               >
                 <div className="flex space-x-2 justify-start items-center">
-                  <Soleil />
+                  {item.icon}
                   <h3 className="font-secondary text-lg font-medium text-secondary">
                     {item.title}
                   </h3>
@@ -356,46 +362,51 @@ export default function Home() {
 
       {/* Stack */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-xl">
-            <SectionLabel>Technologies</SectionLabel>
-            <SectionTitle>
-              Des outils modernes, choisis pour le bon problème
-            </SectionTitle>
+        <div className="flex flex-nowrap flex-col lg:flex-row items-center justify-center">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-2 md:flex md:flex-wrap md:space-x-7 mb-7 lg:mb-0  grid grid-cols-2 gap-x-14 gap-y-2">
+            {STACK1.map((tech) => (
+              <Image
+              key={tech.alt} src={tech.image} alt={tech.alt}
+              width={400} height={400}
+              className={`h-25 w-25 ${tech.mono ? "stack-icon-mono" : ""}`}
+              loading="lazy" />
+            ))}
+          </div>
+          <div className="max-w-lg mx-5 text-center">
+              <SectionLabel>Technologies</SectionLabel>
+              <SectionTitle>
+                Des outils modernes et efficaces
+              </SectionTitle>
+
             <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Rails ou Node pour des backends structurés et des APIs légères.
-              React et Next.js pour des interfaces performantes et bien
-              référencées.
+              Nous sélectionnons les outils adaptés à votre projet en alliant
+              performance, maintenabilité et sécurité.
             </p>
           </div>
-          <ul className="flex flex-wrap gap-2">
-            {STACK.map((tech) => (
-              <li
-                key={tech}
-                className="rounded-full border border-primary/12 bg-white/50 px-4 py-2 text-sm text-primary/80"
-              >
-                {tech}
-              </li>
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-4 md:flex md:flex-wrap md:space-x-7 mt-14 lg:mt-0 grid grid-cols-2 gap-x-18 gap-y-7">
+            {STACK2.map((tech) => (
+              <Image
+              key={tech.alt} src={tech.image} alt={tech.alt}
+              width={400} height={400}
+              className="h-17 w-17"
+              loading="lazy" />
             ))}
-          </ul>
+          </div>
         </div>
+
+
       </section>
 
       {/* Portfolio */}
       <section
         id="nos-realisations"
-        className="py-20 md:py-28 bg-secondary/90 text-white"
+        className="py-20 md:py-20 bg-secondary/20 text-secondary"
       >
-        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
-          <SectionLabel>Nos réalisations</SectionLabel>
-          <SectionTitle>Projets & expériences</SectionTitle>
-          <p className="mt-4 max-w-2xl text-base">
-            Chaque projet part d&apos;un besoin concret — visibilité, crédibilité,
-            ou outil métier. Mes réalisations clients arrivent ; voici ce qui
-            nourrit ma pratique aujourd&apos;hui.
-          </p>
+        <div className="mx-auto px-6 md:px-10 lg:px-12">
+          <SectionLabel>Portfolio</SectionLabel>
+          <SectionTitle>Dernières réalisations</SectionTitle>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3 ">
+          <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 ">
             {PROJECTS.map((project) => (
               <article
                 key={project.title}
@@ -413,16 +424,14 @@ export default function Home() {
                 <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
-                {project.images.map((image) => (
-                  <img key={image} src={image} alt={project.title} className={`w-full h-[400px] rounded ${image === "/publis.svg" ? "object-contain" : "object-cover object-[50%-0%]"}`} />
-                ))}
-                {project.href && project.hrefLabel && (
-                  <p className="mt-5 text-tertiary">
-                    <ExternalLink href={project.href}>
-                      {project.hrefLabel} ↗
-                    </ExternalLink>
-                  </p>
-                )}
+                  <Image
+                   key={project.image} src={project.image} alt={project.title}
+                   width={400} height={400}
+                   className={`w-full h-[400px] mt-7
+                    rounded ${project.image === "/publis.svg" ?
+                      "object-contain" : "object-cover object-[50%-0%]"}
+                      transition-transform ease-in-out duration-500
+                      hover:scale-125`} />
               </article>
             ))}
           </div>
@@ -520,40 +529,6 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
-          <div className="text-center">
-            <SectionLabel>FAQ</SectionLabel>
-            <SectionTitle>Questions fréquentes</SectionTitle>
-          </div>
-
-          <div className="mt-12 space-y-3">
-            {FAQ.map((item) => (
-              <details
-                key={item.q}
-                className="group rounded-xl border border-primary/10 bg-bg px-5 py-4 open:shadow-sm"
-              >
-                <summary className="cursor-pointer list-none font-medium text-primary [&::-webkit-details-marker]:hidden">
-                  <span className="flex items-center justify-between gap-4">
-                    {item.q}
-                    <span
-                      className="text-secondary transition group-open:rotate-45"
-                      aria-hidden="true"
-                    >
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-primary/65">
-                  {item.a}
-                </p>
-              </details>
-            ))}
           </div>
         </div>
       </section>
@@ -661,6 +636,40 @@ export default function Home() {
               Envoyer ma demande
             </button>
           </form>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
+          <div className="text-center">
+            <SectionLabel>FAQ</SectionLabel>
+            <SectionTitle>Questions fréquentes</SectionTitle>
+          </div>
+
+          <div className="mt-12 space-y-3">
+            {FAQ.map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-xl border border-primary/10 bg-bg px-5 py-4 open:shadow-sm"
+              >
+                <summary className="cursor-pointer list-none font-medium text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    {item.q}
+                    <span
+                      className="text-secondary transition group-open:rotate-45"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-primary/65">
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

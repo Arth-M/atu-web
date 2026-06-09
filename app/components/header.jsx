@@ -28,14 +28,14 @@ export default function Header() {
 
   return (
     <nav
-      className="bg-transparent relative flex mt-2"
+      className="bg-transparent relative flex md:mt-5 mt-7"
       ref={menuRef}
     >
-      <Link href="/" className="w-fit md:pl-5">
+      <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1">
         <Logo />
-        <span className="absolute md:left-29.5 md:top-14.5 md:text-4xl md:leading-6 left-24.5 top-15 block text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span>-<br />web</span>
+        <span className="absolute lg:left-37.5 lg:top-14.5 lg:text-4xl lg:leading-6 sm:left-27.5 left-25.5 top-15 block text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold"><span className="text-logo">atu</span><br />web</span>
       </Link>
-      <div className="hidden text-primary lg:absolute top-8 right-9 lg:flex items-center justify-end">
+      <div className="hidden text-primary lg:absolute top-8 right-15 lg:flex items-center justify-end">
         <div className="space-x-2 justify-end items-center font-primary text-lg">
           <a
             href="#notre-expertise"
@@ -67,11 +67,11 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="absolute right-5 top-8 text-primary flex items-center justify-center lg:hidden">
+      <div className="absolute md:right-13 sm:right-9 right-5 top-9 text-primary flex items-center justify-center lg:hidden">
         <div className="mr-7">
             <a
               href="#contact"
-              className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary/80 shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
+              className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
             >
               Contact
             </a>
