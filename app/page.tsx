@@ -21,7 +21,7 @@ const SERVICES = [
       "Plus de demandes qualifiées, moins de « je ne sais pas ce que vous faites exactement ».",
   },
   {
-    title: "Application web & outil métier",
+    title: "Application web, mobile & outil métier",
     body: "Tableaux de bord, espaces clients, workflows internes, MVP SaaS. Backend robuste (Ruby on Rails ou Node), frontend moderne (React / Next.js), architecture pensée pour évoluer.",
     outcome:
       "Un outil adopté par vos équipes ou vos clients — pas un projet abandonné après la livraison.",
@@ -93,15 +93,15 @@ const TIMELINE = [
 const STACK1 = [
   { image: "/dev/nodejs.svg", alt: "Node.js", mono: true  },
   { image: "/dev/nextjs.svg", alt: "Next.js", mono: true  },
-  { image: "/dev/cloudflare.svg", alt: "Cloudflare" },
   { image: "/dev/rails.svg", alt: "Ruby on Rails" },
+  { image: "/dev/cloudflare.svg", alt: "Cloudflare" },
 ];
 
 const STACK2 = [
-  { image: "/dev/redis.svg", alt: "Redis" },
-  { image: "/dev/postgresql.svg", alt: "PostgreSQL" },
   { image: "/dev/react.svg", alt: "React" },
+  { image: "/dev/redis.svg", alt: "Redis" },
   { image: "/dev/figma.svg", alt: "Figma" },
+  { image: "/dev/postgresql.svg", alt: "PostgreSQL" },
 ];
 const PROCESS = [
   {
@@ -194,7 +194,7 @@ function SectionTitle({
   return (
     <h2
       id={id}
-      className="font-secondary text-3xl font-medium leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
+      className="font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
     >
       {children}
     </h2>
@@ -362,7 +362,13 @@ export default function Home() {
 
       {/* Stack */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
-        <div className="flex flex-nowrap flex-col lg:flex-row items-center justify-center">
+        <SectionLabel>Expertises techniques</SectionLabel>
+        <div className="flex flex-nowrap flex-col lg:flex-row items-center lg:mt-7 mt-12">
+          <Image
+            src="/dev/typescript.svg" alt="typescript"
+            width={400} height={400}
+            className="lg:h-12 lg:w-12 h-13 w-13 mt-5 md:mt-0"
+            loading="lazy" />
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-2 md:flex md:flex-wrap md:space-x-7 mb-7 lg:mb-0  grid grid-cols-2 gap-x-14 gap-y-2">
             {STACK1.map((tech) => (
               <Image
@@ -373,25 +379,35 @@ export default function Home() {
             ))}
           </div>
           <div className="max-w-lg mx-5 text-center">
-              <SectionLabel>Technologies</SectionLabel>
               <SectionTitle>
-                Des outils modernes et efficaces
+                Des technologies modernes et efficaces
               </SectionTitle>
 
             <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Nous sélectionnons les outils adaptés à votre projet en alliant
-              performance, maintenabilité et sécurité.
+              Je sélectionne les outils adaptés à votre projet en alliant
+              <span className="font-semibold"> performance</span>,
+              <span className="font-semibold"> maintenabilité</span> et
+              <span className="font-semibold"> sécurité</span>.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-primary/70">
+
             </p>
           </div>
-          <div className="lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-4 md:flex md:flex-wrap md:space-x-7 mt-14 lg:mt-0 grid grid-cols-2 gap-x-18 gap-y-7">
+
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-9 md:flex md:flex-wrap md:space-x-7 mt-14 lg:mt-0 grid grid-cols-2 gap-x-18 gap-y-7">
             {STACK2.map((tech) => (
               <Image
               key={tech.alt} src={tech.image} alt={tech.alt}
               width={400} height={400}
-              className="h-17 w-17"
+              className="h-15 w-15"
               loading="lazy" />
             ))}
           </div>
+          <Image
+            src="/dev/vite.svg" alt="typescript"
+            width={400} height={400}
+            className="lg:h-15 lg:w-15 h-13 w-13 mt-5 md:mt-0"
+            loading="lazy" />
         </div>
 
 
@@ -431,7 +447,7 @@ export default function Home() {
                     rounded ${project.image === "/publis.svg" ?
                       "object-contain" : "object-cover object-[50%-0%]"}
                       transition-transform ease-in-out duration-500
-                      hover:scale-125`} />
+                      md:hover:scale-125 hover:scale-110`} />
               </article>
             ))}
           </div>
