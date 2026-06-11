@@ -37,19 +37,24 @@ const SERVICES = [
 
 const APPROACH = [
   {
-    title: "Clarté",
-    body: "Hiérarchie visuelle, libellés, parcours : l'utilisateur sait où il est, quoi faire, et pourquoi.",
+    title: "Clarté UX Action guidée",
+    body: "Hiérarchie visuelle, libellés, parcours : l'utilisateur sait où il est, quoi faire, et pourquoi. Chaque élément explicite sa logique : ce qui est possible doit être évident, ce qui est secondaire accessible.",
     icon: <Soleil />,
-  },
-  {
-    title: "Action guidée",
-    body: "Chaque élément explicite sa logique : ce qui est possible doit être évident, ce qui est secondaire accessible.",
-    icon: <Help />,
   },
   {
     title: "Code durable",
     body: "Même la meilleure UX meurt lorsque le code est fragile. Je vous livre une codebase claire, documentée, et maintenable.",
     icon: <Horloge />,
+  },
+  {
+    title: "Et ensuite ?",
+    body: "Hébergement, maintenance, mise à jour : je vous accompagne dans la gestion de votre projet après la livraison.",
+    icon: <Help />,
+  },
+  {
+    title: "Et mes utilisateurs ?",
+    body: "Analyse du traffic, retours utilisateurs, évolution continue : je vous accompagne dans la mesure de vos besoins.",
+    icon: <Help />,
   },
 ];
 
@@ -448,7 +453,7 @@ export default function Home() {
                   <Image
                    key={project.image} src={project.image} alt={project.title}
                    width={400} height={400}
-                   className={`w-full h-[400px] mt-7
+                   className={`w-auto h-[400px] mt-7
                     rounded ${project.image === "/publis.svg" ?
                       "object-contain" : "object-cover object-[50%-0%]"}
                       transition-transform ease-in-out duration-500
@@ -474,7 +479,7 @@ export default function Home() {
         <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr]">
           <div>
             <SectionLabel>À propos</SectionLabel>
-            <div className="relative mt-15">
+            <div className="relative mt-4">
             <h2
                 className="inline font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
               >
@@ -483,7 +488,7 @@ export default function Home() {
             <div className="absolute -top-20 right-0 overflow-hidden bg-secondary/80 rounded-full w-fit">
               <Image
                 src="/tutur_gros_plan.svg"
-                alt="Arthur-Henri Michalland"
+                alt="Photo de Arthur-Henri Michalland"
                 width={800}
                 height={800}
                 className="w-35 h-35 object-[0%-10%] inline "
@@ -491,37 +496,17 @@ export default function Home() {
             </div>
             </div>
             <p className="mt-6 text-lg leading-relaxed text-primary/75">
-              Bonjour — je suis {PERSON.name}, développeur web freelance basé à{" "}
-              {PERSON.location.split(",")[0]}. Docteur en psychologie
-              cognitive. Ingénieur de recherche au CNRS. Expérience en labo de
-              recherche, au LIRMM et chez Berger Levrault.
+              {PERSON.name}, développeur web freelance. J'ai travaillé comme chercheur
+              dans les environnements connectés,
+              puis dans l'UX, avant de devenir développeur au CNRS.
+              Je me consacre aujourd'hui au développement web et à la création d'applications sur mesure.
             </p>
             <p className="mt-4 text-base leading-relaxed text-primary/65">
-              J&apos;ai choisi de travailler en solo parce que vos projets
-              méritent de la clarté : une vision, une voix, une responsabilité.
-              Mon métier, ce n&apos;est pas seulement « faire un site » —
-              c&apos;est traduire votre activité en quelque chose de
+              J&apos;ai choisi de travailler en freelance pour être directement
+              en contact avec vous,
+              pour traduire votre activité en quelque chose de
               compréhensible, crédible et actionnable en ligne.
             </p>
-
-            <ul className="mt-8 space-y-3">
-              {[
-                "Clarté — pas de promesses floues.",
-                "Rigueur — code maintenable, jalons définis.",
-                "Partenariat — disponible après la livraison.",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm text-primary/70"
-                >
-                  <span
-                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary"
-                    aria-hidden="true"
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>
