@@ -5,6 +5,7 @@ import Soleil from "./components/images/soleil";
 import HeroLottie from "./components/images/heroLottie";
 import Help from "./components/images/help";
 import Horloge from "./components/images/horloge";
+import ArrowUp from "./components/arrowUp";
 import Image from "next/image";
 
 const TRUST_MARKERS = [
@@ -133,7 +134,7 @@ const PROJECTS = [
     body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
     href: LINKS.numdiag,
     hrefLabel: "NumDiag.fr",
-    image: "/numdiag.svg",
+    image: "/sites/numdiag.svg",
   },
   {
     title: "Kevin Nicolas",
@@ -141,7 +142,7 @@ const PROJECTS = [
     body: "Site personnalisé pour un psychologue basé à Baillargues.",
     href: LINKS.kevin,
     hrefLabel: "Psychologue-Baillargues.fr",
-    image: "/kev_site.svg",
+    image: "/sites/kev_site.svg",
   },
   {
     title: "Recherche & publications",
@@ -149,7 +150,7 @@ const PROJECTS = [
     body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
     href: LINKS.scholar,
     hrefLabel: "Google Scholar",
-    image: "/publis.svg",
+    image: "/sites/publis.svg",
   },
 ];
 
@@ -225,8 +226,9 @@ export default function Home() {
       {/* Hero */}
       <section
         id="accueil"
-        className="relative overflow-hidden"
+        className="not-arrow-up relative overflow-hidden"
       >
+        <ArrowUp />
 
 
         <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
@@ -360,8 +362,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stack */}
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
+      {/* expertise */}
+      <section id="expertise"className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
         <SectionLabel>Expertises techniques</SectionLabel>
         <div className="flex flex-nowrap flex-col lg:flex-row items-center lg:mt-7 mt-12">
           <Image
@@ -383,7 +385,7 @@ export default function Home() {
                 Des technologies modernes et efficaces
               </SectionTitle>
 
-            <p className="mt-4 text-base leading-relaxed text-primary/70">
+            <p className="mt-4 text-primary/80">
               Je sélectionne les outils adaptés à votre projet en alliant
               <span className="font-semibold"> performance</span>,
               <span className="font-semibold"> maintenabilité</span> et
@@ -415,18 +417,21 @@ export default function Home() {
 
       {/* Portfolio */}
       <section
-        id="nos-realisations"
+        id="portfolio"
         className="py-20 md:py-20 bg-secondary/20 text-secondary"
       >
         <div className="mx-auto px-6 md:px-10 lg:px-12">
           <SectionLabel>Portfolio</SectionLabel>
-          <SectionTitle>Dernières réalisations</SectionTitle>
+          <SectionTitle>Un aperçu de mon travail</SectionTitle>
+          <p className="mt-2 text-primary">
+            Jetez un oeil !
+          </p>
 
-          <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 ">
+          <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
             {PROJECTS.map((project) => (
               <article
                 key={project.title}
-                className="flex flex-col p-7"
+                className="flex flex-col"
               >
                 <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
                   {project.tag}
@@ -447,7 +452,7 @@ export default function Home() {
                     rounded ${project.image === "/publis.svg" ?
                       "object-contain" : "object-cover object-[50%-0%]"}
                       transition-transform ease-in-out duration-500
-                      md:hover:scale-125 hover:scale-110`} />
+                      md:hover:scale-115 hover:scale-110`} />
               </article>
             ))}
           </div>
@@ -463,13 +468,28 @@ export default function Home() {
 
       {/* About */}
       <section
-        id="entreprise"
+        id="about"
         className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12"
       >
         <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr]">
           <div>
-            <SectionLabel>L&apos;entreprise</SectionLabel>
-            <SectionTitle>atu-web, c&apos;est moi</SectionTitle>
+            <SectionLabel>À propos</SectionLabel>
+            <div className="relative mt-15">
+            <h2
+                className="inline font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
+              >
+                atuWeb, c&apos;est moi
+              </h2>
+            <div className="absolute -top-20 right-0 overflow-hidden bg-secondary/80 rounded-full w-fit">
+              <Image
+                src="/tutur_gros_plan.svg"
+                alt="Arthur-Henri Michalland"
+                width={800}
+                height={800}
+                className="w-35 h-35 object-[0%-10%] inline "
+              />
+            </div>
+            </div>
             <p className="mt-6 text-lg leading-relaxed text-primary/75">
               Bonjour — je suis {PERSON.name}, développeur web freelance basé à{" "}
               {PERSON.location.split(",")[0]}. Docteur en psychologie
@@ -656,7 +676,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28">
+      <section id="faq" className="border-y border-primary/8 bg-primary/20 py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
           <div className="text-center">
             <SectionLabel>FAQ</SectionLabel>
