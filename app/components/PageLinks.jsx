@@ -32,3 +32,18 @@ export function SecondaryLink({ href, children }) {
     </a>
   );
 }
+
+export function ExternalLink({
+  href,
+  children,
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      className="text-sm font-medium underline-offset-4 transition hover:text-primary hover:underline"
+    >
+      {children}
+    </a>
+  );
+}

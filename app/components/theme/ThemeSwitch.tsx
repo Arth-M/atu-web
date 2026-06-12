@@ -2,9 +2,9 @@
 
 import { useTheme } from "./ThemeProvider";
 
-const LABELS: Record<string, { label: string}> = {
-  classic:  { label: "Classique" },
-  dark:     { label: "Dark" },
+const LABELS: Record<string, { label: string }> = {
+  classic: { label: "Classique" },
+  dark: { label: "Dark" },
   colorful: { label: "Coloré" },
 };
 
@@ -23,10 +23,7 @@ export function ThemeSwitch() {
             className={`
               cursor-pointer px-3 py-1.5 text-xs text-center
               transition-all duration-200 font-light rounded-2xl
-              ${active
-                ? "bg-secondary text-white "
-                : "hover:bg-surface-hover"
-              }
+              ${active ? "bg-secondary text-white " : "hover:bg-surface-hover"}
             `}
           >
             {LABELS[t].label}

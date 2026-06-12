@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { useTheme } from "../ThemeProvider";
+import { useTheme } from "../theme/ThemeProvider";
 
 export default function HeroLottie() {
   const { theme } = useTheme();
@@ -13,12 +13,6 @@ export default function HeroLottie() {
   const src = LOTTIE_BY_THEME[theme] ?? "/hero.lottie";
 
   return (
-    <DotLottieReact
-      key={src}
-      src={src}
-      loop
-      autoplay
-      className="h-70 w-70"
-    />
+    <DotLottieReact key={src} src={src} loop autoplay className="h-70 w-70" />
   );
 }

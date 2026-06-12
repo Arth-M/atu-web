@@ -1,13 +1,19 @@
-import SectionLabel from "./components/SectionLabel";
-import { PrimaryButton, SecondaryLink } from "./components/PageLinks";
+import SectionLabel from "./components/micro/SectionLabel";
+import {
+  PrimaryButton,
+  SecondaryLink,
+  ExternalLink,
+} from "./components/PageLinks";
 import { LINKS, PERSON } from "../lib/site";
 import Soleil from "./components/images/soleil";
 import HeroLottie from "./components/images/heroLottie";
 import Help from "./components/images/help";
 import Horloge from "./components/images/horloge";
-import ArrowUp from "./components/arrowUp";
+import ArrowUp from "./components/micro/arrowUp";
 import Image from "next/image";
-
+import { Footer } from "./components/footer";
+import Expertise from "./components/sections/expertise";
+import SectionTitle from "./components/micro/sectionTitle";
 const TRUST_MARKERS = [
   "Ingénieur développement logiciel CNRS (LIRMM)",
   "Docteur en psychologie cognitive",
@@ -61,54 +67,30 @@ const APPROACH = [
 const TIMELINE = [
   {
     period: "2015-2019",
-    title: "Doctorat en psychologie cognitive",
-    body: "Thèse sur les relations entre cognition et motricité manuelle, interactions humain–machine (LIRMM / Univ. Montpellier 3).",
+    title: "Doctorat psychologie cognitive",
     href: LINKS.thesis,
     hrefLabel: "Thèse sur HAL",
   },
   {
     period: "2019–2021",
-    title: "Recherche internationale",
-    body: "Post-doctorat à Rome (BALLAB, Sapienza) sur l'incarnation des concepts et les affordances.",
+    title: "Langage et IHM",
     href: LINKS.scholar,
-    hrefLabel: "Publication PMC",
+    hrefLabel: "Publications",
   },
   {
-    period: "2021-2022",
-    title: "Environnements intelligents",
-    body: "Travaux sur l'expérience utilisateur, la cognition spatiale, la space syntax et les smart buildings (projet HUT, Montpellier).",
-    href: LINKS.halSpaceSyntax,
-    hrefLabel: "Publication HAL",
-  },
-  {
-    period: "2022-2024",
-    title: "Recherche UX",
-    body: "Travaux sur l'expérience utilisateur à la fondation i2ml et chez l'éditeur de logiciel Berger Levrault.",
-    href: LINKS.halSpaceSyntax,
-    hrefLabel: "Publication HAL",
+    period: "2021-2024",
+    title: "UX, Objets connectés",
+    href: LINKS.hal,
+    hrefLabel: "Publications",
   },
   {
     period: "2024 - Aujourd'hui",
     title: "Ingénierie & édition logicielle",
-    body: "Freelance et Ingénieur de recherche CNRS au LIRMM (équipe Web3).",
     href: LINKS.lirmm,
-    hrefLabel: "L'équipe Web3 du LIRMM",
+    hrefLabel: "Équipe CNRS",
   },
 ];
 
-const STACK1 = [
-  { image: "/dev/nodejs.svg", alt: "Node.js", mono: true  },
-  { image: "/dev/nextjs.svg", alt: "Next.js", mono: true  },
-  { image: "/dev/rails.svg", alt: "Ruby on Rails" },
-  { image: "/dev/cloudflare.svg", alt: "Cloudflare" },
-];
-
-const STACK2 = [
-  { image: "/dev/react.svg", alt: "React" },
-  { image: "/dev/redis.svg", alt: "Redis" },
-  { image: "/dev/figma.svg", alt: "Figma" },
-  { image: "/dev/postgresql.svg", alt: "PostgreSQL" },
-];
 const PROCESS = [
   {
     step: "01",
@@ -182,59 +164,17 @@ const FAQ = [
   },
 ];
 
-const PROFILE_LINKS = [
-  { label: "ORCID", href: LINKS.orcid },
-  { label: "GitHub", href: LINKS.github },
-  { label: "Google Scholar", href: LINKS.scholar },
-  { label: "LinkedIn atu-web", href: LINKS.linkedinCompany },
-  { label: "ResearchGate", href: "https://www.researchgate.net/profile/Arthur_Henri_Michalland" },
-];
-
-function SectionTitle({
-  children,
-  id,
-}: {
-  children: React.ReactNode;
-  id?: string;
-}) {
-  return (
-    <h2
-      id={id}
-      className="font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
-    >
-      {children}
-    </h2>
-  );
-}
-
-function ExternalLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      className="text-sm font-medium underline-offset-4 transition hover:text-primary hover:underline"
-    >
-      {children}
-    </a>
-  );
-}
-
 export default function Home() {
   return (
+    // Utiliser partout https://motion.dev/examples/react-hero-stagger
+    // UTILISER PARTOUT https://motion.dev/examples/react-enter-animation
+    // UTILISER pour transitions entre thème si position différente https://motion.dev/examples/react-css-spring
+    // POUR LES BOUTONS : https://motion.dev/examples/react-material-design-ripple
     <div className="">
       {/* Hero */}
-      <section
-        id="accueil"
-        className="not-arrow-up relative overflow-hidden"
-      >
+      <section id="accueil" className="not-arrow-up relative overflow-hidden">
         <ArrowUp />
-
+        {/* UTILISER https://motion.dev/examples/react-path-drawing */}
 
         <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <div className="flex flex-wrap items-center md:justify-between">
@@ -243,11 +183,13 @@ export default function Home() {
                 Développeur web · Docteur en psychologie cognitive
               </h1>
               <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des applications<br/> qui vous ressemblent,<br/> pensées pour vos utilisateurs.
+                Des applications
+                <br /> qui vous ressemblent,
+                <br /> pensées pour vos utilisateurs.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-primary/75">
-                Un seul interlocuteur pour vos
-                projets - de l'élaboration au code en production.
+                Un seul interlocuteur pour vos projets - de l'élaboration au
+                code en production.
               </p>
               <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
                 {/* <PrimaryButton href="#contact">
@@ -265,50 +207,52 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Problem */}
+      {/* La proposition */}
+      {/* Utiliser https://motion.dev/examples/js-stagger */}
       <section className="mx-auto lg:mt-20 pt-5 pb-10">
-          <div className="max-w-3xl mx-auto">
-            <SectionLabel>Mon approche</SectionLabel>
-            <SectionTitle>
-              Prendre en compte à la fois la technologie et les utilisateurs
-            </SectionTitle>
-            <div className="mt-6 space-y-2 leading-relaxed text-primary/70">
-              <p>
-                Le travail de développeur nécessite une logique et une rigueur qui ne correspondent pas
-                nécessairement à l'état d'esprit des utilisateurs.
-                AtuWeb vous propose de ne négliger aucun de ces aspects : un produit centré sur l'utilisateur,
-                réalisé avec des technologies performantes.
-              </p>
+        <div className="max-w-3xl mx-auto">
+          <SectionLabel>Mon approche</SectionLabel>
+          <SectionTitle>
+            Prendre en compte à la fois la technologie et les utilisateurs
+          </SectionTitle>
+          <div className="mt-6 space-y-2 leading-relaxed text-primary/70">
+            <p>
+              Le travail de développeur nécessite une logique et une rigueur qui
+              ne correspondent pas nécessairement à l'état d'esprit des
+              utilisateurs. AtuWeb vous propose de ne négliger aucun de ces
+              aspects : un produit centré sur l'utilisateur, réalisé avec des
+              technologies performantes.
+            </p>
 
-              <p className="leading-relaxed text-primary/70">
+            <p className="leading-relaxed text-primary/70">
               Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
-              anticipent et interagissent — avec des objets connectés, des interfaces, des
-              espaces. Puis j&apos;ai appris à traduire ça en logiciel.
+              anticipent et interagissent — avec des objets connectés, des
+              interfaces, des espaces. Puis j&apos;ai appris à traduire ça en
+              logiciel.
             </p>
             {/* <p className="text-sm leading-relaxed text-primary/55">
               Je ne promets pas la magie d&apos;une refonte miracle en 48 h. Je
               promets une méthode rigoureuse — sans oublier le fun.
             </p> */}
-
-            </div>
           </div>
-          <div className="lg:flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
-            {APPROACH.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-primary/10 h-full lg:w-[219px] px-6 py-5"
-              >
-                <div className="flex space-x-2 justify-start items-center">
-                  {item.icon}
-                  <h3 className="font-secondary text-lg font-medium text-secondary">
-                    {item.title}
-                  </h3>
-                </div>
-            <p className="mt-4 text-base leading-relaxed text-primary/70">
-              {item.body}
-            </p>
-          </div>))}
+        </div>
+        <div className="lg:flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
+          {APPROACH.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-xl border border-primary/10 h-full lg:w-[219px] px-6 py-5"
+            >
+              <div className="flex space-x-2 justify-start items-center">
+                {item.icon}
+                <h3 className="font-secondary text-lg font-medium text-secondary">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="mt-4 text-base leading-relaxed text-primary/70">
+                {item.body}
+              </p>
+            </div>
+          ))}
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {SERVICES.map((service, i) => (
@@ -333,11 +277,12 @@ export default function Home() {
           </div>
 
           <div className="mt-12">
-            <PrimaryButton href="#contact">Discutons de votre projet</PrimaryButton>
+            <PrimaryButton href="#contact">
+              Discutons de votre projet
+            </PrimaryButton>
           </div>
         </div>
       </section>
-
 
       {/* Process */}
       <section className="bg-primary/2 py-20 md:py-28">
@@ -367,58 +312,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* expertise */}
-      <section id="expertise"className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
-        <SectionLabel>Expertises techniques</SectionLabel>
-        <div className="flex flex-nowrap flex-col lg:flex-row items-center lg:mt-7 mt-12">
-          <Image
-            src="/dev/typescript.svg" alt="typescript"
-            width={400} height={400}
-            className="lg:h-12 lg:w-12 h-13 w-13 mt-5 md:mt-0"
-            loading="lazy" />
-          <div className="lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-2 md:flex md:flex-wrap md:space-x-7 mb-7 lg:mb-0  grid grid-cols-2 gap-x-14 gap-y-2">
-            {STACK1.map((tech) => (
-              <Image
-              key={tech.alt} src={tech.image} alt={tech.alt}
-              width={400} height={400}
-              className={`h-25 w-25 ${tech.mono ? "stack-icon-mono" : ""}`}
-              loading="lazy" />
-            ))}
-          </div>
-          <div className="max-w-lg mx-5 text-center">
-              <SectionTitle>
-                Des technologies modernes et efficaces
-              </SectionTitle>
-
-            <p className="mt-4 text-primary/80">
-              Je sélectionne les outils adaptés à votre projet en alliant
-              <span className="font-semibold"> performance</span>,
-              <span className="font-semibold"> maintenabilité</span> et
-              <span className="font-semibold"> sécurité</span>.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-primary/70">
-
-            </p>
-          </div>
-
-          <div className="lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-9 md:flex md:flex-wrap md:space-x-7 mt-14 lg:mt-0 grid grid-cols-2 gap-x-18 gap-y-7">
-            {STACK2.map((tech) => (
-              <Image
-              key={tech.alt} src={tech.image} alt={tech.alt}
-              width={400} height={400}
-              className="h-15 w-15"
-              loading="lazy" />
-            ))}
-          </div>
-          <Image
-            src="/dev/vite.svg" alt="typescript"
-            width={400} height={400}
-            className="lg:h-15 lg:w-15 h-13 w-13 mt-5 md:mt-0"
-            loading="lazy" />
-        </div>
-
-
-      </section>
+      {/* Expertise */}
+      <Expertise />
 
       {/* Portfolio */}
       <section
@@ -428,16 +323,11 @@ export default function Home() {
         <div className="mx-auto px-6 md:px-10 lg:px-12">
           <SectionLabel>Portfolio</SectionLabel>
           <SectionTitle>Un aperçu de mon travail</SectionTitle>
-          <p className="mt-2 text-primary">
-            Jetez un oeil !
-          </p>
+          <p className="mt-2 text-primary">Jetez un oeil !</p>
 
           <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
             {PROJECTS.map((project) => (
-              <article
-                key={project.title}
-                className="flex flex-col"
-              >
+              <article key={project.title} className="flex flex-col">
                 <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
                   {project.tag}
                 </p>
@@ -445,19 +335,24 @@ export default function Home() {
                   {project.title}
                 </h3>
 
-
-
                 <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
-                  <Image
-                   key={project.image} src={project.image} alt={project.title}
-                   width={400} height={400}
-                   className={`w-auto h-[400px] mt-7
-                    rounded ${project.image === "/publis.svg" ?
-                      "object-contain" : "object-cover object-[50%-0%]"}
+                <Image
+                  key={project.image}
+                  src={project.image}
+                  alt={project.title}
+                  width={400}
+                  height={400}
+                  className={`w-auto h-[400px] mt-7
+                    rounded ${
+                      project.image === "/publis.svg"
+                        ? "object-contain"
+                        : "object-cover object-[50%-0%]"
+                    }
                       transition-transform ease-in-out duration-500
-                      md:hover:scale-115 hover:scale-110`} />
+                      md:hover:scale-115 hover:scale-110`}
+                />
               </article>
             ))}
           </div>
@@ -471,64 +366,70 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* About */}
-      <section
-        id="about"
-        className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12"
-      >
-        <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr]">
-          <div>
-            <SectionLabel>À propos</SectionLabel>
-            <div className="relative mt-4">
-            <h2
-                className="inline font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit"
-              >
-                atuWeb, c&apos;est moi
-              </h2>
-            <div className="absolute -top-20 right-0 overflow-hidden bg-secondary/80 rounded-full w-fit">
-              <Image
-                src="/tutur_gros_plan.svg"
-                alt="Photo de Arthur-Henri Michalland"
-                width={800}
-                height={800}
-                className="w-35 h-35 object-[0%-10%] inline "
-              />
+      <section id="about" className="w-full bg-bg">
+        <div className="bg-secondary/60 px-6 py-20 md:px-10 md:py-28 lg:px-12">
+          <div className="grid lg:grid-cols-[1fr_0.9fr] max-w-6xl">
+            <div>
+              <SectionLabel>À propos</SectionLabel>
+              <div className="relative mt-4">
+                <h2 className="inline font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit">
+                  atuWeb, c&apos;est moi
+                </h2>
+                <div className="absolute -top-20 right-0 overflow-hidden bg-secondary/80 rounded-full w-fit">
+                  <Image
+                    src="/tutur_gros_plan.svg"
+                    alt="Photo de Arthur-Henri Michalland"
+                    width={800}
+                    height={800}
+                    className="w-35 h-35 object-[0%-10%] inline "
+                  />
+                </div>
+              </div>
+              <p className="mt-6 text-lg leading-relaxed text-primary/75">
+                {PERSON.name} (mais je préfère Arthur). Grand curieux et
+                passioné par les interactions humain-machine, j'ai travaillé
+                avec des roboticiens, dans l'UX, et les environnements
+                connectés, avant de devenir développeur au CNRS. Je me consacre
+                aujourd'hui pleinement au développement web et à la création
+                d'applications sur mesure.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-primary/65">
+                J&apos;ai choisi de travailler en freelance pour être
+                directement en contact avec vous, pour traduire votre activité
+                dans un produit numérique compréhensible, crédible et
+                actionnable en ligne.
+              </p>
             </div>
-            </div>
-            <p className="mt-6 text-lg leading-relaxed text-primary/75">
-              {PERSON.name}, développeur web freelance. J'ai travaillé comme chercheur
-              dans les environnements connectés,
-              puis dans l'UX, avant de devenir développeur au CNRS.
-              Je me consacre aujourd'hui au développement web et à la création d'applications sur mesure.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-primary/65">
-              J&apos;ai choisi de travailler en freelance pour être directement
-              en contact avec vous,
-              pour traduire votre activité en quelque chose de
-              compréhensible, crédible et actionnable en ligne.
-            </p>
+            {/* à la place de l'image ? https://motion.dev/examples/react-motion-path */}
+            <Image
+              src="/coding_ok.svg"
+              alt="image d'un singe travaillmant à son bureau"
+              width={800}
+              height={800}
+              className="w-full h-auto rotate-y-180 -rotate-z-4 object-[0%-10%] mt-20"
+            />
           </div>
 
-          <div>
+          <div className="-mt-10">
             <h3 className="font-secondary text-xl font-medium text-primary">
-              Parcours
+              Envie de creuser un peu plus ?
             </h3>
-            <ol className="mt-6 space-y-6 border-l border-primary/12 pl-6">
+            {/* Utiliser https://motion.dev/examples/js-stagger */}
+            {/* Utiliser https://motion.dev/examples/react-bobble-hover */}
+            <ol className="mt-6 space-x-9 border-t border-primary/12 pl-6 inline-block">
               {TIMELINE.map((item) => (
-                <li key={item.title} className="relative">
+                <li key={item.title} className="relative inline-block">
                   <span
-                    className="absolute -left-[calc(1.5rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
+                    className="absolute -left-[calc(1rem)] -top-1.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
                     aria-hidden="true"
                   />
                   <p className="text-xs font-medium uppercase tracking-wide text-secondary">
-                    {item.period}
-                  </p>
-                  <p className="mt-1 font-medium text-primary">{item.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-primary/60">
-                    {item.body}
+                    {item.title}
                   </p>
                   {item.href && (
-                    <p className="mt-2">
+                    <p className="">
                       <ExternalLink href={item.href}>
                         {item.hrefLabel} ↗
                       </ExternalLink>
@@ -537,26 +438,19 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-
-            <div className="mt-10 rounded-xl border border-primary/10 p-6">
-              <p className="text-sm font-medium text-primary">
-                Profils & publications
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                {PROFILE_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <ExternalLink href={link.href}>{link.label}</ExternalLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12">
+      {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
+      {/* quand email envoyé : https://motion.dev/examples/react-notifications-list */}
+      <section
+        id="contact"
+        className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12"
+      >
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* UTILISER https://motion.dev/examples/react-color-interpolation */}
           <div>
             <SectionLabel>Contact</SectionLabel>
             <SectionTitle>Travaillons ensemble</SectionTitle>
@@ -661,7 +555,11 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="border-y border-primary/8 bg-primary/20 py-20 md:py-28">
+      {/* UTILISER https://motion.dev/examples/react-accordion */}
+      <section
+        id="faq"
+        className="border-y border-primary/8 bg-primary/20 py-20 md:py-28"
+      >
         <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
           <div className="text-center">
             <SectionLabel>FAQ</SectionLabel>
@@ -693,35 +591,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-primary/10 bg-primary/[0.03] py-12">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-center md:justify-between md:px-10 lg:px-12">
-          <div>
-            <p className="stack-sans-notch text-lg font-semibold text-primary">
-              <span className="text-logo">atu</span>-web
-            </p>
-            <p className="mt-1 text-sm text-primary/55">
-              {PERSON.name} · Sites web & applications sur mesure
-            </p>
-          </div>
-
-          <nav aria-label="Profils externes">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2">
-              {PROFILE_LINKS.map((link) => (
-                <li key={link.label}>
-                  <ExternalLink href={link.href}>{link.label}</ExternalLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-
-        <p className="mx-auto mt-8 max-w-6xl px-6 text-center text-xs text-primary/40 md:px-10 lg:px-12">
-          © {new Date().getFullYear()} atu-web · {PERSON.name} · Tous droits
-          réservés
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
