@@ -25,6 +25,9 @@ export const LINKS = {
     "https://scholar.google.com/citations?user=rQIx8ZoAAAAJ&hl=fr",
   linkedinCompany: "https://fr.linkedin.com/company/atuweb",
   thesis: "https://theses.hal.science/tel-02574831/",
-  halSpaceSyntax: "https://hal.science/hal-03774890v1",
+  hal: "https://hal.science/search/index/?q=%2A&rows=30&authFullName_s=Arthur-Henri+Michalland",
   ballab: "https://sites.google.com/view/annaborghilab/members",
+  lirmm: "https://www.lirmm.fr/equipes/web3/",
+  numdiag: "https://numdiag.fr/",
+  kevin: "https://psychologue-baillargues.fr",
 } as const;

@@ -23,6 +23,7 @@
     font-family: "Playfair Display", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    transition: letter-spacing 0.3s ease;
   }
 }
 
@@ -33,9 +34,11 @@
   --color-atu: var(--color-fuchsia-500);
   --color-prim: #f2f2f7;
   --color-second: rgba(42, 250, 193, 0.8);
-;
-  --color-tert: #FAEF2A;
+  --color-tert: #fabf2a;
   .logo-fill { fill: #dad0d0; transition: fill 0.3s ease; }
+  .stack-icon-mono {
+    filter: brightness(0) invert(1);
+  }
   .font-primary {
   font-family: "Playfair Display", sans-serif;
   font-optical-sizing: auto;
@@ -100,21 +103,32 @@
 /* ----------------------------------------------------------------
    3. SMOOTH TRANSITIONS between themes
    ---------------------------------------------------------------- */
+  @layer base {
+    h1, h2, h3, h4, p, a, li {
+      transition-property: background-color, color, border-color, box-shadow;
+      transition-duration: 0.35s;
+      transition-timing-function: ease;
+    }
+  }
+  @layer base {
+    p {
+      font-size: 1.4rem;
+    }
+  }
+  @layer base {
+    h1 {
+      font-size: 1.2rem;
+    }
+  }
+  @layer base {
+    p {
+      font-size: 1.4rem;
+    }
+  }
 
 html {
   background-color: var(--color-bg);
   color: var(--color-text);
-}
-
-/* Transition on all themed elements — scoped to color properties only */
-*,
-*::before,
-*::after {
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
 }
 
 .stack-sans-notch {

@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { ThemeProvider } from "./components/ThemeProvider";
-import { ThemeSwitch } from "./components/ThemeSwitch";
+import { ThemeProvider } from "./components/theme/ThemeProvider";
+import { ThemeSwitch } from "./components/theme/ThemeSwitch";
 import { JsonLd } from "./components/JsonLd";
-import Header from "./components/header";
+import Header from "./components/micro/header";
 import Script from "next/script";
 import { PERSON, SITE_NAME, SITE_URL } from "../lib/site";
 import "./globals.css";
 
 const THEMES = ["classic", "dark", "colorful"] as const;
-import { Stack_Sans_Notch, Arimo, Playfair_Display, Ranchers, Spicy_Rice, Luxurious_Roman} from "next/font/google";
+import {
+  Stack_Sans_Notch,
+  Arimo,
+  Playfair_Display,
+  Ranchers,
+  Spicy_Rice,
+  Luxurious_Roman,
+} from "next/font/google";
 
 const stackSansNotch = Stack_Sans_Notch({
   subsets: ["latin"],
@@ -30,25 +37,25 @@ const ranchers = Ranchers({
   subsets: ["latin"],
   variable: "--font-ranchers",
   display: "swap",
-  weight: "400"
+  weight: "400",
 });
 const spicyRice = Spicy_Rice({
   subsets: ["latin"],
   variable: "--font-spicy-rice",
   display: "swap",
-  weight: "400"
+  weight: "400",
 });
 const luxuriousRoman = Luxurious_Roman({
   subsets: ["latin"],
   variable: "--font-syne-mono",
   display: "swap",
-  weight: "400"
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${PERSON.name} | Développeur web · Rails · React · Next.js`,
+    default: `${SITE_NAME} — ${PERSON.name} | Développeur web · Rails · Node React · Next.js`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
@@ -84,7 +91,6 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
 };
 
-
 export default async function RootLayout({
   children,
 }: {
@@ -106,9 +112,9 @@ export default async function RootLayout({
       >
         <JsonLd />
         <ThemeProvider initialTheme={theme as (typeof THEMES)[number]}>
-        <Header />
+          <Header />
           {children}
-        <ThemeSwitch />
+          <ThemeSwitch />
         </ThemeProvider>
       </body>
     </html>

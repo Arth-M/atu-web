@@ -1,11 +1,23 @@
-import Link from "next/link";
+import SectionLabel from "./components/micro/SectionLabel";
+import {
+  PrimaryButton,
+  SecondaryLink,
+  ExternalLink,
+} from "./components/PageLinks";
 import { LINKS, PERSON } from "../lib/site";
-
+import Soleil from "./components/images/soleil";
+import HeroLottie from "./components/images/heroLottie";
+import Help from "./components/images/help";
+import Horloge from "./components/images/horloge";
+import ArrowUp from "./components/micro/arrowUp";
+import Image from "next/image";
+import { Footer } from "./components/footer";
+import Expertise from "./components/sections/expertise";
+import SectionTitle from "./components/micro/sectionTitle";
 const TRUST_MARKERS = [
-  "Doctorat en psychologie cognitive",
-  "Ingénieur de recherche CNRS (LIRMM)",
+  "Ingénieur développement logiciel CNRS (LIRMM)",
+  "Docteur en psychologie cognitive",
   "Publications internationales",
-  "Expérience éditeur de logiciels",
 ];
 
 const SERVICES = [
@@ -16,7 +28,7 @@ const SERVICES = [
       "Plus de demandes qualifiées, moins de « je ne sais pas ce que vous faites exactement ».",
   },
   {
-    title: "Application web & outil métier",
+    title: "Application web, mobile & outil métier",
     body: "Tableaux de bord, espaces clients, workflows internes, MVP SaaS. Backend robuste (Ruby on Rails ou Node), frontend moderne (React / Next.js), architecture pensée pour évoluer.",
     outcome:
       "Un outil adopté par vos équipes ou vos clients — pas un projet abandonné après la livraison.",
@@ -31,65 +43,59 @@ const SERVICES = [
 
 const APPROACH = [
   {
-    title: "Clarté cognitive",
-    body: "Hiérarchie visuelle, libellés, parcours : tout est pensé pour réduire l'effort mental. L'utilisateur sait où il est, quoi faire, et pourquoi.",
-  },
-  {
-    title: "Action guidée",
-    body: "Chaque CTA, formulaire et étape suit une logique d'affordance : ce qui est possible doit être évident, ce qui est secondaire reste accessible sans distraire.",
+    title: "Clarté UX Action guidée",
+    body: "Hiérarchie visuelle, libellés, parcours : l'utilisateur sait où il est, quoi faire, et pourquoi. Chaque élément explicite sa logique : ce qui est possible doit être évident, ce qui est secondaire accessible.",
+    icon: <Soleil />,
   },
   {
     title: "Code durable",
-    body: "Mon expérience en ingénierie logicielle (LIRMM, éditeur) m'a appris que la meilleure UX meurt si le code est fragile. Je livre des bases solides, documentées, maintenables.",
+    body: "Même la meilleure UX meurt lorsque le code est fragile. Je vous livre une codebase claire, documentée, et maintenable.",
+    icon: <Horloge />,
+  },
+  {
+    title: "Et ensuite ?",
+    body: "Hébergement, maintenance, mise à jour : je vous accompagne dans la gestion de votre projet après la livraison.",
+    icon: <Help />,
+  },
+  {
+    title: "Et mes utilisateurs ?",
+    body: "Analyse du traffic, retours utilisateurs, évolution continue : je vous accompagne dans la mesure de vos besoins.",
+    icon: <Help />,
   },
 ];
 
 const TIMELINE = [
   {
-    period: "2019",
-    title: "Doctorat en psychologie cognitive",
-    body: "Thèse sur les relations entre cognition et motricité manuelle, interactions humain–machine (LIRMM / Univ. Montpellier 3).",
+    period: "2015-2019",
+    title: "Doctorat psychologie cognitive",
     href: LINKS.thesis,
     hrefLabel: "Thèse sur HAL",
   },
   {
     period: "2019–2021",
-    title: "Recherche internationale",
-    body: "Post-doctorat à Rome (BALLAB, Sapienza) sur l'incarnation des concepts et les affordances — publié dans Brain Sciences.",
-    href: LINKS.publication,
-    hrefLabel: "Publication PMC",
+    title: "Langage et IHM",
+    href: LINKS.scholar,
+    hrefLabel: "Publications",
   },
   {
-    period: "2021",
-    title: "Environnements intelligents",
-    body: "Travaux sur la cognition spatiale, la space syntax et les smart buildings (projet HUT, Montpellier).",
-    href: LINKS.halSpaceSyntax,
-    hrefLabel: "Publication HAL",
+    period: "2021-2024",
+    title: "UX, Objets connectés",
+    href: LINKS.hal,
+    hrefLabel: "Publications",
   },
   {
-    period: "Aujourd'hui",
+    period: "2024 - Aujourd'hui",
     title: "Ingénierie & édition logicielle",
-    body: "Ingénieur de recherche CNRS au LIRMM (équipe SLICE), projets comme WebIris. Expérience chez Berger Levrault, éditeur de solutions numériques.",
     href: LINKS.lirmm,
-    hrefLabel: "Profil LIRMM",
+    hrefLabel: "Équipe CNRS",
   },
-];
-
-const STACK = [
-  "Ruby on Rails",
-  "Node.js",
-  "React",
-  "Next.js",
-  "TypeScript",
-  "PostgreSQL",
-  "APIs REST",
 ];
 
 const PROCESS = [
   {
     step: "01",
     title: "Échange gratuit",
-    body: "15–30 min pour comprendre votre contexte, vos objectifs et vos contraintes.",
+    body: "1 heure d'échange pour comprendre vos objectifs, le contexte de votre demande et vos contraintes.",
   },
   {
     step: "02",
@@ -104,42 +110,45 @@ const PROCESS = [
   {
     step: "04",
     title: "Livraison & autonomie",
-    body: "Mise en production, tests, passation. Vous repartez avec un produit utilisable.",
+    body: "Tests, mise en production, livraison. Vous repartez avec un produit utilisable.",
   },
 ];
 
 const PROJECTS = [
   {
-    title: "WebIris",
-    tag: "Application web · Santé / prévention",
-    body: "Outil web accessible pour sensibiliser à la santé visuelle, développé au LIRMM (équipe SLICE).",
-    href: LINKS.webIris,
-    hrefLabel: "web-iris.lirmm.fr",
+    title: "NumDiag",
+    tag: "Application web · RGPD",
+    body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
+    href: LINKS.numdiag,
+    hrefLabel: "NumDiag.fr",
+    image: "/sites/numdiag.svg",
+  },
+  {
+    title: "Kevin Nicolas",
+    tag: "Site web · Psychologue",
+    body: "Site personnalisé pour un psychologue basé à Baillargues.",
+    href: LINKS.kevin,
+    hrefLabel: "Psychologue-Baillargues.fr",
+    image: "/sites/kev_site.svg",
   },
   {
     title: "Recherche & publications",
     tag: "Cognition · Interaction humain–machine",
-    body: "Travaux sur les affordances, la cognition spatiale et les environnements intelligents — publiés et cités internationalement.",
+    body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
     href: LINKS.scholar,
     hrefLabel: "Google Scholar",
-  },
-  {
-    title: "Berger Levrault",
-    tag: "Éditeur de logiciels · Produit métier",
-    body: "Développement au sein d'un éditeur majeur du secteur public — exigences de qualité, sécurité et maintenance long terme.",
-    href: null,
-    hrefLabel: null,
+    image: "/sites/publis.svg",
   },
 ];
 
 const FAQ = [
   {
     q: "Pourquoi un développeur avec un doctorat en psychologie ?",
-    a: "Parce que le web, c'est avant tout des humains qui lisent, hésitent, cliquent ou abandonnent. Ma formation me permet de concevoir des interfaces qui respectent ces mécanismes — pas seulement des tendances visuelles.",
+    a: "Parce que le web, c'est avant tout des humains qui lisent, hésitent, cliquent ou abandonnent, même quand ils interagissent avec une IA. Ma formation me permet de concevoir des interfaces qui respectent ces mécanismes — pas seulement des tendances visuelles.",
   },
   {
     q: "Quelles technologies utilisez-vous ?",
-    a: "Ruby on Rails pour des backends robustes, Node.js pour des services et APIs, React et Next.js pour le frontend. Le choix dépend de votre projet, pas de ma préférence.",
+    a: "Ruby on Rails, Node.js, React et Next.js. Le choix dépend de votre projet, pas de ma préférence.",
   },
   {
     q: "Travaillez-vous seul ?",
@@ -151,241 +160,99 @@ const FAQ = [
   },
   {
     q: "Pouvez-vous reprendre un projet existant ?",
-    a: "Oui — audit, refonte partielle ou reconstruction. J'ai l'habitude de naviguer dans du code hérité (recherche, éditeur, produits en production).",
+    a: "Oui — audit, refonte partielle ou reconstruction. J'ai l'habitude de naviguer dans du code existant.",
   },
 ];
 
-const PROFILE_LINKS = [
-  { label: "ORCID", href: LINKS.orcid },
-  { label: "GitHub", href: LINKS.github },
-  { label: "Google Scholar", href: LINKS.scholar },
-  { label: "LinkedIn atu-web", href: LINKS.linkedinCompany },
-  { label: "ResearchGate", href: "https://www.researchgate.net/profile/Arthur_Henri_Michalland" },
-];
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
-      {children}
-    </p>
-  );
-}
-
-function SectionTitle({
-  children,
-  id,
-}: {
-  children: React.ReactNode;
-  id?: string;
-}) {
-  return (
-    <h2
-      id={id}
-      className="font-secondary text-3xl font-medium leading-tight text-primary sm:text-4xl lg:text-[2.75rem]"
-    >
-      {children}
-    </h2>
-  );
-}
-
-function PrimaryButton({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center justify-center rounded-lg border border-tertiary bg-tertiary px-6 py-3 text-sm font-medium text-white shadow-sm shadow-tertiary/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-tertiary/25"
-    >
-      {children}
-    </Link>
-  );
-}
-
-function SecondaryLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center gap-1 text-sm font-medium text-secondary underline-offset-4 transition hover:text-primary hover:underline"
-    >
-      {children}
-      <span aria-hidden="true">→</span>
-    </Link>
-  );
-}
-
-function ExternalLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm font-medium text-secondary underline-offset-4 transition hover:text-primary hover:underline"
-    >
-      {children}
-    </a>
-  );
-}
-
 export default function Home() {
   return (
-    <>
+    // Utiliser partout https://motion.dev/examples/react-hero-stagger
+    // UTILISER PARTOUT https://motion.dev/examples/react-enter-animation
+    // UTILISER pour transitions entre thème si position différente https://motion.dev/examples/react-css-spring
+    // POUR LES BOUTONS : https://motion.dev/examples/react-material-design-ripple
+    <div className="">
       {/* Hero */}
-      <section
-        id="accueil"
-        className="relative overflow-hidden border-b border-primary/8"
-      >
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.35]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(1,0,8,0.07) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -right-24 top-32 h-96 w-96 rounded-full bg-secondary/8 blur-3xl"
-          aria-hidden="true"
-        />
+      <section id="accueil" className="not-arrow-up relative overflow-hidden">
+        <ArrowUp />
+        {/* UTILISER https://motion.dev/examples/react-path-drawing */}
 
-        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-8 md:px-10 md:pb-32 md:pt-12 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
-            <div className="max-w-2xl">
-              <SectionLabel>
-                Développeur web · Doctorat en psychologie cognitive
-              </SectionLabel>
-              <h1 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des sites et des apps que vos utilisateurs{" "}
-                <span className="text-secondary">comprennent</span> — et
-                utilisent.
+        <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+          <div className="flex flex-wrap items-center md:justify-between">
+            <div className="lg:w-2/3">
+              <h1 className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
+                Développeur web · Docteur en psychologie cognitive
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary/75">
-                Je suis {PERSON.name} : docteur en psychologie cognitive,
-                développeur web en Ruby on Rails, Node, React et Next.js. De la
-                recherche au code en production — un seul interlocuteur pour vos
-                projets.
+              <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
+                Des applications
+                <br /> qui vous ressemblent,
+                <br /> pensées pour vos utilisateurs.
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-primary/75">
+                Un seul interlocuteur pour vos projets - de l'élaboration au
+                code en production.
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <PrimaryButton href="#contact">
+              <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
+                {/* <PrimaryButton href="#contact">
                   Réserver un échange gratuit
-                </PrimaryButton>
+                </PrimaryButton> */}
                 <SecondaryLink href="#nos-realisations">
                   Voir mes réalisations
                 </SecondaryLink>
               </div>
-              <p className="mt-5 text-sm text-primary/50">
-                15 minutes · Sans engagement · Réponse sous 48 h
-              </p>
             </div>
-
-            <div className="hidden lg:block">
-              <div className="rounded-2xl border border-primary/10 bg-white/60 p-8 backdrop-blur-sm">
-                <p className="font-secondary text-xl leading-snug text-primary">
-                  « Un site ne devrait pas seulement être beau. Il devrait être{" "}
-                  <em className="not-italic text-secondary">compris</em>. »
-                </p>
-                <div className="mt-8 space-y-3 border-t border-primary/8 pt-6">
-                  {TRUST_MARKERS.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-3 text-sm text-primary/70"
-                    >
-                      <span
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tertiary"
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="self-center mx-auto mt-5 lg:mt-0">
+              <HeroLottie />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust strip — mobile */}
-      <section className="border-b border-primary/8 bg-primary/[0.02] lg:hidden">
-        <div className="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-2 px-6 py-5 md:px-10">
-          {TRUST_MARKERS.map((item) => (
-            <span
-              key={item}
-              className="text-xs font-medium uppercase tracking-wide text-primary/55"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* Problem */}
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12">
-        <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
-          <p className="font-secondary text-6xl font-medium leading-none text-primary/8">
-            ?
-          </p>
-          <div>
-            <SectionLabel>Le constat</SectionLabel>
-            <SectionTitle>
-              Un site joli que personne ne comprend — ou un outil métier que
-              personne n&apos;adopte ?
-            </SectionTitle>
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-primary/70">
-              <p>
-                Vous investissez dans un site ou une application. Le rendu est
-                propre. Pourtant : les visiteurs ne contactent pas, les équipes
-                contournent l&apos;outil, les parcours sont confus.
-              </p>
-              <p>
-                Souvent, ce n&apos;est pas un problème de design au sens
-                décoratif. C&apos;est un problème de{" "}
-                <strong className="font-medium text-primary">
-                  charge cognitive
-                </strong>{" "}
-                : trop d&apos;options, des libellés flous, une friction au
-                mauvais endroit.
-              </p>
-              <p>
-                C&apos;est précisément le lien que j&apos;ai appris à construire
-                — d&apos;abord en laboratoire, ensuite en développant des
-                applications réelles.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise */}
-      <section
-        id="notre-expertise"
-        className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28"
-      >
-        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
-          <div className="max-w-2xl">
-            <SectionLabel>Notre expertise</SectionLabel>
-            <SectionTitle>Ce que je construis pour vous</SectionTitle>
-            <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Site vitrine, landing page, outil métier ou MVP produit : je
-              m&apos;adapte à votre stade — lancement, refonte ou premier produit
-              digital.
+      {/* La proposition */}
+      {/* Utiliser https://motion.dev/examples/js-stagger */}
+      <section className="mx-auto lg:mt-20 pt-5 pb-10">
+        <div className="max-w-3xl mx-auto">
+          <SectionLabel>Mon approche</SectionLabel>
+          <SectionTitle>
+            Prendre en compte à la fois la technologie et les utilisateurs
+          </SectionTitle>
+          <div className="mt-6 space-y-2 leading-relaxed text-primary/70">
+            <p>
+              Le travail de développeur nécessite une logique et une rigueur qui
+              ne correspondent pas nécessairement à l'état d'esprit des
+              utilisateurs. AtuWeb vous propose de ne négliger aucun de ces
+              aspects : un produit centré sur l'utilisateur, réalisé avec des
+              technologies performantes.
             </p>
+
+            <p className="leading-relaxed text-primary/70">
+              Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
+              anticipent et interagissent — avec des objets connectés, des
+              interfaces, des espaces. Puis j&apos;ai appris à traduire ça en
+              logiciel.
+            </p>
+            {/* <p className="text-sm leading-relaxed text-primary/55">
+              Je ne promets pas la magie d&apos;une refonte miracle en 48 h. Je
+              promets une méthode rigoureuse — sans oublier le fun.
+            </p> */}
           </div>
+        </div>
+        <div className="lg:flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
+          {APPROACH.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-xl border border-primary/10 h-full lg:w-[219px] px-6 py-5"
+            >
+              <div className="flex space-x-2 justify-start items-center">
+                {item.icon}
+                <h3 className="font-secondary text-lg font-medium text-secondary">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="mt-4 text-base leading-relaxed text-primary/70">
+                {item.body}
+              </p>
+            </div>
+          ))}
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {SERVICES.map((service, i) => (
@@ -410,51 +277,15 @@ export default function Home() {
           </div>
 
           <div className="mt-12">
-            <PrimaryButton href="#contact">Discutons de votre projet</PrimaryButton>
-          </div>
-        </div>
-      </section>
-
-      {/* Approach */}
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <SectionLabel>Mon approche</SectionLabel>
-            <SectionTitle>
-              Pourquoi un doctorat en psychologie change la façon de coder
-            </SectionTitle>
-            <p className="mt-5 text-base leading-relaxed text-primary/70">
-              Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
-              anticipent et interagissent — avec des objets, des interfaces, des
-              espaces. Puis j&apos;ai appris à traduire ça en logiciel.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-primary/55">
-              Je ne promets pas la magie d&apos;une refonte miracle en 48 h. Je
-              promets une méthode rigoureuse — la même qu&apos;en recherche et
-              en production.
-            </p>
-          </div>
-
-          <div className="space-y-5">
-            {APPROACH.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-primary/10 p-6"
-              >
-                <h3 className="font-secondary text-lg font-medium text-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-primary/65">
-                  {item.body}
-                </p>
-              </div>
-            ))}
+            <PrimaryButton href="#contact">
+              Discutons de votre projet
+            </PrimaryButton>
           </div>
         </div>
       </section>
 
       {/* Process */}
-      <section className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28">
+      <section className="bg-primary/2 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
           <SectionLabel>Processus</SectionLabel>
           <SectionTitle>Comment on travaille ensemble</SectionTitle>
@@ -481,69 +312,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stack */}
-      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-xl">
-            <SectionLabel>Technologies</SectionLabel>
-            <SectionTitle>
-              Des outils modernes, choisis pour le bon problème
-            </SectionTitle>
-            <p className="mt-4 text-base leading-relaxed text-primary/70">
-              Rails pour des backends structurés. Node pour des APIs légères.
-              React et Next.js pour des interfaces performantes et bien
-              référencées.
-            </p>
-          </div>
-          <ul className="flex flex-wrap gap-2">
-            {STACK.map((tech) => (
-              <li
-                key={tech}
-                className="rounded-full border border-primary/12 bg-white/50 px-4 py-2 text-sm text-primary/80"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* Expertise */}
+      <Expertise />
 
       {/* Portfolio */}
       <section
-        id="nos-realisations"
-        className="border-t border-primary/8 bg-primary/[0.02] py-20 md:py-28"
+        id="portfolio"
+        className="py-20 md:py-20 bg-secondary/20 text-secondary"
       >
-        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
-          <SectionLabel>Nos réalisations</SectionLabel>
-          <SectionTitle>Projets & expériences</SectionTitle>
-          <p className="mt-4 max-w-2xl text-base text-primary/70">
-            Chaque projet part d&apos;un besoin concret — visibilité, crédibilité,
-            ou outil métier. Mes réalisations clients arrivent ; voici ce qui
-            nourrit ma pratique aujourd&apos;hui.
-          </p>
+        <div className="mx-auto px-6 md:px-10 lg:px-12">
+          <SectionLabel>Portfolio</SectionLabel>
+          <SectionTitle>Un aperçu de mon travail</SectionTitle>
+          <p className="mt-2 text-primary">Jetez un oeil !</p>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
             {PROJECTS.map((project) => (
-              <article
-                key={project.title}
-                className="flex flex-col rounded-2xl border border-primary/10 bg-bg p-7"
-              >
-                <p className="text-xs font-medium uppercase tracking-wide text-secondary">
+              <article key={project.title} className="flex flex-col">
+                <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
                   {project.tag}
                 </p>
-                <h3 className="mt-3 font-secondary text-xl font-medium text-primary">
+                <h3 className="mt-3 font-secondary text-xl font-medium">
                   {project.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-primary/65">
+
+                <p className="mt-3 flex-1 text-sm leading-relaxed ">
                   {project.body}
                 </p>
-                {project.href && project.hrefLabel && (
-                  <p className="mt-5">
-                    <ExternalLink href={project.href}>
-                      {project.hrefLabel} ↗
-                    </ExternalLink>
-                  </p>
-                )}
+                <Image
+                  key={project.image}
+                  src={project.image}
+                  alt={project.title}
+                  width={400}
+                  height={400}
+                  className={`w-auto h-[400px] mt-7
+                    rounded ${
+                      project.image === "/publis.svg"
+                        ? "object-contain"
+                        : "object-cover object-[50%-0%]"
+                    }
+                      transition-transform ease-in-out duration-500
+                      md:hover:scale-115 hover:scale-110`}
+                />
               </article>
             ))}
           </div>
@@ -557,69 +366,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
-      <section
-        id="entreprise"
-        className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12"
-      >
-        <div className="grid gap-14 lg:grid-cols-[1fr_0.9fr]">
-          <div>
-            <SectionLabel>L&apos;entreprise</SectionLabel>
-            <SectionTitle>atu-web, c&apos;est moi</SectionTitle>
-            <p className="mt-6 text-lg leading-relaxed text-primary/75">
-              Bonjour — je suis {PERSON.name}, développeur web freelance basé à{" "}
-              {PERSON.location.split(",")[0]}. Docteur en psychologie
-              cognitive. Ingénieur de recherche au CNRS. Expérience en labo de
-              recherche, au LIRMM et chez Berger Levrault.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-primary/65">
-              J&apos;ai choisi de travailler en solo parce que vos projets
-              méritent de la clarté : une vision, une voix, une responsabilité.
-              Mon métier, ce n&apos;est pas seulement « faire un site » —
-              c&apos;est traduire votre activité en quelque chose de
-              compréhensible, crédible et actionnable en ligne.
-            </p>
 
-            <ul className="mt-8 space-y-3">
-              {[
-                "Clarté — pas de promesses floues.",
-                "Rigueur — code maintenable, jalons définis.",
-                "Partenariat — disponible après la livraison.",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm text-primary/70"
-                >
-                  <span
-                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary"
-                    aria-hidden="true"
+      {/* About */}
+      <section id="about" className="w-full bg-bg">
+        <div className="bg-secondary/60 px-6 py-20 md:px-10 md:py-28 lg:px-12">
+          <div className="grid lg:grid-cols-[1fr_0.9fr] max-w-6xl">
+            <div>
+              <SectionLabel>À propos</SectionLabel>
+              <div className="relative mt-4">
+                <h2 className="inline font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit">
+                  atuWeb, c&apos;est moi
+                </h2>
+                <div className="absolute -top-20 right-0 overflow-hidden bg-secondary/80 rounded-full w-fit">
+                  <Image
+                    src="/tutur_gros_plan.svg"
+                    alt="Photo de Arthur-Henri Michalland"
+                    width={800}
+                    height={800}
+                    className="w-35 h-35 object-[0%-10%] inline "
                   />
-                  {item}
-                </li>
-              ))}
-            </ul>
+                </div>
+              </div>
+              <p className="mt-6 text-lg leading-relaxed text-primary/75">
+                {PERSON.name} (mais je préfère Arthur). Grand curieux et
+                passioné par les interactions humain-machine, j'ai travaillé
+                avec des roboticiens, dans l'UX, et les environnements
+                connectés, avant de devenir développeur au CNRS. Je me consacre
+                aujourd'hui pleinement au développement web et à la création
+                d'applications sur mesure.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-primary/65">
+                J&apos;ai choisi de travailler en freelance pour être
+                directement en contact avec vous, pour traduire votre activité
+                dans un produit numérique compréhensible, crédible et
+                actionnable en ligne.
+              </p>
+            </div>
+            {/* à la place de l'image ? https://motion.dev/examples/react-motion-path */}
+            <Image
+              src="/coding_ok.svg"
+              alt="image d'un singe travaillmant à son bureau"
+              width={800}
+              height={800}
+              className="w-full h-auto rotate-y-180 -rotate-z-4 object-[0%-10%] mt-20"
+            />
           </div>
 
-          <div>
+          <div className="-mt-10">
             <h3 className="font-secondary text-xl font-medium text-primary">
-              Parcours
+              Envie de creuser un peu plus ?
             </h3>
-            <ol className="mt-6 space-y-6 border-l border-primary/12 pl-6">
+            {/* Utiliser https://motion.dev/examples/js-stagger */}
+            {/* Utiliser https://motion.dev/examples/react-bobble-hover */}
+            <ol className="mt-6 space-x-9 border-t border-primary/12 pl-6 inline-block">
               {TIMELINE.map((item) => (
-                <li key={item.title} className="relative">
+                <li key={item.title} className="relative inline-block">
                   <span
-                    className="absolute -left-[calc(1.5rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
+                    className="absolute -left-[calc(1rem)] -top-1.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
                     aria-hidden="true"
                   />
                   <p className="text-xs font-medium uppercase tracking-wide text-secondary">
-                    {item.period}
-                  </p>
-                  <p className="mt-1 font-medium text-primary">{item.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-primary/60">
-                    {item.body}
+                    {item.title}
                   </p>
                   {item.href && (
-                    <p className="mt-2">
+                    <p className="">
                       <ExternalLink href={item.href}>
                         {item.hrefLabel} ↗
                       </ExternalLink>
@@ -628,60 +438,19 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-
-            <div className="mt-10 rounded-xl border border-primary/10 p-6">
-              <p className="text-sm font-medium text-primary">
-                Profils & publications
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                {PROFILE_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <ExternalLink href={link.href}>{link.label}</ExternalLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-y border-primary/8 bg-primary/[0.02] py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
-          <div className="text-center">
-            <SectionLabel>FAQ</SectionLabel>
-            <SectionTitle>Questions fréquentes</SectionTitle>
-          </div>
-
-          <div className="mt-12 space-y-3">
-            {FAQ.map((item) => (
-              <details
-                key={item.q}
-                className="group rounded-xl border border-primary/10 bg-bg px-5 py-4 open:shadow-sm"
-              >
-                <summary className="cursor-pointer list-none font-medium text-primary [&::-webkit-details-marker]:hidden">
-                  <span className="flex items-center justify-between gap-4">
-                    {item.q}
-                    <span
-                      className="text-secondary transition group-open:rotate-45"
-                      aria-hidden="true"
-                    >
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-primary/65">
-                  {item.a}
-                </p>
-              </details>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12">
+      {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
+      {/* quand email envoyé : https://motion.dev/examples/react-notifications-list */}
+      <section
+        id="contact"
+        className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12"
+      >
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* UTILISER https://motion.dev/examples/react-color-interpolation */}
           <div>
             <SectionLabel>Contact</SectionLabel>
             <SectionTitle>Travaillons ensemble</SectionTitle>
@@ -785,34 +554,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-primary/10 bg-primary/[0.03] py-12">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-center md:justify-between md:px-10 lg:px-12">
-          <div>
-            <p className="stack-sans-notch text-lg font-semibold text-primary">
-              <span className="text-logo">atu</span>-web
-            </p>
-            <p className="mt-1 text-sm text-primary/55">
-              {PERSON.name} · Sites web & applications sur mesure
-            </p>
+      {/* FAQ */}
+      {/* UTILISER https://motion.dev/examples/react-accordion */}
+      <section
+        id="faq"
+        className="border-y border-primary/8 bg-primary/20 py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
+          <div className="text-center">
+            <SectionLabel>FAQ</SectionLabel>
+            <SectionTitle>Questions fréquentes</SectionTitle>
           </div>
 
-          <nav aria-label="Profils externes">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2">
-              {PROFILE_LINKS.map((link) => (
-                <li key={link.label}>
-                  <ExternalLink href={link.href}>{link.label}</ExternalLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="mt-12 space-y-3">
+            {FAQ.map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-xl border border-primary/10 bg-bg px-5 py-4 open:shadow-sm"
+              >
+                <summary className="cursor-pointer list-none font-medium text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    {item.q}
+                    <span
+                      className="text-secondary transition group-open:rotate-45"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-primary/65">
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
-
-        <p className="mx-auto mt-8 max-w-6xl px-6 text-center text-xs text-primary/40 md:px-10 lg:px-12">
-          © {new Date().getFullYear()} atu-web · {PERSON.name} · Tous droits
-          réservés
-        </p>
-      </footer>
-    </>
+      </section>
+      <Footer />
+    </div>
   );
 }

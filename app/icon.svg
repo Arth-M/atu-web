@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Petites oreilles -->
+  <circle cx="16" cy="46" r="8.5" fill="#1a1a1a"/>
+  <circle cx="84" cy="46" r="8.5" fill="#1a1a1a"/>
+  <!-- Tête (structure type chimpanzé) -->
+  <path d="M50 15
+           C68 15 82 28 82 47
+           C82 66 70 88 50 88
+           C30 88 18 66 18 47
+           C18 28 32 15 50 15 Z" fill="#1a1a1a"/>
+  <!-- Masque facial : large au front, museau arrondi en bas -->
+  <ellipse cx="50" cy="46" rx="24" ry="17" fill="#F2E6CE"/>
+  <ellipse cx="50" cy="66" rx="17" ry="16" fill="#F2E6CE"/>
+  <!-- Lunettes rondes -->
+  <g fill="none" stroke="#4645F6" stroke-width="3.4">
+    <circle cx="39" cy="47" r="10"/>
+    <circle cx="61" cy="47" r="10"/>
+    <path d="M49.5 47 q0.5 -3 1 0"/>
+  </g>
+  <!-- Yeux -->
+  <circle cx="39" cy="47" r="2.8" fill="#1a1a1a"/>
+  <circle cx="61" cy="47" r="2.8" fill="#1a1a1a"/>
+  <!-- Narines (minimal) -->
+  <circle cx="46" cy="64" r="1.7" fill="#1a1a1a"/>
+  <circle cx="54" cy="64" r="1.7" fill="#1a1a1a"/>
+</svg>
