@@ -20,7 +20,7 @@ export default function AnimatedSectionLabel({ children }) {
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const [textWidth, setTextWidth] = useState(0);
-  const isInView = useInView(containerRef, { once: true, margin: "-250px" });
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const reduceMotion = useReducedMotion();
 
   useLayoutEffect(() => {
@@ -97,7 +97,7 @@ export default function AnimatedSectionLabel({ children }) {
         animate={
           isInView ? { width: "75%", delay: 1.4, opacity: 1 } : undefined
         }
-        transition={{ duration: 0.5, delay: SWEEP_DURATION+APPEAR_DURATION, ease: "easeOut" }}
+        transition={{ duration: 0.5, delay: SWEEP_DURATION+APPEAR_DURATION, ease: "easeInOut" }}
       />
     </div>
   );

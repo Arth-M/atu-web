@@ -85,7 +85,7 @@ const TIMELINE = [
   },
   {
     period: "2024 - Aujourd'hui",
-    title: "Ingénierie & édition logicielle",
+    title: "Ingénierie logicielle",
     href: LINKS.lirmm,
     hrefLabel: "Équipe CNRS",
   },
@@ -195,7 +195,7 @@ export default function Home() {
                 {/* <PrimaryButton href="#contact">
                   Réserver un échange gratuit
                 </PrimaryButton> */}
-                <SecondaryLink href="#nos-realisations">
+                <SecondaryLink href="#portfolio">
                   Voir mes réalisations
                 </SecondaryLink>
               </div>
@@ -418,18 +418,18 @@ export default function Home() {
             </h3>
             {/* Utiliser https://motion.dev/examples/js-stagger */}
             {/* Utiliser https://motion.dev/examples/react-bobble-hover */}
-            <ol className="mt-6 space-x-9 border-t border-primary/12 pl-6 inline-block">
+            <ol className="mt-6 space-x-9 md:border-t md:border-l-0 border-l border-primary/12 md:pl-6 pl-3.5 md:inline-block">
               {TIMELINE.map((item) => (
-                <li key={item.title} className="relative inline-block">
+                <li key={item.title} className="relative md:inline-block">
                   <span
-                    className="absolute -left-[calc(1rem)] -top-1.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
+                    className="absolute md:-left-[calc(1rem)] -left-[19.5px] md:-top-1.5 top-0.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
                     aria-hidden="true"
                   />
-                  <p className="text-xs font-medium uppercase tracking-wide text-secondary">
+                  <p className="text-xs font-medium uppercase tracking-wide text-secondary mt-4 md:mt-0">
                     {item.title}
                   </p>
                   {item.href && (
-                    <p className="">
+                    <p className="-mt-2">
                       <ExternalLink href={item.href}>
                         {item.hrefLabel} ↗
                       </ExternalLink>
