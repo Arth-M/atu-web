@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -15,6 +16,7 @@ export default function Header() {
     { name: "À propos", href: "#about" },
     { name: "FAQ", href: "#faq" },
   ];
+
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -37,7 +39,6 @@ export default function Header() {
     // sur bouton de contact: https://motion.dev/examples/react-confetti
     <nav
       className="bg-transparent relative flex md:mt-5 mt-7 font-semibold"
-      ref={menuRef}
     >
       <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1">
         <Logo />

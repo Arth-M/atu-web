@@ -1,6 +1,8 @@
 "use client";
 
 import { useTheme } from "./ThemeProvider";
+import { DUREE, init, anim } from "../animate/textAppear";
+import { motion } from "motion/react";
 
 const LABELS: Record<string, { label: string }> = {
   classic: { label: "Classique" },
@@ -12,7 +14,11 @@ export function ThemeSwitch() {
   const { theme, setTheme, themes } = useTheme();
 
   return (
-    <div className="fixed top-3 left-1/2 transform -translate-x-1/2 rounded-2xl font-primary text-primary z-50 grid grid-cols-3 justify-center items-center border border-primary/50 bg-secondary/15 shadow-lg shadow-secondary/40 backdrop-blur-xs">
+    <motion.div
+      initial={init}
+      animate={anim}
+      transition={{ duration: DUREE}}
+      className="fixed top-3 left-1/2 transform -translate-x-1/2 rounded-2xl font-primary text-primary z-50 grid grid-cols-3 justify-center items-center border border-primary/50 bg-secondary/15 shadow-lg shadow-secondary/40 backdrop-blur-xs">
       {themes.map((t) => {
         const active = t === theme;
         return (
@@ -30,6 +36,6 @@ export function ThemeSwitch() {
           </button>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

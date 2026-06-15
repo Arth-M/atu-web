@@ -102,6 +102,7 @@ export default async function RootLayout({
     ? stored
     : "classic";
 
+
   return (
     <html lang="fr" data-theme={theme} suppressHydrationWarning>
       <head>

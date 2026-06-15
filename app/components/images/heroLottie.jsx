@@ -2,8 +2,9 @@
 
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useTheme } from "../theme/ThemeProvider";
+import { motion } from "motion/react";
 
-export default function HeroLottie() {
+export default function HeroLottie({ init, anim, duree, delay }) {
   const { theme } = useTheme();
   const LOTTIE_BY_THEME = {
     classic: "/hero/hero_classic.lottie",
@@ -13,6 +14,15 @@ export default function HeroLottie() {
   const src = LOTTIE_BY_THEME[theme] ?? "/hero.lottie";
 
   return (
-    <DotLottieReact key={src} src={src} loop autoplay className="h-70 w-70" />
+    <motion.div
+      initial={init}
+      animate={anim}
+      transition={{ duration: duree, delay: delay }}
+     >
+      <DotLottieReact
+        key={src} src={src}
+        loop autoplay
+        className="h-70 w-70" />
+    </motion.div>
   );
 }
