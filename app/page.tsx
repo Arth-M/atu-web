@@ -1,19 +1,23 @@
 import SectionLabel from "./components/micro/SectionLabel";
-import {
-  PrimaryButton,
-  SecondaryLink,
-  ExternalLink,
-} from "./components/PageLinks";
+import { PrimaryButton, ExternalLink } from "./components/PageLinks";
 import { LINKS, PERSON } from "../lib/site";
 import Soleil from "./components/images/soleil";
-import HeroLottie from "./components/images/heroLottie";
+
 import Help from "./components/images/help";
 import Horloge from "./components/images/horloge";
 import ArrowUp from "./components/micro/arrowUp";
-import Image from "next/image";
-import { Footer } from "./components/footer";
-import Expertise from "./components/sections/expertise";
 import SectionTitle from "./components/micro/sectionTitle";
+import { Footer } from "./components/micro/footer";
+import Expertise from "./components/sections/expertise";
+import Portfolio from "./components/sections/portfolio";
+import Hero from "./components/sections/hero";
+import About from "./components/sections/about";
+import {
+  DUREE,
+  init,
+  anim,
+} from "./components/animate/textAppear";
+
 const TRUST_MARKERS = [
   "Ingénieur développement logiciel CNRS (LIRMM)",
   "Docteur en psychologie cognitive",
@@ -64,33 +68,6 @@ const APPROACH = [
   },
 ];
 
-const TIMELINE = [
-  {
-    period: "2015-2019",
-    title: "Doctorat psychologie cognitive",
-    href: LINKS.thesis,
-    hrefLabel: "Thèse sur HAL",
-  },
-  {
-    period: "2019–2021",
-    title: "Langage et IHM",
-    href: LINKS.scholar,
-    hrefLabel: "Publications",
-  },
-  {
-    period: "2021-2024",
-    title: "UX, Objets connectés",
-    href: LINKS.hal,
-    hrefLabel: "Publications",
-  },
-  {
-    period: "2024 - Aujourd'hui",
-    title: "Ingénierie & édition logicielle",
-    href: LINKS.lirmm,
-    hrefLabel: "Équipe CNRS",
-  },
-];
-
 const PROCESS = [
   {
     step: "01",
@@ -111,33 +88,6 @@ const PROCESS = [
     step: "04",
     title: "Livraison & autonomie",
     body: "Tests, mise en production, livraison. Vous repartez avec un produit utilisable.",
-  },
-];
-
-const PROJECTS = [
-  {
-    title: "NumDiag",
-    tag: "Application web · RGPD",
-    body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
-    href: LINKS.numdiag,
-    hrefLabel: "NumDiag.fr",
-    image: "/sites/numdiag.svg",
-  },
-  {
-    title: "Kevin Nicolas",
-    tag: "Site web · Psychologue",
-    body: "Site personnalisé pour un psychologue basé à Baillargues.",
-    href: LINKS.kevin,
-    hrefLabel: "Psychologue-Baillargues.fr",
-    image: "/sites/kev_site.svg",
-  },
-  {
-    title: "Recherche & publications",
-    tag: "Cognition · Interaction humain–machine",
-    body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
-    href: LINKS.scholar,
-    hrefLabel: "Google Scholar",
-    image: "/sites/publis.svg",
   },
 ];
 
@@ -171,45 +121,12 @@ export default function Home() {
     // UTILISER pour transitions entre thème si position différente https://motion.dev/examples/react-css-spring
     // POUR LES BOUTONS : https://motion.dev/examples/react-material-design-ripple
     <div className="">
-      {/* Hero */}
-      <section id="accueil" className="not-arrow-up relative overflow-hidden">
-        <ArrowUp />
-        {/* UTILISER https://motion.dev/examples/react-path-drawing */}
-
-        <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
-          <div className="flex flex-wrap items-center md:justify-between">
-            <div className="lg:w-2/3">
-              <h1 className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-secondary">
-                Développeur web · Docteur en psychologie cognitive
-              </h1>
-              <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des applications
-                <br /> qui vous ressemblent,
-                <br /> pensées pour vos utilisateurs.
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-primary/75">
-                Un seul interlocuteur pour vos projets - de l'élaboration au
-                code en production.
-              </p>
-              <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
-                {/* <PrimaryButton href="#contact">
-                  Réserver un échange gratuit
-                </PrimaryButton> */}
-                <SecondaryLink href="#nos-realisations">
-                  Voir mes réalisations
-                </SecondaryLink>
-              </div>
-            </div>
-            <div className="self-center mx-auto mt-5 lg:mt-0">
-              <HeroLottie />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero init={init} anim={anim} duree={DUREE} />
+      <ArrowUp />
 
       {/* La proposition */}
       {/* Utiliser https://motion.dev/examples/js-stagger */}
-      <section className="mx-auto lg:mt-20 pt-5 pb-10">
+      <section className="invisible mx-auto lg:mt-20 pt-5 pb-10">
         <div className="max-w-3xl mx-auto">
           <SectionLabel>Mon approche</SectionLabel>
           <SectionTitle>
@@ -312,135 +229,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise */}
       <Expertise />
 
-      {/* Portfolio */}
-      <section
-        id="portfolio"
-        className="py-20 md:py-20 bg-secondary/20 text-secondary"
-      >
-        <div className="mx-auto px-6 md:px-10 lg:px-12">
-          <SectionLabel>Portfolio</SectionLabel>
-          <SectionTitle>Un aperçu de mon travail</SectionTitle>
-          <p className="mt-2 text-primary">Jetez un oeil !</p>
+      <Portfolio init={init} anim={anim} duree={DUREE}/>
 
-          <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
-            {PROJECTS.map((project) => (
-              <article key={project.title} className="flex flex-col">
-                <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
-                  {project.tag}
-                </p>
-                <h3 className="mt-3 font-secondary text-xl font-medium">
-                  {project.title}
-                </h3>
-
-                <p className="mt-3 flex-1 text-sm leading-relaxed ">
-                  {project.body}
-                </p>
-                <Image
-                  key={project.image}
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={400}
-                  className={`w-auto h-[400px] mt-7
-                    rounded ${
-                      project.image === "/publis.svg"
-                        ? "object-contain"
-                        : "object-cover object-[50%-0%]"
-                    }
-                      transition-transform ease-in-out duration-500
-                      md:hover:scale-115 hover:scale-110`}
-                />
-              </article>
-            ))}
-          </div>
-
-          <p className="mt-10 font-secondary text-xl text-primary/80">
-            Votre projet pourrait être le prochain.
-          </p>
-          <div className="mt-4">
-            <PrimaryButton href="#contact">Parlons-en</PrimaryButton>
-          </div>
-        </div>
-      </section>
-
-
-      {/* About */}
-      <section id="about" className="w-full bg-bg">
-        <div className="bg-secondary/60 px-6 py-20 md:px-10 md:py-28 lg:px-12">
-          <div className="grid lg:grid-cols-[1fr_0.9fr] max-w-6xl">
-            <div>
-              <SectionLabel>À propos</SectionLabel>
-              <div className="relative mt-4">
-                <h2 className="inline font-secondary font-bold leading-tight text-primary sm:text-4xl lg:text-[2.75rem] w-fit">
-                  atuWeb, c&apos;est moi
-                </h2>
-                <div className="absolute -top-20 right-0 overflow-hidden bg-secondary/80 rounded-full w-fit">
-                  <Image
-                    src="/tutur_gros_plan.svg"
-                    alt="Photo de Arthur-Henri Michalland"
-                    width={800}
-                    height={800}
-                    className="w-35 h-35 object-[0%-10%] inline "
-                  />
-                </div>
-              </div>
-              <p className="mt-6 text-lg leading-relaxed text-primary/75">
-                {PERSON.name} (mais je préfère Arthur). Grand curieux et
-                passioné par les interactions humain-machine, j'ai travaillé
-                avec des roboticiens, dans l'UX, et les environnements
-                connectés, avant de devenir développeur au CNRS. Je me consacre
-                aujourd'hui pleinement au développement web et à la création
-                d'applications sur mesure.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-primary/65">
-                J&apos;ai choisi de travailler en freelance pour être
-                directement en contact avec vous, pour traduire votre activité
-                dans un produit numérique compréhensible, crédible et
-                actionnable en ligne.
-              </p>
-            </div>
-            {/* à la place de l'image ? https://motion.dev/examples/react-motion-path */}
-            <Image
-              src="/coding_ok.svg"
-              alt="image d'un singe travaillmant à son bureau"
-              width={800}
-              height={800}
-              className="w-full h-auto rotate-y-180 -rotate-z-4 object-[0%-10%] mt-20"
-            />
-          </div>
-
-          <div className="-mt-10">
-            <h3 className="font-secondary text-xl font-medium text-primary">
-              Envie de creuser un peu plus ?
-            </h3>
-            {/* Utiliser https://motion.dev/examples/js-stagger */}
-            {/* Utiliser https://motion.dev/examples/react-bobble-hover */}
-            <ol className="mt-6 space-x-9 border-t border-primary/12 pl-6 inline-block">
-              {TIMELINE.map((item) => (
-                <li key={item.title} className="relative inline-block">
-                  <span
-                    className="absolute -left-[calc(1rem)] -top-1.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
-                    aria-hidden="true"
-                  />
-                  <p className="text-xs font-medium uppercase tracking-wide text-secondary">
-                    {item.title}
-                  </p>
-                  {item.href && (
-                    <p className="">
-                      <ExternalLink href={item.href}>
-                        {item.hrefLabel} ↗
-                      </ExternalLink>
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
+      <About />
 
       {/* Contact */}
       {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
@@ -591,7 +384,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
