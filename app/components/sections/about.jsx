@@ -107,7 +107,7 @@ export default function About() {
           height={800}
           className="w-full h-auto rotate-y-180 -rotate-z-4 object-[0%-10%] mt-20"
         /> */}
-        <motion.div ref={containerRef} style={{ y }} className="absolute -top-50 right-20 w-50 h-50">
+        <motion.div ref={containerRef} style={{ y }} className="absolute -top-50 md:right-20 right-0 w-50 h-50">
           <MotionLogo color="logo-fill-animate" className="absolute inset-0 w-50 h-50"
             initial={{ opacity: 0 }}
             animate={isInView ?{ opacity: 1 } : undefined}
@@ -116,11 +116,10 @@ export default function About() {
               ease: "easeInOut",
             }}
           />
-
           </motion.div>
       </div>
 
-      <div className="mt-10 w-fit">
+      <div className="mt-10 w-fit z-90">
         <h3 className="font-secondary text-xl font-medium text-primary">
           Envie de creuser un peu plus ?
         </h3>
