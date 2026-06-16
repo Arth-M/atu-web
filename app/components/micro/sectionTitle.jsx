@@ -1,4 +1,4 @@
-export default function SectionTitle({ children, id }) {
+export default function SectionTitle({ children, id = undefined }) {
     return (
       <h2
         id={id}
