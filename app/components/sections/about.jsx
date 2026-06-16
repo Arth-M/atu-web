@@ -66,7 +66,7 @@ export default function About() {
             </h2>
             <div className="hidden sm:block sm:absolute -top-20 md:right-0 md:left-auto left-75 overflow-hidden bg-secondary/80 rounded-full w-fit">
               <Image
-                src="/tutur_gros_plan.jpg"
+                src="/tutur_gros_plan.svg"
                 alt="Photo de Arthur-Henri Michalland"
                 width={800}
                 height={800}
@@ -76,7 +76,7 @@ export default function About() {
           </div>
           <div className="sm:hidden float-right mt-6 overflow-hidden bg-secondary/80 rounded-full w-fit">
               <Image
-                src="/tutur_gros_plan.jpg"
+                src="/tutur_gros_plan.svg"
                 alt="Photo de Arthur-Henri Michalland"
                 width={800}
                 height={800}
