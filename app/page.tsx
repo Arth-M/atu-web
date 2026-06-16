@@ -6,19 +6,16 @@ import Soleil from "./components/images/soleil";
 import Help from "./components/images/help";
 import Horloge from "./components/images/horloge";
 import ArrowUp from "./components/micro/arrowUp";
-import Image from "next/image";
-import { Footer } from "./components/footer";
-import Expertise from "./components/sections/expertise";
 import SectionTitle from "./components/micro/sectionTitle";
+import { Footer } from "./components/micro/footer";
+import Expertise from "./components/sections/expertise";
+import Portfolio from "./components/sections/portfolio";
 import Hero from "./components/sections/hero";
 import About from "./components/sections/about";
 import {
   DUREE,
-  LITTLEDELAY,
   init,
   anim,
-  init2,
-  anim2,
 } from "./components/animate/textAppear";
 
 const TRUST_MARKERS = [
@@ -94,33 +91,6 @@ const PROCESS = [
   },
 ];
 
-const PROJECTS = [
-  {
-    title: "NumDiag",
-    tag: "Application web · RGPD",
-    body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
-    href: LINKS.numdiag,
-    hrefLabel: "NumDiag.fr",
-    image: "/sites/numdiag.svg",
-  },
-  {
-    title: "Kevin Nicolas",
-    tag: "Site web · Psychologue",
-    body: "Site personnalisé pour un psychologue basé à Baillargues.",
-    href: LINKS.kevin,
-    hrefLabel: "Psychologue-Baillargues.fr",
-    image: "/sites/kev_site.svg",
-  },
-  {
-    title: "Recherche & publications",
-    tag: "Cognition · Interaction humain–machine",
-    body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
-    href: LINKS.scholar,
-    hrefLabel: "Google Scholar",
-    image: "/sites/publis.svg",
-  },
-];
-
 const FAQ = [
   {
     q: "Pourquoi un développeur avec un doctorat en psychologie ?",
@@ -151,14 +121,7 @@ export default function Home() {
     // UTILISER pour transitions entre thème si position différente https://motion.dev/examples/react-css-spring
     // POUR LES BOUTONS : https://motion.dev/examples/react-material-design-ripple
     <div className="">
-      <Hero
-        init={init}
-        init2={init2}
-        anim={anim}
-        anim2={anim2}
-        duree={DUREE}
-        delta={LITTLEDELAY}
-      />
+      <Hero init={init} anim={anim} duree={DUREE} />
       <ArrowUp />
 
       {/* La proposition */}
@@ -266,61 +229,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise */}
       <Expertise />
 
-      {/* Portfolio */}
-      <section
-        id="portfolio"
-        className="py-20 md:py-20 bg-secondary/20 text-secondary"
-      >
-        <div className="mx-auto px-6 md:px-10 lg:px-12">
-          <SectionLabel>Portfolio</SectionLabel>
-          <SectionTitle>Un aperçu de mon travail</SectionTitle>
-          <p className="mt-2 text-primary">Jetez un oeil !</p>
+      <Portfolio init={init} anim={anim} duree={DUREE}/>
 
-          <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
-            {PROJECTS.map((project) => (
-              <article key={project.title} className="flex flex-col">
-                <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
-                  {project.tag}
-                </p>
-                <h3 className="mt-3 font-secondary text-xl font-medium">
-                  {project.title}
-                </h3>
-
-                <p className="mt-3 flex-1 text-sm leading-relaxed ">
-                  {project.body}
-                </p>
-                <Image
-                  key={project.image}
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={400}
-                  className={`w-auto h-[400px] mt-7
-                    rounded ${
-                      project.image === "/publis.svg"
-                        ? "object-contain"
-                        : "object-cover object-[50%-0%]"
-                    }
-                      transition-transform ease-in-out duration-500
-                      md:hover:scale-115 hover:scale-110`}
-                />
-              </article>
-            ))}
-          </div>
-
-          <p className="mt-10 font-secondary text-xl text-primary/80">
-            Votre projet pourrait être le prochain.
-          </p>
-          <div className="mt-4">
-            <PrimaryButton href="#contact">Parlons-en</PrimaryButton>
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
       <About />
 
       {/* Contact */}
@@ -472,7 +384,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

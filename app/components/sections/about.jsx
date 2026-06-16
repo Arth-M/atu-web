@@ -1,10 +1,19 @@
 'use client'
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform, useSpring  } from "motion/react";
 import SectionLabel from "../micro/SectionLabel";
 import Image from "next/image";
+import Logo from "../images/logo";
 import { ExternalLink } from "../PageLinks";
 import { PERSON, LINKS } from "../../../lib/site";
+
+const MotionLogo = motion.create(Logo);
+
 export default function About() {
+  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
   const TIMELINE = [
     {
       period: "2015-2019",
@@ -31,10 +40,24 @@ export default function About() {
       hrefLabel: "Équipe CNRS",
     },
   ];
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end center"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,   // plus haut = plus collé au scroll
+    damping: 28,      // plus haut = moins d’oscillation
+    mass: 0.3,
+  });
+
+  const y = useTransform(smoothProgress, [0, 1], [0, 1000]);
+
   return (
-    <section id="about" className="w-full bg-bg">
-    <div className="bg-secondary/60 px-6 py-20 md:px-10 md:py-28 lg:px-12">
-      <div className="grid md:grid-cols-[1.5fr_1fr] max-w-6xl">
+    <section ref={sectionRef} id="about" className="relative w-full bg-bg">
+    <div className="bg-secondary/50 py-20 md:py-28 px-6 md:px-10 lg:px-12">
+      <div className="grid md:grid-cols-[1.5fr_1fr] w-full">
         <div>
           <SectionLabel>À propos</SectionLabel>
           <div className="relative mt-4">
@@ -57,6 +80,7 @@ export default function About() {
                 alt="Photo de Arthur-Henri Michalland"
                 width={800}
                 height={800}
+                preload={true}
                 className="w-35 h-35 object-[0%-10%] inline "
               />
           </div>
@@ -83,25 +107,20 @@ export default function About() {
           height={800}
           className="w-full h-auto rotate-y-180 -rotate-z-4 object-[0%-10%] mt-20"
         /> */}
-        <motion.div
-        className="w-50 h-50 bg-secondary rounded-lg"
-        animate={{
-            scale: [1, 2, 2, 1, 1],
-            rotate: [0, 0, 180, 180, 0],
-            borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-        }}
-        transition={{
-            duration: 2,
-            ease: "easeInOut",
-            times: [0, 0.2, 0.5, 0.8, 1],
-            repeat: 1,
-            repeatDelay: 1,
-        }}
+        <motion.div ref={containerRef} style={{ y }} className="absolute -top-50 right-20 w-50 h-50">
+          <MotionLogo color="logo-fill-animate" className="absolute inset-0 w-50 h-50"
+            initial={{ opacity: 0 }}
+            animate={isInView ?{ opacity: 1 } : undefined}
+            transition={{
+              duration: 1.4,
+              ease: "easeInOut",
+            }}
+          />
 
-    />
+          </motion.div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-10 w-fit">
         <h3 className="font-secondary text-xl font-medium text-primary">
           Envie de creuser un peu plus ?
         </h3>
@@ -111,7 +130,7 @@ export default function About() {
           {TIMELINE.map((item) => (
             <li key={item.title} className="relative md:inline-block">
               <span
-                className="absolute md:-left-[calc(1rem)] -left-[19.5px] md:-top-1.5 top-0.5 h-2.5 w-2.5 rounded-full border-2 border-bg bg-secondary"
+                className="absolute md:-left-[calc(1rem)] -left-[19.5px] md:-top-1.5 top-0.5 h-2.5 w-2.5 rounded-full border-2 border-bg/80 bg-secondary"
                 aria-hidden="true"
               />
               <p className="text-xs font-medium uppercase tracking-wide text-secondary mt-4 md:mt-0">

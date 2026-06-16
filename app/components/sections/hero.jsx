@@ -4,13 +4,13 @@ import { motion, stagger } from "motion/react";
 import HeroLottie from "../images/heroLottie";
 import { SecondaryLink } from "../PageLinks";
 
-export default function Hero({ init, init2, anim, anim2, duree }) {
+export default function Hero({ init, anim, duree }) {
   const container = {
     hidden: {},
     show: {
       transition: {
         // startDelay = délai avant le 1er enfant ; ensuite +staggerStep à chaque enfant
-        delayChildren: stagger(0.240, { startDelay: 0.360 }),
+        delayChildren: stagger(0.300, { startDelay: 0.360 }),
       },
     },
   };
@@ -19,14 +19,6 @@ export default function Hero({ init, init2, anim, anim2, duree }) {
     hidden: init,
     show: {
       ...anim,
-      transition: { duration: duree },
-    },
-  };
-
-  const itemSlide = {
-    hidden: init2,
-    show: {
-      ...anim2,
       transition: { duration: duree },
     },
   };
@@ -48,18 +40,12 @@ export default function Hero({ init, init2, anim, anim2, duree }) {
             >
               Développeur web · Docteur en psychologie cognitive
             </motion.h1>
-            <h2 className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-              <motion.span variants={itemSlide}>
+            <motion.h2 variants={item} className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
                 Des applications
-                <br /> qui vous ressemblent,
-              </motion.span>
-              <br />
-              <motion.span variants={itemSlide}>
-                pensées pour
-                <br />
-                vos utilisateurs.
-              </motion.span>
-            </h2>
+                <br />qui vous ressemblent,
+                <br />pensées pour
+                <br />vos utilisateurs.
+            </motion.h2>
             <motion.div variants={item}>
               <p className="mt-6 text-lg leading-relaxed text-primary/75">
                 Un seul interlocuteur pour vos projets - de l&apos;élaboration au

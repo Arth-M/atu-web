@@ -7,9 +7,9 @@ import {
   useReducedMotion,
 } from "motion/react";
 
-const APPEAR_DURATION = 0.120;
-const SWEEP_DURATION = 1.320;
-const SHRINK_DURATION = 0.660;
+const APPEAR_DURATION = 0.060;
+const SWEEP_DURATION = 0.800;
+const SHRINK_DURATION = 0.300;
 const SCALE_TOTAL = APPEAR_DURATION + SWEEP_DURATION + SHRINK_DURATION;
 const SWEEP_EASE = [0.4, 0, 0.2, 1];
 
@@ -67,7 +67,7 @@ export default function AnimatedSectionLabel({ children }) {
         </motion.h1>
 
         <motion.div
-          className="absolute top-1/2 -translate-y-1/2 w-10 h-10 bg-red-500 z-10 pointer-events-none"
+          className="absolute top-1/2 -translate-y-1/2 w-10 h-10 bg-tertiary z-10 pointer-events-none"
           initial={{ x: 0, rotate: 0, scale: 0, opacity: 1 }}
           animate={
             isInView

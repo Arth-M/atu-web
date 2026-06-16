@@ -41,7 +41,7 @@ export default function Header() {
       className="bg-transparent relative flex md:mt-5 mt-7 font-semibold"
     >
       <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1">
-        <Logo />
+        <Logo color="logo-fill"/>
         <span className="absolute lg:left-37.5 lg:top-14.5 lg:text-4xl lg:leading-6 sm:left-27.5 left-25.5 top-15 block text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold">
           <span className="text-logo">atu</span>
           <br />

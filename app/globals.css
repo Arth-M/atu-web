@@ -98,6 +98,7 @@
   --color-border: var(--color-border);
   --color-surface: var(--color-surface);
   --color-surface-hover: var(--color-surface-hover);
+  --color-secondary-transparent: color-mix(in srgb, var(--color-secondary) 0%, transparent);
 }
 
 /* ----------------------------------------------------------------
@@ -135,4 +136,8 @@ html {
   font-family: "Stack Sans Notch", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+.logo-fill-animate {
+  fill: var(--color-bg);
 }
