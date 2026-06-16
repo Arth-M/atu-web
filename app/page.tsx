@@ -1,28 +1,23 @@
 import SectionLabel from "./components/micro/SectionLabel";
-import { PrimaryButton, ExternalLink } from "./components/PageLinks";
-import { LINKS, PERSON } from "../lib/site";
+import { PrimaryButton } from "./components/PageLinks";
 import Soleil from "./components/images/soleil";
 
 import Help from "./components/images/help";
 import Horloge from "./components/images/horloge";
 import ArrowUp from "./components/micro/arrowUp";
 import SectionTitle from "./components/micro/sectionTitle";
-import { Footer } from "./components/micro/footer";
 import Expertise from "./components/sections/expertise";
 import Portfolio from "./components/sections/portfolio";
 import Hero from "./components/sections/hero";
 import About from "./components/sections/about";
+import Contact from "./components/sections/contact";
+import Faq from "./components/sections/faq";
+
 import {
   DUREE,
   init,
   anim,
 } from "./components/animate/textAppear";
-
-const TRUST_MARKERS = [
-  "Ingénieur développement logiciel CNRS (LIRMM)",
-  "Docteur en psychologie cognitive",
-  "Publications internationales",
-];
 
 const SERVICES = [
   {
@@ -88,29 +83,6 @@ const PROCESS = [
     step: "04",
     title: "Livraison & autonomie",
     body: "Tests, mise en production, livraison. Vous repartez avec un produit utilisable.",
-  },
-];
-
-const FAQ = [
-  {
-    q: "Pourquoi un développeur avec un doctorat en psychologie ?",
-    a: "Parce que le web, c'est avant tout des humains qui lisent, hésitent, cliquent ou abandonnent, même quand ils interagissent avec une IA. Ma formation me permet de concevoir des interfaces qui respectent ces mécanismes — pas seulement des tendances visuelles.",
-  },
-  {
-    q: "Quelles technologies utilisez-vous ?",
-    a: "Ruby on Rails, Node.js, React et Next.js. Le choix dépend de votre projet, pas de ma préférence.",
-  },
-  {
-    q: "Travaillez-vous seul ?",
-    a: "Oui. Vous échangez directement avec la personne qui conçoit, développe et livre. Pour des besoins spécifiques (design graphique poussé, contenu), je peux recommander des collaborateurs de confiance.",
-  },
-  {
-    q: "Intervenez-vous hors Montpellier ?",
-    a: "Oui, en visio. La proximité humaine ne dépend pas du code postal.",
-  },
-  {
-    q: "Pouvez-vous reprendre un projet existant ?",
-    a: "Oui — audit, refonte partielle ou reconstruction. J'ai l'habitude de naviguer dans du code existant.",
   },
 ];
 
@@ -235,155 +207,9 @@ export default function Home() {
 
       <About />
 
-      {/* Contact */}
-      {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
-      {/* quand email envoyé : https://motion.dev/examples/react-notifications-list */}
-      <section
-        id="contact"
-        className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:px-12"
-      >
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          {/* UTILISER https://motion.dev/examples/react-color-interpolation */}
-          <div>
-            <SectionLabel>Contact</SectionLabel>
-            <SectionTitle>Travaillons ensemble</SectionTitle>
-            <p className="mt-5 text-base leading-relaxed text-primary/70">
-              Décrivez-moi votre besoin en quelques lignes. Je reviens vers vous
-              sous 48 h — ou on fixe directement un créneau pour en parler.
-            </p>
-            <p className="mt-4 text-sm text-primary/50">
-              Pas de spam. Pas de relance agressive. Une réponse honnête sur ce
-              que je peux faire pour vous.
-            </p>
+      <Contact />
 
-            <p className="mt-8">
-              <a
-                href={`mailto:${PERSON.email}`}
-                className="font-secondary text-xl text-secondary underline-offset-4 hover:underline"
-              >
-                {PERSON.email}
-              </a>
-            </p>
-          </div>
-
-          <form
-            className="rounded-2xl border border-primary/10 bg-white/50 p-7 backdrop-blur-sm"
-            action={`mailto:${PERSON.email}`}
-            method="post"
-            encType="text/plain"
-          >
-            <div className="space-y-4">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-1.5 block text-sm font-medium text-primary"
-                >
-                  Nom
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-1.5 block text-sm font-medium text-primary"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="project"
-                  className="mb-1.5 block text-sm font-medium text-primary"
-                >
-                  Votre projet
-                </label>
-                <select
-                  id="project"
-                  name="project"
-                  className="w-full rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
-                >
-                  <option>Site vitrine</option>
-                  <option>Application web</option>
-                  <option>Refonte</option>
-                  <option>Autre</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-1.5 block text-sm font-medium text-primary"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  className="w-full resize-y rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
-                />
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="mt-6 w-full rounded-lg border border-tertiary bg-tertiary px-6 py-3 text-sm font-medium text-white shadow-sm shadow-tertiary/30 transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              Envoyer ma demande
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      {/* UTILISER https://motion.dev/examples/react-accordion */}
-      <section
-        id="faq"
-        className="border-y border-primary/8 bg-primary/20 py-20 md:py-28"
-      >
-        <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
-          <div className="text-center">
-            <SectionLabel>FAQ</SectionLabel>
-            <SectionTitle>Questions fréquentes</SectionTitle>
-          </div>
-
-          <div className="mt-12 space-y-3">
-            {FAQ.map((item) => (
-              <details
-                key={item.q}
-                className="group rounded-xl border border-primary/10 bg-bg px-5 py-4 open:shadow-sm"
-              >
-                <summary className="cursor-pointer list-none font-medium text-primary [&::-webkit-details-marker]:hidden">
-                  <span className="flex items-center justify-between gap-4">
-                    {item.q}
-                    <span
-                      className="text-secondary transition group-open:rotate-45"
-                      aria-hidden="true"
-                    >
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-primary/65">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq />
     </div>
   );
 }

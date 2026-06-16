@@ -11,7 +11,7 @@ import useIsMobile from "../theme/isMobile";
 export default function Portfolio({ init, anim, duree }) {
   const sectionRef = useRef(null);
   const isMobile = useIsMobile();
-  const isInView = useInView(sectionRef, { once: true, margin: isMobile ? "0px 0px" : "-350px" });
+  const isInView = useInView(sectionRef, { once: true, margin: isMobile ? "-150px 0px" : "-350px" });
 
   const container = {
     hidden: {},
@@ -65,10 +65,10 @@ export default function Portfolio({ init, anim, duree }) {
     initial="hidden"
     animate={isInView ? "show" : undefined}
     id="portfolio"
-    className="relative py-20 md:pt-20 md:pb-40 bg-secondary/20 text-secondary"
+    className="relative pt-20 pb-40 bg-secondary/20 text-secondary"
   >
     <motion.div
-        className="absolute inset-0 w-full h-full bg-secondary"
+        className="absolute inset-0 w-full h-full bg-secondary hidden md:block"
         animate={ isInView ?{
             scale: [1, 0.6, .2, .1, 0 ],
             rotate: [0, 0, 180, 0, 0],
@@ -81,8 +81,19 @@ export default function Portfolio({ init, anim, duree }) {
             times: [0, 0.2, 0.5, 0.8, 1],
 
         }}
-      >
-      </motion.div>
+      />
+    <motion.div
+        className="absolute inset-0 w-full h-full bg-secondary md:hidden"
+        initial={{ scale: 1 }}
+        animate={ isInView ?{
+            scale: 0,
+        } : undefined}
+        transition={{
+            duration: 1.5,
+            ease: "easeInOut",
+        }}
+      />
+
     {/* <motion.div
 
         className="absolute inset-0 w-full h-full bg-secondary"
@@ -126,7 +137,7 @@ export default function Portfolio({ init, anim, duree }) {
               alt={project.title}
               width={400}
               height={400}
-              className={`w-auto h-[400px] mt-7
+              className={`md:w-auto md:h-[400px] w-[80%] h-90 mx-auto md:mx-0 mt-7
                 rounded ${
                   project.image === "/publis.svg"
                     ? "object-contain"
