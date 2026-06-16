@@ -6,10 +6,12 @@ import SectionTitle from "../micro/sectionTitle";
 import { PrimaryButton } from "../PageLinks";
 import { LINKS } from "../../../lib/site";
 import Image from "next/image";
+import useIsMobile from "../theme/isMobile";
 
 export default function Portfolio({ init, anim, duree }) {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-350px" });
+  const isMobile = useIsMobile();
+  const isInView = useInView(sectionRef, { once: true, margin: isMobile ? "0px 0px" : "-350px" });
 
   const container = {
     hidden: {},
