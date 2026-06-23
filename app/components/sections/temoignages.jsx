@@ -5,14 +5,14 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import SectionTitle from "components/micro/sectionTitle";
 import SectionLabel from "components/micro/SectionLabel";
 
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 4000;
 
 const temoignages = [
   {
     name: "Gwenaëlle",
     company: "NumDiag",
     text: `J'ai eu le plaisir de travailler avec Arthur pendant plusieurs années
-    avec Numdiag, pour qui il a développé plusieures applications web.
+    avec Numdiag, pour qui il a développé plusieurs applications web.
     Arthur est un développeur talentueux, rigoureux et toujours à l'écoute des besoins.
     Il a su s'approprier nos enjeux techniques et métier en livrant des projets
     de qualité dans les délais. Je le recommande sans hésitation à quiconque
@@ -21,7 +21,12 @@ const temoignages = [
   {
     name: "Kevin",
     company: "Psychologue",
-    text: "texte à venir",
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+  },
+  {
+    name: "Céline",
+    company: "Psychologue",
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   },
 ];
 
@@ -54,6 +59,21 @@ export default function Temoignages() {
 
   const slideOffset = reduceMotion ? 0 : 60;
 
+  const slideVariants = {
+    enter: (dir) => ({
+      opacity: 0,
+      x: dir * -slideOffset,
+    }),
+    center: {
+      opacity: 1,
+      x: 0,
+    },
+    exit: (dir) => ({
+      opacity: 0,
+      x: dir * slideOffset,
+    }),
+  };
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
       <SectionLabel>Temoignages</SectionLabel>
@@ -69,7 +89,7 @@ export default function Temoignages() {
         }}
       >
         <div
-          className="relative min-h-[280px] overflow-hidden sm:min-h-[240px]"
+          className="relative min-h-[280px] overflow-hidden sm:min-h-[335px]"
           aria-live="polite"
           aria-atomic="true"
         >
@@ -77,31 +97,34 @@ export default function Temoignages() {
             <motion.blockquote
               key={active}
               custom={direction}
-              initial={{ opacity: 0, x: direction * slideOffset }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction * -slideOffset }}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
               transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto max-w-3xl text-center"
             >
-              <p className="font-secondary text-xl leading-relaxed text-primary/85 sm:text-2xl lg:text-[1.65rem] lg:leading-[1.55]">
-                <span
-                  aria-hidden="true"
-                  className="mr-1 inline-block align-top font-secondary text-5xl leading-none text-secondary sm:text-6xl"
-                >
-                  &ldquo;
-                </span>
-                {temoignages[active].text}
-              </p>
-              <footer className="mt-8">
+              <div className="flex items-start justify-center">
+                  <span
+                    aria-hidden="true"
+                    className="align-top font-secondary text-5xl leading-none text-secondary sm:text-6xl"
+                  >
+                    &ldquo;
+                  </span>
+                <p className="font-secondary inline-block leading-relaxed text-primary/85 lg:leading-[1.55]">
+                  {temoignages[active].text}
+                </p>
+              </div>
+              <div className="mt-8">
                 <cite className="not-italic">
-                  <p className="font-secondary text-lg font-medium text-secondary">
+                  <p className="font-secondary font-medium text-secondary">
                     {temoignages[active].name}
                   </p>
                   <p className="mt-1 text-sm text-primary/55">
                     {temoignages[active].company}
                   </p>
                 </cite>
-              </footer>
+              </div>
             </motion.blockquote>
           </AnimatePresence>
         </div>
