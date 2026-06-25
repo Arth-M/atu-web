@@ -149,13 +149,14 @@ export default function Portfolio({ init, anim, duree }) {
           </motion.article>
         ))}
       </div>
-
-      <p className="mt-15 font-secondary text-xl text-primary/80">
-        Votre projet pourrait être le prochain.
-      </p>
-      <div className="mt-4">
-        <PrimaryButton href="#contact">Parlons-en</PrimaryButton>
-      </div>
+      <motion.div variants={item}>
+        <p className="mt-15 font-secondary text-xl text-primary/80">
+          Votre projet pourrait être le prochain.
+        </p>
+        <div className="mt-4">
+          <PrimaryButton href="#contact">Parlons-en</PrimaryButton>
+        </div>
+      </motion.div>
     </div>
   </motion.section>
   );

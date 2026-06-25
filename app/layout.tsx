@@ -4,7 +4,7 @@ import { ThemeProvider } from "./components/theme/ThemeProvider";
 import { ThemeSwitch } from "./components/theme/ThemeSwitch";
 import { JsonLd } from "./components/JsonLd";
 import Header from "./components/micro/header";
-import { Footer } from "./components/micro/footer";
+import { Footer } from "./components/sections/footer";
 import Script from "next/script";
 import { PERSON, SITE_NAME, SITE_URL } from "../lib/site";
 import "./globals.css";

@@ -10,6 +10,7 @@ import Expertise from "./components/sections/expertise";
 import Portfolio from "./components/sections/portfolio";
 import Hero from "./components/sections/hero";
 import About from "./components/sections/about";
+import Temoignages from "./components/sections/temoignages";
 import Contact from "./components/sections/contact";
 import Faq from "./components/sections/faq";
 
@@ -206,6 +207,8 @@ export default function Home() {
       <Portfolio init={init} anim={anim} duree={DUREE}/>
 
       <About />
+
+      <Temoignages />
 
       <Contact />
 
