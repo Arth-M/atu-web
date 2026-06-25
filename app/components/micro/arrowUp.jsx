@@ -7,19 +7,26 @@ export default function ArrowUp() {
   const { theme } = useTheme();
 
   useEffect(() => {
-    const section1 = document.querySelector(".not-arrow-up");
-    if (!section1) return;
+    const sections = document.querySelectorAll(".not-arrow-up");
+    if (!sections.length) return;
 
-    // Observe when section1 leaves the viewport
+    const visible = new Set();
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When section1 is NOT visible, show the arrow
-        setShowArrow(!entry.isIntersecting);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visible.add(entry.target);
+          } else {
+            visible.delete(entry.target);
+          }
+        });
+        setShowArrow(visible.size === 0);
       },
-      { threshold: 0.4 }, // Adjust sensitivity: 0 = any pixel, 1 = fully visible
+      { threshold: 0.2},
     );
 
-    observer.observe(section1);
+    sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
@@ -65,7 +72,7 @@ export default function ArrowUp() {
         onClick={scrollToTop}
         className={`fixed bottom-12 md:bottom-12 -right-7 z-90 px-3 py-2 rounded-2xl
         shadow shadow-secondary/40 transition-all ease-in duration-450
-        bg-transparent border border-secondary/40 hover:bg-secondary/80 hover:shadow-secondary/80
+        bg-bg/60 backdrop-blur-sm border border-secondary/40 hover:bg-secondary/80 hover:shadow-secondary/80
         ${showArrow ? "opacity-100 -translate-x-10 duration-300 ease-in-out" : "translate-x-0 opacity-0"}`}
         aria-label="Retour en haut"
       >

@@ -61,7 +61,7 @@ export default function Faq() {
   }, [theme, animate, listRef]);
 
   return (
-    <section id="faq" className="bg-bg py-20 md:py-28">
+    <section id="faq" className="bg-bg py-20 md:py-32">
       {/* UTILISER https://motion.dev/examples/react-accordion */}
       <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
         <div className="text-center">
@@ -84,10 +84,19 @@ export default function Faq() {
                     className="text-secondary transition rotate-90 group-open:-rotate-90"
                     aria-hidden="true"
                   >
-                    <svg fill="" className="w-5 h-5 fill-bg/20 stroke-bg/20" height="512" viewBox="0 0 25 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m7.5 17.8802v-11.76039c0-.86296.83605-1.40063 1.50177-.96581l9.00283 5.8802c.6605.4314.6605 1.5002 0 1.9316l-9.00283 5.8802c-.66572.4348-1.50177-.1029-1.50177-.9658z"/></svg>
+                    <svg
+                      fill=""
+                      className="w-5 h-5 fill-bg/20 stroke-bg/20"
+                      height="512"
+                      viewBox="0 0 25 24"
+                      width="512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="m7.5 17.8802v-11.76039c0-.86296.83605-1.40063 1.50177-.96581l9.00283 5.8802c.6605.4314.6605 1.5002 0 1.9316l-9.00283 5.8802c-.66572.4348-1.50177-.1029-1.50177-.9658z" />
+                    </svg>
                   </span>
                 </span>
-              <hr className="mt-4 mx-auto border-0 border-t border-bg/15 block group-open:hidden" />
+                <hr className="mt-4 mx-auto border-0 border-t border-bg/15 block group-open:hidden" />
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-bg">{item.a}</p>
               <hr className="mt-4 w-full border-0 border-t border-bg/15 hidden group-open:block" />

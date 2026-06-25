@@ -76,7 +76,7 @@ export default function Temoignages() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
-      <SectionLabel>Temoignages</SectionLabel>
+      <SectionLabel>Témoignages</SectionLabel>
       <SectionTitle>Ils nous font confiance</SectionTitle>
 
       <div
