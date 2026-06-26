@@ -20,6 +20,12 @@ export default function Services() {
               Ergonomie applicative, API, dynamisme, performance, SPA, multipages, de la conception à la mise en ligne
             </p>
           </div>
+          <div className="rounded-xl border-black border p-4 shadow-[-5px_5px_0px_rgba(0,0,0,0.9)]">
+          <SectionLabel>Sites & Applications web</SectionLabel>
+            <p className="text-primary/80 text-xl">
+              Ergonomie applicative, API, dynamisme, performance, SPA, multipages, de la conception à la mise en ligne
+            </p>
+          </div>
           <div className="rounded border-secondary/40 border p-4">
           <SectionLabel>Accompagnement</SectionLabel>
             <p className="text-primary/80 text-lg">
