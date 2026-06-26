@@ -40,7 +40,7 @@
     filter: brightness(0) invert(1);
   }
   .font-primary {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Lora", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   letter-spacing: 1px;

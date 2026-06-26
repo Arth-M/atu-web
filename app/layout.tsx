@@ -17,8 +17,14 @@ import {
   Ranchers,
   Spicy_Rice,
   Luxurious_Roman,
+  Lora
 } from "next/font/google";
 
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--lora",
+  display: "swap",
+});
 const stackSansNotch = Stack_Sans_Notch({
   subsets: ["latin"],
   variable: "--font-stack-notch",
