@@ -40,16 +40,16 @@ export default function Hero({ init, anim, duree }) {
             >
               Développeur web · Docteur en psychologie cognitive
             </motion.h1>
-            <motion.h2 variants={item} className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Des applications
-                <br />qui vous ressemblent,
-                <br />pensées pour
-                <br />vos utilisateurs.
+            <motion.h2 variants={item} className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-5xl">
+                Un seul interlocuteur pour vos projets - de l&apos;élaboration au
+                code en production.
             </motion.h2>
             <motion.div variants={item}>
               <p className="mt-6 text-lg leading-relaxed text-primary/75">
-                Un seul interlocuteur pour vos projets - de l&apos;élaboration au
-                code en production.
+              Expert dans le développement d'applications web et IA sur mesure,
+              ma formation en psychologie cognitive me permet aussi de concevoir des
+              interfaces qui accompagnent les mécanismes de la cognition humaine.
+              L'objectif : des applications qui vous ressemblent, pensées pour vos utilisateurs.
               </p>
               <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
                 <SecondaryLink href="#portfolio">

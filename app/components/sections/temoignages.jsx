@@ -11,12 +11,14 @@ const temoignages = [
   {
     name: "Gwenaëlle",
     company: "NumDiag",
-    text: `J'ai eu le plaisir de travailler avec Arthur pendant plusieurs années
+    text: (<>J'ai eu le plaisir de travailler avec Arthur pendant plusieurs années
     avec Numdiag, pour qui il a développé plusieurs applications web.
-    Arthur est un développeur talentueux, rigoureux et toujours à l'écoute des besoins.
-    Il a su s'approprier nos enjeux techniques et métier en livrant des projets
-    de qualité dans les délais. Je le recommande sans hésitation à quiconque
-    cherche un développeur web fiable et impliqué.`,
+    Arthur est un développeur <span className="font-bold">talentueux</span>,{" "}
+    <span className="font-bold">rigoureux</span>{" "} et{" "}
+    <span className="font-bold">toujours à l'écoute des besoins</span>.
+    Il a su s'approprier nos enjeux techniques et métier en livrant des
+    projets de qualité dans les délais. Je le recommande sans hésitation à quiconque
+    cherche un développeur web fiable et impliqué.</>),
   },
   {
     name: "Kevin",
@@ -75,7 +77,7 @@ export default function Temoignages() {
   };
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
+    <section id="temoignages" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
       <SectionLabel>Témoignages</SectionLabel>
       <SectionTitle>Ils nous font confiance</SectionTitle>
 

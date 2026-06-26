@@ -11,10 +11,13 @@ export default function Header() {
   const menuRef = useRef(null);
   const pathname = usePathname();
   const navigation = [
+    { name: "Services", href: "#services" },
     { name: "Expertise", href: "#expertise" },
     { name: "Portfolio", href: "#portfolio" },
     { name: "À propos", href: "#about" },
+    { name: "Témoignages", href: "#temoignages" },
     { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact" },
   ];
 
 
@@ -38,36 +41,36 @@ export default function Header() {
     // UTILISER https://motion.dev/examples/react-variants
     // sur bouton de contact: https://motion.dev/examples/react-confetti
     <nav
-      className="bg-transparent relative flex md:mt-5 mt-7 font-semibold"
+      className="bg-transparent relative flex justify-between md:mt-5 mt-7 font-semibold w-[90%] mx-auto"
     >
-      <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1">
+      <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1 relative">
         <Logo color="logo-fill"/>
-        <span className="absolute lg:left-37.5 lg:top-14.5 lg:text-4xl lg:leading-6 sm:left-27.5 left-25.5 top-15 block text-3xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold">
+        <span className="absolute lg:left-33.5 lg:top-15 sm:left-23.5 left-21.5 top-15.5 block text-4xl leading-5 tracking-tighter text-primary stack-sans-notch font-semibold">
           <span className="text-logo">atu</span>
           <br />
           web
         </span>
       </Link>
-      <div className="hidden text-primary lg:absolute top-8 right-15 lg:flex items-center justify-end">
-        <div className="space-x-2 justify-end items-center font-primary text-lg">
+      <div className="hidden text-primary lg:flex items-center justify-end">
+        <div className="justify-end items-center font-primary text-lg font-normal">
           {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="rounded hover:scale-102 px-2 py-1"
+              className="hover:scale-102 hover:underline hover:underline-offset-8 px-2 py-1 tracking-tighter"
             >
               {item.name}
             </a>
           ))}
 
-          <div className="ml-4 inline">
+          {/* <div className="ml-4 inline">
             <a
               href="#contact"
-              className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
+              className="inline-block tracking-tight px-4 py-2 rounded border border-tertiary bg-tertiary shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
             >
               Contact
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
