@@ -1,7 +1,8 @@
 export default function Logo({color = "logo-fill", style, ...props}) {
   return (
     // w-35 h-35
-  <svg className="w-30 h-30 relative" style={style} {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" preserveAspectRatio="xMidYMid meet">
+  <svg className="w-30 h-30 relative" style={style} {...props} xmlns="http://www.w3.org/2000/svg"
+   viewBox="335 0 904 1254" preserveAspectRatio="xMidYMid meet">
 <g transform="translate(0,1254) scale(0.1,-0.1)" stroke="none">
 <path className={color} d="M7175 11663 c-263 -45 -502 -183 -801 -460 -115 -107 -143 -129 -125
 -98 57 95 199 248 319 344 23 19 42 38 42 42 0 12 -39 -7 -190 -90 -193 -106

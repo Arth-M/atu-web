@@ -82,14 +82,14 @@ export default function Contact() {
                 {PERSON.email}
               </a>
               <a
-                href={`tel:${+33615435199}`}
+                href={`tel:${PERSON.tel}`}
                 className="font-secondary text-xl text-secondary underline-offset-4 hover:underline"
-               >+33 6.15.43.51.99
+               >{PERSON.tel}
                </a>
-                <a href="https://share.google/ix2SBXpANZpyNdOO0"
+                <a href={PERSON.maps}
                 target="_blank"
                 className="block font-secondary text-xl text-secondary underline-offset-4 hover:underline"
-                >74 place André Leroi Gourhan,<br />34070 Montpellier
+                >{PERSON.location}
                 </a>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function Contact() {
         <div className="w-4/5 mx-auto">
           <p className="mt-5 text-base leading-relaxed text-primary/70 mb-5">
             Décrivez-moi votre besoin en quelques lignes. Je reviens vers vous
-            sous 48 h — ou on fixe directement un créneau pour en parler.
+            sous 48 h.
           </p>
           <form
             // className="rounded-2xl text-bg border border-secondary/10 bg-secondary/85 p-7 backdrop-blur shadow-md shadow-secondary/40 lg:w-full md:w-2/3 md:m-0 w-[95%] mx-auto"

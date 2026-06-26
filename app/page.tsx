@@ -1,14 +1,12 @@
-import SectionLabel from "./components/micro/SectionLabel";
-import { PrimaryButton } from "./components/PageLinks";
 import Soleil from "./components/images/soleil";
-
 import Help from "./components/images/help";
 import Horloge from "./components/images/horloge";
+
 import ArrowUp from "./components/micro/arrowUp";
-import SectionTitle from "./components/micro/sectionTitle";
+import Hero from "./components/sections/hero";
+import Services from "./components/sections/services";
 import Expertise from "./components/sections/expertise";
 import Portfolio from "./components/sections/portfolio";
-import Hero from "./components/sections/hero";
 import About from "./components/sections/about";
 import Temoignages from "./components/sections/temoignages";
 import Contact from "./components/sections/contact";
@@ -97,110 +95,7 @@ export default function Home() {
       <Hero init={init} anim={anim} duree={DUREE} />
       <ArrowUp />
 
-      {/* La proposition */}
-      {/* Utiliser https://motion.dev/examples/js-stagger */}
-      <section className="invisible mx-auto lg:mt-20 pt-5 pb-10">
-        <div className="max-w-3xl mx-auto">
-          <SectionLabel>Mon approche</SectionLabel>
-          <SectionTitle>
-            Prendre en compte à la fois la technologie et les utilisateurs
-          </SectionTitle>
-          <div className="mt-6 space-y-2 leading-relaxed text-primary/70">
-            <p>
-              Le travail de développeur nécessite une logique et une rigueur qui
-              ne correspondent pas nécessairement à l'état d'esprit des
-              utilisateurs. AtuWeb vous propose de ne négliger aucun de ces
-              aspects : un produit centré sur l'utilisateur, réalisé avec des
-              technologies performantes.
-            </p>
-
-            <p className="leading-relaxed text-primary/70">
-              Pendant dix ans, j&apos;ai étudié comment les humains perçoivent,
-              anticipent et interagissent — avec des objets connectés, des
-              interfaces, des espaces. Puis j&apos;ai appris à traduire ça en
-              logiciel.
-            </p>
-            {/* <p className="text-sm leading-relaxed text-primary/55">
-              Je ne promets pas la magie d&apos;une refonte miracle en 48 h. Je
-              promets une méthode rigoureuse — sans oublier le fun.
-            </p> */}
-          </div>
-        </div>
-        <div className="lg:flex items-start justify-center space-x-4 mt-7 px-15 flex-wrap">
-          {APPROACH.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-xl border border-primary/10 h-full lg:w-[219px] px-6 py-5"
-            >
-              <div className="flex space-x-2 justify-start items-center">
-                {item.icon}
-                <h3 className="font-secondary text-lg font-medium text-secondary">
-                  {item.title}
-                </h3>
-              </div>
-              <p className="mt-4 text-base leading-relaxed text-primary/70">
-                {item.body}
-              </p>
-            </div>
-          ))}
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {SERVICES.map((service, i) => (
-              <article
-                key={service.title}
-                className="group flex flex-col rounded-2xl border border-primary/10 bg-bg p-7 transition hover:-translate-y-1 hover:border-secondary/25 hover:shadow-lg hover:shadow-secondary/5"
-              >
-                <span className="font-secondary text-4xl font-medium text-primary/10 transition group-hover:text-secondary/25">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 font-secondary text-xl font-medium text-primary">
-                  {service.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-primary/65">
-                  {service.body}
-                </p>
-                <p className="mt-5 border-t border-primary/8 pt-4 text-sm font-medium text-secondary">
-                  {service.outcome}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-12">
-            <PrimaryButton href="#contact">
-              Discutons de votre projet
-            </PrimaryButton>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="bg-primary/2 py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
-          <SectionLabel>Processus</SectionLabel>
-          <SectionTitle>Comment on travaille ensemble</SectionTitle>
-          <p className="mt-4 max-w-xl text-base text-primary/70">
-            Pas de jargon inutile. Un processus simple pour avancer vite, sans
-            surprise. Vous validez chaque étape avant la suivante.
-          </p>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((item) => (
-              <div key={item.step} className="relative">
-                <span className="font-secondary text-5xl font-medium text-secondary/20">
-                  {item.step}
-                </span>
-                <h3 className="mt-2 font-secondary text-lg font-medium text-primary">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-primary/65">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Services />
 
       <Expertise />
 

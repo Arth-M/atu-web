@@ -9,19 +9,19 @@ import { useTheme } from "../theme/ThemeProvider";
 const FAQ = [
   {
     q: "Pourquoi un développeur avec un doctorat en psychologie ?",
-    a: "Parce que le web, c'est avant tout des humains qui lisent, hésitent, cliquent ou abandonnent, même quand ils interagissent avec une IA. Ma formation me permet de concevoir des interfaces qui respectent ces mécanismes — pas seulement des tendances visuelles.",
+    a: "Parce que le web, c'est avant tout des humains qui se repèrent dans l'espace, lisent, hésitent, cliquent, même quand ils interagissent avec une IA. Mon expérience me permet de concevoir des interfaces prenant en compte ces mécanismes — pas seulement des tendances visuelles.",
   },
   {
     q: "Quelles technologies utilisez-vous ?",
-    a: "Ruby on Rails, Node.js, React et Next.js. Le choix dépend de votre projet, pas de ma préférence.",
+    a: "Ruby on Rails, Node.js, React, Next.js, Vite, et bien d'autres ! Le choix dépend de votre projet, pas de ma préférence.",
   },
   {
     q: "Travaillez-vous seul ?",
-    a: "Oui. Vous échangez directement avec la personne qui conçoit, développe et livre. Pour des besoins spécifiques (design graphique poussé, contenu), je peux recommander des collaborateurs de confiance.",
+    a: "Oui, vous échangez directement avec la personne qui développe, livre, et maintient votre projet. Pour des besoins spécifiques (e.g. design graphique poussé, création de contenu), je peux recommander des collaborateurs de confiance.",
   },
   {
     q: "Intervenez-vous hors Montpellier ?",
-    a: "Oui, en visio. La proximité humaine ne dépend pas du code postal.",
+    a: "Oui, en visio ou en présentiel selon les besoins. Notre proximité ne dépendra pas du code postal.",
   },
   {
     q: "Pouvez-vous reprendre un projet existant ?",

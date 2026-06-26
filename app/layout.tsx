@@ -110,7 +110,7 @@ export default async function RootLayout({
         <Script src="/theme-init.js" strategy="beforeInteractive" />
       </head>
       <body
-        className={`${arimo.variable} ${playfair.variable} ${stackSansNotch.variable} ${ranchers.variable} ${spicyRice.variable} ${luxuriousRoman.variable} bg-bg w-full font-primary antialiased`}
+        className={`${arimo.variable} ${playfair.variable} ${stackSansNotch.variable} ${ranchers.variable} ${spicyRice.variable} ${luxuriousRoman.variable} bg-bg w-full flex flex-col min-h-screen font-primary antialiased`}
       >
         <JsonLd />
         <ThemeProvider initialTheme={theme as (typeof THEMES)[number]}>

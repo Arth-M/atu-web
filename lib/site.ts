@@ -6,7 +6,9 @@ export const PERSON = {
   name: "Arthur-Henri Michalland",
   jobTitle: "Développeur web freelance",
   email: "contact@atuweb.fr",
-  location: "Montpellier, France",
+  location: "74 place André Leroi Gourhan, 34070 Montpellier",
+  tel: "+33 6.15.43.51.99",
+  maps: "https://share.google/ix2SBXpANZpyNdOO0",
 } as const;
 
 export const SAME_AS = [
