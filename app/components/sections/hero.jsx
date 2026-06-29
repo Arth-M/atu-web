@@ -48,7 +48,7 @@ export default function Hero({ init, anim, duree }) {
               <p className="mt-6 text-lg leading-relaxed text-primary/75">
               Expert dans le développement d'applications web et IA sur mesure,
               ma formation en psychologie cognitive me permet aussi de concevoir des
-              interfaces qui accompagnent les mécanismes de la cognition humaine.
+              interfaces qui accompagnent la perception, la mémoire et la décision.
               L'objectif : des applications qui vous ressemblent, pensées pour vos utilisateurs.
               </p>
               <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">

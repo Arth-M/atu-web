@@ -1,9 +1,12 @@
 "use client"
-import AnimatedSectionLabel from "./../micro/AnimatedSectionLabel"
+import AnimatedSectionLabel2 from "./../micro/AnimatedSectionLabel2"
+import Dev from "../images/dev"
 import SectionLabel from "../micro/SectionLabel"
-
+import Image from "next/image"
+import { useTheme } from "../theme/ThemeProvider"
 
 export default function Services() {
+  const { theme } = useTheme()
   return (
     <section
       id="services"
@@ -12,28 +15,23 @@ export default function Services() {
       {/* UTILISER https://motion.dev/examples/js-spring-follow-cursor */}
       {/* UTILISER https://motion.dev/examples/react-follow-pointer-with-spring */}
 
-      <AnimatedSectionLabel>Services</AnimatedSectionLabel>
-      <div className="grid grid-cols-3 gap-4 items-center justify-around lg:mt-7 mt-12">
-          <div className="rounded border-secondary/40 border p-4">
-          <SectionLabel>Sites & Applications web</SectionLabel>
-            <p className="text-primary/80 text-lg">
-              Ergonomie applicative, API, dynamisme, performance, SPA, multipages, de la conception à la mise en ligne
-            </p>
-          </div>
-          <div className="rounded-xl border-black border p-4 shadow-[-5px_5px_0px_rgba(0,0,0,0.9)]">
-          <SectionLabel>Sites & Applications web</SectionLabel>
+      <SectionLabel>Services</SectionLabel>
+      <div className="grid grid-cols-3 gap-6 items-center justify-around lg:mt-7 mt-12">
+          <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
+            <Image src="/coding.png" alt="Dev" width={100} height={100} className="mx-auto w-40 h-auto" />
+          <h3 className="text-lg font-medium tracking-wider">Sites & Applications web</h3>
             <p className="text-primary/80 text-xl">
               Ergonomie applicative, API, dynamisme, performance, SPA, multipages, de la conception à la mise en ligne
             </p>
           </div>
-          <div className="rounded border-secondary/40 border p-4">
-          <SectionLabel>Accompagnement</SectionLabel>
+          <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
+          <h3>Accompagnement</h3>
             <p className="text-primary/80 text-lg">
               Conseil, aide à la décision, suivi de projet, hébergement, maintenance, suivi des indicateurs de performance,
             </p>
           </div>
-          <div className="rounded border-secondary/40 border p-4">
-          <SectionLabel>Intégration IA</SectionLabel>
+          <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
+          <h3>Intégration IA</h3>
             <p className="text-primary/80 text-lg">
               L'entrée de l'IA dans les applications web ne fait plus aucun doute,
               elle devient un gage de compétitivité et de modernité. Je vous accompagne

@@ -55,10 +55,10 @@ export default function About() {
   const y = useTransform(smoothProgress, [0, 1], [0, 1000]);
 
   return (
-    <section ref={sectionRef} id="about" className="relative w-full bg-bg">
-    <div className="bg-secondary/50 py-20 md:py-28 px-6 md:px-10 lg:px-12">
-      <div className="grid md:grid-cols-[1.5fr_1fr] w-full">
-        <div>
+    <section ref={sectionRef} id="about" className="relative w-full bg-secondary/50">
+    <div className="max-w-6xl mx-auto py-20 md:py-28 px-6 md:px-10 lg:px-12">
+      <div className="grid md:grid-cols-[1.5fr_1fr] ">
+        <div className="w-full">
           <SectionLabel>À propos</SectionLabel>
           <div className="relative mt-4">
             <h2 className="inline font-secondary font-bold leading-tight text-primary text-4xl lg:text-[2.75rem] w-fit">

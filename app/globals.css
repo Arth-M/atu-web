@@ -35,7 +35,7 @@
   --color-bg: #0e0e10;
   --color-atu: var(--color-fuchsia-500);
   --color-prim: #f2f2f7;
-  --color-second: rgba(42, 250, 193, 0.8);
+  --color-second: rgba(42, 250, 193, 1);
   --color-tert: #fabf2a;
   .logo-fill {
     fill: #dad0d0;
@@ -156,4 +156,15 @@ html {
 
 .logo-fill-animate {
   fill: var(--color-bg);
+}
+
+.hr-biseau {
+  height: 5px;
+  width: 100%;
+  clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
+}
+.hr-biseau-inverse {
+  height: 5px;
+  width: 100%;
+  clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
 }

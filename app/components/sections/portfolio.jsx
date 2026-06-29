@@ -111,7 +111,7 @@ export default function Portfolio({ init, anim, duree }) {
         }}
       >
       </motion.div> */}
-    <div className="mx-auto px-6 md:px-10 lg:px-12">
+    <div className="mx-auto px-6 md:px-10 lg:px-12 max-w-6xl">
       <motion.div variants={item}>
       <SectionLabel>Portfolio</SectionLabel>
       <SectionTitle>Un aperçu de mon travail</SectionTitle>
