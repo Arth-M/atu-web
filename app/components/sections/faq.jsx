@@ -78,7 +78,7 @@ export default function Faq() {
               style={{ backgroundColor: "var(--color-secondary)" }}
             >
               <summary className="cursor-pointer list-none font-medium text-bg [&::-webkit-details-marker]:hidden">
-                <span className="flex items-center justify-between">
+                <span className="flex items-center justify-between font-secondary">
                   {item.q}
                   <span
                     className="text-secondary transition rotate-90 group-open:-rotate-90"
@@ -98,7 +98,7 @@ export default function Faq() {
                 </span>
                 <hr className="mt-4 mx-auto border-0 border-t border-bg/15 block group-open:hidden" />
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-bg">{item.a}</p>
+              <p className="mt-3 text-base font-primary leading-relaxed text-bg">{item.a}</p>
               <hr className="mt-4 w-full border-0 border-t border-bg/15 hidden group-open:block" />
             </details>
           ))}

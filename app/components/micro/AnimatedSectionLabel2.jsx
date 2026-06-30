@@ -6,6 +6,7 @@ import {
   useInView,
   useReducedMotion,
 } from "motion/react";
+import {DUREE, LITTLEDELAY} from "../animate/textAppear";
 
 const APPEAR_DURATION = 0.060;
 const SWEEP_DURATION = 0.800;
@@ -16,7 +17,7 @@ const SWEEP_EASE = [0.4, 0, 0.2, 1];
 const headingClass =
   "mb-1 text-medium font-medium tracking-[0.2em]";
 
-export default function AnimatedSectionLabel({ children }) {
+export default function AnimatedSectionLabel2({ children }) {
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const [textWidth, setTextWidth] = useState(0);
@@ -45,7 +46,7 @@ export default function AnimatedSectionLabel({ children }) {
   }
 
   return (
-    <div ref={containerRef} className="text-secondary w-fit">
+    <div ref={containerRef} className="text-primary w-fit">
       <div className="relative">
         <h1
           ref={textRef}
@@ -61,22 +62,21 @@ export default function AnimatedSectionLabel({ children }) {
           animate={
             isInView ? { clipPath: "inset(0 0% 0 0)" } : undefined
           }
-          transition={{ duration: APPEAR_DURATION + SWEEP_DURATION, ease: SWEEP_EASE }}
+          transition={{delay: LITTLEDELAY*4+DUREE, duration: APPEAR_DURATION + SWEEP_DURATION, ease: SWEEP_EASE }}
         >
           {children}
         </motion.h1>
 
-        <motion.div
-          className="absolute top-1/2 -translate-y-1/2 w-10 h-10 bg-tertiary z-10 pointer-events-none"
-          initial={{ x: 0, rotate: 0, scale: 0, opacity: 1 }}
+        {/* <motion.div
+          className="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-tertiary z-10 pointer-events-none"
+          initial={{ x: 0, scale: 0, opacity: 1 }}
           animate={
             isInView
-              ? { x: textWidth, rotate: 360, scale: [0, 1, 1, 0], opacity: 1 }
+              ? { x: textWidth, scale: [0.5, 1, 2.5, 0], opacity: 1 }
               : undefined
           }
           transition={{
             x: { duration: SWEEP_DURATION, delay: APPEAR_DURATION, ease: SWEEP_EASE },
-            rotate: { duration: SWEEP_DURATION, delay: APPEAR_DURATION, ease: SWEEP_EASE },
             scale: {
               duration: SCALE_TOTAL,
               times: [
@@ -88,17 +88,17 @@ export default function AnimatedSectionLabel({ children }) {
               ease: ["easeOut", "linear", "linear", "linear"],
             },
           }}
-        />
+        /> */}
       </div>
 
       <motion.hr
-        className="border-secondary ml-auto mr-1 mt-2"
+        className="border-primary ml-auto mr-1"
         initial={{ scaleX: 0, opacity: 1 }}
         animate={
           isInView ? { scaleX:1,width: "75%", opacity: 1 } : undefined
         }
         style={{ transformOrigin: "left center" }}
-        transition={{ duration: 0.5, delay: SWEEP_DURATION+APPEAR_DURATION, ease: "easeInOut" }}
+        transition={{delay: LITTLEDELAY*4+DUREE+SWEEP_DURATION+APPEAR_DURATION, duration: 0.5, ease: "easeInOut" }}
       />
     </div>
   );

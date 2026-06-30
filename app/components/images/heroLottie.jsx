@@ -8,8 +8,8 @@ export default function HeroLottie({ init, anim, duree, delay }) {
   const { theme } = useTheme();
   const LOTTIE_BY_THEME = {
     classic: "/hero/hero_classic.lottie",
-    dark: "/hero/hero_dark.lottie",
-    colorful: "/hero/hero_colorful.lottie", // si tu l’ajoutes
+    dark: "/hero/hero_dark_purple.lottie",
+    colorful: "/hero/hero_colorful.lottie",
   };
   const src = LOTTIE_BY_THEME[theme] ?? "/hero.lottie";
 

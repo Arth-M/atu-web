@@ -1,7 +1,10 @@
+'use client'
 import { LINKS, PERSON } from "../../../lib/site";
 import Logo from "../images/logo";
+import { useTheme } from "../theme/ThemeProvider";
 
 export function Footer() {
+    const { theme } = useTheme();
     const navigation = {
       solutions: [
         { name: 'Expertise', href: '#expertise' },
@@ -43,34 +46,37 @@ export function Footer() {
     }
 
     return (
-      <footer className="not-arrow-up bg-primary text-bg pt-20 pb-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="px-6 lg:px-8 grid grid-cols-2 gap-8 xl:col-span-2">
+      <footer className={`not-arrow-up text-bg pb-10 ${theme === "dark" ? "bg-bg border" : "pt-20 bg-primary"}`}>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
+          {theme === "dark" && (
+            <div className="border-t border-primary/30 mb-20"></div>
+          )}
+          <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="relative max-w-55">
-              <Logo color="logo-fill-animate" />
-              <span className="absolute lg:left-21 lg:top-15.5 md:left-21.5 sm:left-21 left-21 top-15.5 block text-4xl leading-5 tracking-tighter text-bg stack-sans-notch font-semibold">
+              <Logo color={theme === "dark" ? "logo-fill" : "logo-fill-animate"} />
+              <span className={`${theme === "dark" ? "text-primary" : "text-bg"} absolute lg:left-21 lg:top-15.5 md:left-21.5 sm:left-21 left-21 top-15.5 block text-4xl leading-5 tracking-tighter stack-sans-notch font-semibold`}>
                 <span className="text-logo">atu</span>
                 <br />
                 web
               </span>
               <a href={`mailto:${PERSON.email}`}
-              className="text-sm/6 text-bg/60 mt-2 hover:text-bg/90">
+              className={`text-base tracking-wider ${theme === "dark" ? "text-primary/60 hover:text-primary" : "text-bg/80 hover:text-bg"} block mt-4`}>
                 {PERSON.email}
               </a>
               <a href={`tel:${PERSON.tel}`}
-                className="block text-sm/6 text-bg/60 mt-2 hover:text-bg/90">
+                className={`block text-base tracking-wider ${theme === "dark" ? "text-primary/60 hover:text-primary" : "text-bg/80 hover:text-bg"} mt-2 `}>
                 {PERSON.tel}
               </a>
             </div>
-            <div className="md:grid md:grid-cols-3 md:gap-8 mt-5">
+            <div className={`md:grid md:grid-cols-3 md:gap-8 mt-5 ${theme === "dark" ? "text-primary" : "text-bg"}`}>
               <div>
-                <h3 className="text-sm/6 font-semibold">Solutions</h3>
+                <h3 className="text-sm/6 font-secondary font-semibold">Solutions</h3>
                 <ul role="list" className="mt-3 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm/6 text-bg/60 hover:text-bg/90"
+                        className={`text-sm/6 font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
                       >
                         {item.name}
                       </a>
@@ -79,13 +85,13 @@ export function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-bg">Focus</h3>
+                <h3 className="text-sm/6 font-secondary font-semibold">Focus</h3>
                 <ul role="list" className="mt-3 space-y-4">
                   {navigation.plus.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm/6 text-bg/60 hover:text-bg/90"
+                        className={`text-sm/6 font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
                       >
                         {item.name}
                       </a>
@@ -94,13 +100,13 @@ export function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-bg">Une question ?</h3>
+                <h3 className="text-sm/6 font-secondary font-semibold">Une question ?</h3>
                 <ul role="list" className="mt-3 space-y-4">
                   {navigation.questions.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm/6 text-bg/60 hover:text-bg/90"
+                        className={`text-sm/6 font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
                       >
                         {item.name}
                       </a>
@@ -111,21 +117,21 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 px-6 lg:px-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between dark:border-white/10">
+          <div className={`mt-12 border-t ${theme==="dark" ? "border-primary/10":"border-bg/30"} pt-8 md:flex md:items-center md:justify-between dark:border-white/10`}>
             <div className="flex gap-x-6 md:order-2">
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
-                  className="text-bg hover:shadow hover:shadow-bg"
+                  className={`${theme === "dark" ? "text-primary hover:text-secondary" : "text-bg hover:text-secondary"}`}
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="size-6" />
                 </a>
               ))}
             </div>
-            <p className="mt-8 text-sm/6 text-bg/60 md:order-1 md:mt-0">
+            <p className={`${theme === "dark" ? "text-primary/70" : "text-bg/60"} mt-8 text-sm/6 md:order-1 md:mt-0`}>
               &copy; 2026 atuWeb, Tous droits reservés.
             </p>
           </div>

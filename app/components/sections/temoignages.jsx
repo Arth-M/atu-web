@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import SectionTitle from "components/micro/sectionTitle";
 import SectionLabel from "components/micro/SectionLabel";
+import { useTheme } from "../theme/ThemeProvider";
 
 const INTERVAL_MS = 4000;
 
@@ -33,6 +34,7 @@ const temoignages = [
 ];
 
 export default function Temoignages() {
+  const { theme } = useTheme();
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -77,7 +79,7 @@ export default function Temoignages() {
   };
 
   return (
-    <section id="temoignages" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12">
+    <section id="temoignages" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12 z-0">
       <SectionLabel>Témoignages</SectionLabel>
       <SectionTitle>Ils nous font confiance</SectionTitle>
 
@@ -104,25 +106,25 @@ export default function Temoignages() {
               animate="center"
               exit="exit"
               transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="mx-auto max-w-3xl text-center"
+              className="mx-auto max-w-3xl px-9 text-center"
             >
-              <div className="flex items-start justify-center">
+              <div className="relative w-fit py-2 z-10">
                   <span
                     aria-hidden="true"
-                    className="align-top font-secondary text-5xl leading-none text-secondary sm:text-6xl"
+                    className={`absolute ${theme==="classic" ? "top-2 -left-6" : theme==="dark" ? "top-0 -left-7" : "top-0 -left-8.5" } z-90 font-secondary text-5xl leading-none text-secondary sm:text-6xl`}
                   >
                     &ldquo;
                   </span>
-                <p className="font-secondary inline-block leading-relaxed text-primary/85 lg:leading-[1.55]">
+                <p className="font-primary text-justify leading-relaxed text-primary/85 lg:leading-[1.55]">
                   {temoignages[active].text}
                 </p>
               </div>
               <div className="mt-8">
-                <cite className="not-italic">
-                  <p className="font-secondary font-medium text-secondary">
+                <cite className="not-italic font-secondary ">
+                  <p className="font-medium text-secondary">
                     {temoignages[active].name}
                   </p>
-                  <p className="mt-1 text-sm text-primary/55">
+                  <p className="mt-1 text-sm text-primary/70">
                     {temoignages[active].company}
                   </p>
                 </cite>

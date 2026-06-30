@@ -14,11 +14,30 @@ import {
   Stack_Sans_Notch,
   Arimo,
   Playfair_Display,
-  Ranchers,
+  Oswald,
   Spicy_Rice,
   Luxurious_Roman,
+  Lora,
+  Dancing_Script,
+  Bitter
 } from "next/font/google";
 
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--lora",
+  display: "swap",
+});
+const dancing = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--dancing-script",
+  display: "swap",
+});
+const bitter = Bitter({
+  subsets: ["latin"],
+  variable: "--lato",
+  display: "swap",
+  // weight: ["100", "300", "400", "700", "900"],
+});
 const stackSansNotch = Stack_Sans_Notch({
   subsets: ["latin"],
   variable: "--font-stack-notch",
@@ -34,17 +53,17 @@ const playfair = Playfair_Display({
   variable: "--font-playfair-display",
   display: "swap",
 });
-const ranchers = Ranchers({
+const oswald = Oswald({
   subsets: ["latin"],
-  variable: "--font-ranchers",
+  variable: "--font-oswald",
   display: "swap",
-  weight: "400",
+  weight: [ "600"],
 });
 const spicyRice = Spicy_Rice({
   subsets: ["latin"],
   variable: "--font-spicy-rice",
   display: "swap",
-  weight: "400",
+  weight: ["400"],
 });
 const luxuriousRoman = Luxurious_Roman({
   subsets: ["latin"],
@@ -110,7 +129,7 @@ export default async function RootLayout({
         <Script src="/theme-init.js" strategy="beforeInteractive" />
       </head>
       <body
-        className={`${arimo.variable} ${playfair.variable} ${stackSansNotch.variable} ${ranchers.variable} ${spicyRice.variable} ${luxuriousRoman.variable} bg-bg w-full flex flex-col min-h-screen font-primary antialiased`}
+        className={`bg-bg w-full flex flex-col min-h-screen font-primary antialiased`}
       >
         <JsonLd />
         <ThemeProvider initialTheme={theme as (typeof THEMES)[number]}>

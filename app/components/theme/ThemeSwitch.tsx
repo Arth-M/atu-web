@@ -13,7 +13,7 @@ export function ThemeSwitch() {
 
   return (
     <div
-      className="fixed top-3 left-1/2 transform -translate-x-1/2 rounded-2xl font-primary text-primary z-50 grid grid-cols-3 justify-center items-center border border-primary/50 bg-secondary/15 shadow-lg shadow-secondary/40 backdrop-blur-xs">
+      className="fixed top-3 left-1/2 transform -translate-x-1/2 rounded-2xl font-secondary z-50 grid grid-cols-3 justify-center items-center border border-primary/50 bg-secondary/15 shadow-lg shadow-secondary/40 backdrop-blur-xs">
       {themes.map((t) => {
         const active = t === theme;
         return (
@@ -23,8 +23,8 @@ export function ThemeSwitch() {
             aria-pressed={active}
             className={`
               cursor-pointer px-3 py-1.5 text-xs text-center
-              transition-all duration-200 font-light rounded-2xl
-              ${active ? "bg-secondary text-white " : "hover:bg-surface-hover"}
+              transition-all duration-200 font-normal rounded-2xl
+              ${!active ?  "text-primary hover:bg-surface-hover" : theme === "dark" ? "bg-secondary text-black " : "bg-secondary text-white "}
             `}
           >
             {LABELS[t].label}
