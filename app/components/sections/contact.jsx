@@ -62,12 +62,21 @@ export default function Contact() {
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20 items-start">
           {/* UTILISER https://motion.dev/examples/react-color-interpolation */}
           <div>
-            <SectionTitle>Discutons de votre projet</SectionTitle>
+            <SectionTitle id="contact">Discutons de votre projet</SectionTitle>
 
             <p className="mt-4 text-sm text-primary/50">
 
             </p>
             <div className="grid sm:grid-cols-2 items-center justify-start">
+              {theme === "dark" ? (
+                <Image
+                  src="/coding2.svg"
+                  alt="Image de l'entreprise"
+                  width={500}
+                  height={500}
+                  className="w-80 h-auto object-contain mr-0 ml-auto"
+                />
+              ) : (
               <Image
                 src="/coding_ok.svg"
                 alt="Image de l'entreprise"
@@ -75,21 +84,22 @@ export default function Contact() {
                 height={500}
                 className="w-80 h-auto object-contain mr-0 ml-auto"
               />
-              <div className="flex flex-col space-y-5">
+              )}
+              <div className="flex flex-col space-y-5 font-secondary">
                 <a
                   href={`mailto:${PERSON.email}`}
-                  className="font-secondary text-xl text-secondary underline-offset-4 hover:underline"
+                  className=" text-xl text-secondary underline-offset-4 hover:underline"
                   >
                   {PERSON.email}
                 </a>
                 <a
                   href={`tel:${PERSON.tel}`}
-                  className="font-secondary text-xl text-secondary underline-offset-4 hover:underline"
+                  className=" text-xl text-secondary underline-offset-4 hover:underline"
                 >{PERSON.tel}
                 </a>
                   <a href={PERSON.maps}
                   target="_blank"
-                  className="block font-secondary text-xl text-secondary underline-offset-4 hover:underline"
+                  className="block  text-xl text-secondary underline-offset-4 hover:underline"
                   >{PERSON.location}
                   </a>
               </div>

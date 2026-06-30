@@ -19,8 +19,8 @@ export default function Services() {
       <div className="grid grid-cols-3 gap-6 items-center justify-around lg:mt-7 mt-12">
           <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
             <Image src="/coding.png" alt="Dev" width={100} height={100} className="mx-auto w-40 h-auto" />
-          <h3 className="text-lg font-medium tracking-wider">Sites & Applications web</h3>
-            <p className="text-primary/80 text-xl">
+          <h3 className="text-xl font-semibold tracking-wider font-secondary">Sites & Applications web</h3>
+            <p className="text-primary/80 text-lg">
               Ergonomie applicative, API, dynamisme, performance, SPA, multipages, de la conception à la mise en ligne
             </p>
           </div>

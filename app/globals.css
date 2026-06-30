@@ -23,9 +23,10 @@
     transition: letter-spacing 0.3s ease;
   }
   .font-secondary {
-    font-family: "Playfair Display", sans-serif;
+    font-family: "Bitter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    letter-spacing: 1px;
     transition: letter-spacing 0.3s ease;
   }
 }
@@ -33,10 +34,11 @@
 /* Dark — deep charcoal with cool accents */
 [data-theme="dark"] {
   --color-bg: #0e0e10;
-  --color-atu: var(--color-fuchsia-500);
+  /* --color-atu: var(--color-fuchsia-700); */
+  --color-atu: #702AAC;
   --color-prim: #f2f2f7;
   --color-second: rgba(42, 250, 193, 1);
-  --color-tert: #fabf2a;
+  --color-tert: #702AAC;
   .logo-fill {
     fill: #dad0d0;
     transition: fill 0.3s ease;
@@ -52,10 +54,9 @@
     transition: letter-spacing 0.3s ease;
   }
   .font-secondary {
-    font-family: "Luxurious Roman", sans-serif;
+    font-family: "Playfair Display", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    letter-spacing: 1px;
     transition: letter-spacing 0.3s ease;
   }
 }
@@ -71,18 +72,19 @@
     fill: #c71b78;
     transition: fill 0.3s ease;
   }
-  .font-primary {
+  .font-secondary {
     font-family: "Spicy Rice", sans-serif;
     font-optical-sizing: auto;
-    font-style: normal;
-    letter-spacing: 2px;
+    font-weight: 400;
+    letter-spacing: 4px;
     transition: letter-spacing 0.3s ease;
+    /* text-shadow: 3px 1px 0px var(--color-second); */
   }
-  .font-secondary {
-    font-family: "Ranchers", sans-serif;
+  .font-primary {
+    font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     transition: letter-spacing 0.3s ease;
   }
 }
@@ -150,6 +152,12 @@ html {
 
 .stack-sans-notch {
   font-family: "Stack Sans Notch", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.dancing-script {
+  font-family: "Dancing Script", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }

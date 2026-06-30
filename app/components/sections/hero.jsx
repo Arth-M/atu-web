@@ -3,8 +3,10 @@
 import { motion, stagger } from "motion/react";
 import HeroLottie from "../images/heroLottie";
 import { SecondaryLink } from "../PageLinks";
+import { useTheme } from "../theme/ThemeProvider";
 
 export default function Hero({ init, anim, duree }) {
+  const { theme } = useTheme();
   const container = {
     hidden: {},
     show: {
@@ -31,7 +33,7 @@ export default function Hero({ init, anim, duree }) {
       id="accueil"
       className="not-arrow-up relative overflow-hidden"
     >
-      <div className="pt-15 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+      <div className="pt-20 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
         <div className="flex flex-wrap items-center md:justify-between">
           <div className="lg:w-2/3">
             <motion.h1
@@ -40,7 +42,7 @@ export default function Hero({ init, anim, duree }) {
             >
               Développeur web · Docteur en psychologie cognitive
             </motion.h1>
-            <motion.h2 variants={item} className="font-secondary text-[2.5rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-5xl">
+            <motion.h2 variants={item} className={`${theme === "colorful" ? "text-shadow-[3px_1px_0px] text-shadow-secondary" : "tracking-tight" } font-secondary text-[2.5rem] font-medium leading-[1.08] text-primary sm:text-5xl`}>
                 Un seul interlocuteur pour vos projets - de l&apos;élaboration au
                 code en production.
             </motion.h2>
