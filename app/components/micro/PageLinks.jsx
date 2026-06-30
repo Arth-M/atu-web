@@ -25,10 +25,9 @@ export function SecondaryLink({ href, children }) {
     <a
       href={href}
       onClick={(e) => scrollToAnchor(href, e)}
-      className="inline-flex items-center gap-1 text-sm font-medium text-secondary underline-offset-4 transition hover:text-primary hover:underline"
+      className="inline-flex items-center gap-1 text-sm font-medium text-secondary underline-offset-8 transition hover:underline"
     >
-      {children}
-      <span aria-hidden="true">→</span>
+      {children} →
     </a>
   );
 }

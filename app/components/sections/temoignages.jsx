@@ -106,7 +106,7 @@ export default function Temoignages() {
               animate="center"
               exit="exit"
               transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="mx-auto max-w-3xl text-center"
+              className="mx-auto max-w-3xl px-9 text-center"
             >
               <div className="relative w-fit py-2 z-10">
                   <span

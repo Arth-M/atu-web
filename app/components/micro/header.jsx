@@ -11,7 +11,7 @@ export default function Header() {
   const menuRef = useRef(null);
   const pathname = usePathname();
   const navigation = [
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "/#services" },
     { name: "Expertise", href: "#expertise" },
     { name: "Portfolio", href: "#portfolio" },
     { name: "À propos", href: "#about" },
@@ -75,15 +75,15 @@ export default function Header() {
       </div>
 
       {/* Mobile menu button with hamburger icon */}
-      <div className="absolute md:right-13 sm:right-9 right-5 top-9 text-primary flex items-center justify-center lg:hidden">
-        <div className="mr-7">
+      <div className="absolute md:right-13 sm:right-9 right-5 top-11 text-primary flex items-center justify-center lg:hidden">
+        {/* <div className="mr-7">
           <a
             href="#contact"
             className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
           >
             Contact
           </a>
-        </div>
+        </div> */}
         <button
           type="button"
           onClick={(e) => {

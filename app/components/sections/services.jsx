@@ -1,12 +1,36 @@
-"use client"
-import AnimatedSectionLabel2 from "./../micro/AnimatedSectionLabel2"
-import Dev from "../images/dev"
-import SectionLabel from "../micro/SectionLabel"
-import Image from "next/image"
-import { useTheme } from "../theme/ThemeProvider"
+"use client";
+import SectionLabel from "../micro/SectionLabel";
+import Coding from "../images/coding";
+import Discussion from "../images/discussion";
+import ArtificialIntel from "../images/artificialIntel2";
+import { useTheme } from "../theme/ThemeProvider";
+import { SecondaryLink } from "../micro/PageLinks";
+
+const services = [
+  {
+    title: "Sites & Applications",
+    description:
+      "Je crée pour vous un projet robuste et adapté aux technologies actuelles. Ergonomie, performance, tout est pensé du back au front pour transformer votre idée en réalité.",
+    id: "site",
+    href: "/services#site",
+  },
+  {
+    title: "Accompagnement",
+    description:
+      "Conseil, hébergement, maintenance, suivi des indicateurs de performance,  je peux vous accompagner sur chaque partie de votre projet, selon vos besoins. On commence quand ?",
+    id: "accompagnement",
+    href: "/services#accompagnement",
+  },
+  {
+    title: "Intégration IA",
+    description:
+      "L'IA devient gage de compétitivité et de modernité. Je vous accompagne dans cette transition avec des objectifs simples : qualité UX, utilité, maîtrise des coûts.",
+    id: "ia",
+  },
+];
 
 export default function Services() {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
   return (
     <section
       id="services"
@@ -16,30 +40,28 @@ export default function Services() {
       {/* UTILISER https://motion.dev/examples/react-follow-pointer-with-spring */}
 
       <SectionLabel>Services</SectionLabel>
-      <div className="grid grid-cols-3 gap-6 items-center justify-around lg:mt-7 mt-12">
-          <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
-            <Image src="/coding.png" alt="Dev" width={100} height={100} className="mx-auto w-40 h-auto" />
-          <h3 className="text-xl font-semibold tracking-wider font-secondary">Sites & Applications web</h3>
-            <p className="text-primary/80 text-lg">
-              Ergonomie applicative, API, dynamisme, performance, SPA, multipages, de la conception à la mise en ligne
-            </p>
+      <div className="flex flex-wrap lg:grid lg:grid-cols-3 lg:gap-2 items-start justify-center lg:mt-7 mt-12 px-10 md:px-0">
+        {services.map((service) => (
+          <div
+            key={service.id}
+            className={`md:w-[300px] mx- sm:mx-3 my-6 lg:max-w-full z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}
+          >
+            <div className="h-[210px] overflow-hidden">
+            {service.id === "site" ? (
+              <Coding />
+            ) : service.id === "accompagnement" ? (
+              <Discussion />
+            ) : (
+              <ArtificialIntel />
+            )}
+            </div>
+            <h3 className="text-xl font-semibold tracking-wider text-primary font-secondary">
+              {service.title}
+            </h3>
+            <p className="md:h-[196px] text-primary/80 text-lg mb-5">{service.description}</p>
+            <SecondaryLink href={service.href}>En savoir plus</SecondaryLink>
           </div>
-          <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
-          <h3>Accompagnement</h3>
-            <p className="text-primary/80 text-lg">
-              Conseil, aide à la décision, suivi de projet, hébergement, maintenance, suivi des indicateurs de performance,
-            </p>
-          </div>
-          <div className={`z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
-          <h3>Intégration IA</h3>
-            <p className="text-primary/80 text-lg">
-              L'entrée de l'IA dans les applications web ne fait plus aucun doute,
-              elle devient un gage de compétitivité et de modernité. Je vous accompagne
-              dans cette intégration en gardant en tête des objectifs simples :
-              qualité des interactions utilisateurs,fonctionnalités avancées, maîtrise des
-              coûts.
-            </p>
-          </div>
+        ))}
       </div>
     </section>
   );

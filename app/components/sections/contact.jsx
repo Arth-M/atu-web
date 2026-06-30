@@ -67,14 +67,14 @@ export default function Contact() {
             <p className="mt-4 text-sm text-primary/50">
 
             </p>
-            <div className="grid sm:grid-cols-2 items-center justify-start">
+            <div className="grid grid-cols-2 items-center justify-start">
               {theme === "dark" ? (
                 <Image
                   src="/coding2.svg"
                   alt="Image de l'entreprise"
                   width={500}
                   height={500}
-                  className="w-80 h-auto object-contain mr-0 ml-auto"
+                  className="w-80 h-auto"
                 />
               ) : (
               <Image
@@ -82,7 +82,7 @@ export default function Contact() {
                 alt="Image de l'entreprise"
                 width={500}
                 height={500}
-                className="w-80 h-auto object-contain mr-0 ml-auto"
+                className="w-80 h-auto"
               />
               )}
               <div className="flex flex-col space-y-5 font-secondary">
