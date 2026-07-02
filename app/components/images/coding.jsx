@@ -3,7 +3,7 @@ export default function Coding() {
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" className="max-w-3/5 md:max-w-full mx-auto" viewBox="0 450 3126 2400" fill="none">
         <g transform="translate(0,3126) scale(0.1,-0.1)">
-        <g fill="#ffffff" className="fill-secondary" fill-rule="evenodd">
+        <g fill="#ffffff" className="fill-secondary" fillRule="evenodd">
           <path d="M25325 24637 c-13 -21 -12 -33 22 -150 20 -70 34 -129 32 -132 -7 -6
       -134 29 -212 58 -66 26 -68 26 -86 8 -40 -40 -34 -176 11 -264 11 -22 16 -42
       13 -45 -14 -14 -122 -6 -177 12 -121 42 -115 -43 18 -215 91 -119 210 -203
@@ -171,7 +171,7 @@ export default function Coding() {
       -26 -120 -3 c-66 -1 -667 9 -1335 23 -668 14 -1270 25 -1337 25 -129 0 -153 8
       -153 51 0 30 35 38 150 33 58 -2 706 -16 1440 -30z"/>
         </g>
-        <g fill="#231f20" class="fill-bg" fill-rule="evenodd">
+        <g fill="#231f20" className="fill-bg" fillRule="evenodd">
           <path d="M25430 24496 c0 -6 12 -49 25 -95 32 -110 32 -129 -1 -137 -34 -9
       -162 13 -246 41 l-68 23 0 -39 c0 -50 21 -101 60 -145 32 -37 38 -65 18 -82
       -25 -20 -122 -42 -185 -42 -35 0 -63 -4 -63 -8 0 -17 111 -142 156 -176 55
@@ -283,7 +283,7 @@ export default function Coding() {
       -92 281 -204 622 -191 581 -205 620 -227 622 -13 1 -103 -14 -199 -32z M8610 7414 c-177 -77 -161 -335 25 -389 44 -13 445 -15 3110 -13
       l3060 3 47 28 c147 86 137 298 -17 368 -57 26 -6166 29 -6225 3z"/>
         </g>
-        <g fill="#68e1fd" class="fill-secondary/70" fill-rule="evenodd">
+        <g fill="#68e1fd" className="fill-secondary/70" fillRule="evenodd">
           <path d="M25440 24505 c0 -7 61 -37 66 -33 2 3 -12 12 -31 21 -19 9 -35 15
       -35 12z M25132 24305 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z M26228 24243 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z M25409 23913 l-24 -28 28 24 c25 23 32 31 24 31 -2 0 -14 -12 -28
       -27z M25433 23650 c0 -36 2 -50 4 -32 2 17 2 47 0 65 -2 17 -4 3 -4 -33z M26451 23596 c2 -2 15 -9 29 -15 24 -11 24 -11 6 3 -16 13 -49 24
@@ -408,7 +408,7 @@ export default function Coding() {
       -1972 -1 -1272 -2z M10213 7433 c835 -2 2199 -2 3030 0 832 1 149 2 -1518 2 -1666 0
       -2347 -1 -1512 -2z"/>
         </g>
-        <g fill="#68e1fd" class="fill-tertiary" fill-rule="evenodd">
+        <g fill="#68e1fd" className="fill-tertiary" fillRule="evenodd">
           <path d="M26573 22778 c30 -154 27 -209 -13 -293 -105 -220 -387 -342 -583
       -252 -154 71 -165 91 -222 437 -25 152 -20 143 -63 138 -51 -7 -184 -62 -255
       -105 -120 -73 -215 -182 -263 -303 -20 -49 -153 -299 -267 -500 -99 -176 -234

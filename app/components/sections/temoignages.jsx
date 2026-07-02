@@ -12,14 +12,18 @@ const temoignages = [
   {
     name: "Gwenaëlle",
     company: "NumDiag",
-    text: (<>J'ai eu le plaisir de travailler avec Arthur pendant plusieurs années
-    avec Numdiag, pour qui il a développé plusieurs applications web.
-    Arthur est un développeur <span className="font-bold">talentueux</span>,{" "}
-    <span className="font-bold">rigoureux</span>{" "} et{" "}
-    <span className="font-bold">toujours à l'écoute des besoins</span>.
-    Il a su s'approprier nos enjeux techniques et métier en livrant des
-    projets de qualité dans les délais. Je le recommande sans hésitation à quiconque
-    cherche un développeur web fiable et impliqué.</>),
+    text: (
+      <>
+        J'ai eu le plaisir de travailler avec Arthur pendant plusieurs années
+        avec Numdiag, pour qui il a développé plusieurs applications web. Arthur
+        est un développeur <span className="font-bold">talentueux</span>,{" "}
+        <span className="font-bold">rigoureux</span> et{" "}
+        <span className="font-bold">toujours à l'écoute des besoins</span>. Il a
+        su s'approprier nos enjeux techniques et métier en livrant des projets
+        de qualité dans les délais. Je le recommande sans hésitation à quiconque
+        cherche un développeur web fiable et impliqué.
+      </>
+    ),
   },
   {
     name: "Kevin",
@@ -40,10 +44,13 @@ export default function Temoignages() {
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
 
-  const goTo = useCallback((index) => {
-    setDirection(index > active ? 1 : -1);
-    setActive(index);
-  }, [active]);
+  const goTo = useCallback(
+    (index) => {
+      setDirection(index > active ? 1 : -1);
+      setActive(index);
+    },
+    [active],
+  );
 
   const next = useCallback(() => {
     setDirection(1);
@@ -79,7 +86,10 @@ export default function Temoignages() {
   };
 
   return (
-    <section id="temoignages" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12 z-0">
+    <section
+      id="temoignages"
+      className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12 z-0"
+    >
       <SectionLabel>Témoignages</SectionLabel>
       <SectionTitle>Ils nous font confiance</SectionTitle>
 
@@ -105,16 +115,19 @@ export default function Temoignages() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: reduceMotion ? 0 : 0.45,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="mx-auto max-w-3xl px-9 text-center"
             >
               <div className="relative w-fit py-2 z-10">
-                  <span
-                    aria-hidden="true"
-                    className={`absolute ${theme==="classic" ? "top-2 -left-6" : theme==="dark" ? "top-0 -left-7" : "top-0 -left-8.5" } z-90 font-secondary text-5xl leading-none text-secondary sm:text-6xl`}
-                  >
-                    &ldquo;
-                  </span>
+                <span
+                  aria-hidden="true"
+                  className={`absolute ${theme === "classic" ? "top-2 -left-6" : theme === "dark" ? "top-0 -left-7" : "top-0 -left-8.5"} z-90 font-secondary  leading-none text-secondary sm:`}
+                >
+                  &ldquo;
+                </span>
                 <p className="font-primary text-justify leading-relaxed text-primary/85 lg:leading-[1.55]">
                   {temoignages[active].text}
                 </p>
@@ -124,7 +137,7 @@ export default function Temoignages() {
                   <p className="font-medium text-secondary">
                     {temoignages[active].name}
                   </p>
-                  <p className="mt-1 text-sm text-primary/70">
+                  <p className="mt-1  text-primary/70">
                     {temoignages[active].company}
                   </p>
                 </cite>
@@ -141,8 +154,20 @@ export default function Temoignages() {
               aria-label="Témoignage précédent"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/15 text-primary/60 transition-colors hover:border-secondary/40 hover:text-secondary"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10 3L5 8L10 13"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
@@ -170,8 +195,20 @@ export default function Temoignages() {
               aria-label="Témoignage suivant"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/15 text-primary/60 transition-colors hover:border-secondary/40 hover:text-secondary"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 3L11 8L6 13"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>

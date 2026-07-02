@@ -47,18 +47,20 @@ export default function Services() {
             className={`md:w-[300px] mx- sm:mx-3 my-6 lg:max-w-full z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}
           >
             <div className="h-[210px] overflow-hidden">
-            {service.id === "site" ? (
-              <Coding />
-            ) : service.id === "accompagnement" ? (
-              <Discussion />
-            ) : (
-              <ArtificialIntel />
-            )}
+              {service.id === "site" ? (
+                <Coding />
+              ) : service.id === "accompagnement" ? (
+                <Discussion />
+              ) : (
+                <ArtificialIntel />
+              )}
             </div>
-            <h3 className="text-xl font-semibold tracking-wider text-primary font-secondary">
+            <h4 className=" font-semibold tracking-wider text-primary font-secondary">
               {service.title}
-            </h3>
-            <p className="md:h-[196px] text-primary/80 text-lg mb-5">{service.description}</p>
+            </h4>
+            <p className="md:h-[196px] text-primary/80  mb-5">
+              {service.description}
+            </p>
             <SecondaryLink href={service.href}>En savoir plus</SecondaryLink>
           </div>
         ))}
