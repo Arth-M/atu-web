@@ -67,7 +67,7 @@ export default function About() {
       id="about"
       className="relative w-full bg-secondary/50"
     >
-      <div className="max-w-6xl mx-auto py-20 md:py-28 px-6 md:px-10 lg:px-12">
+      <div className="container-perso-x container-perso-y padding-bottom-container-perso">
         <div className="grid md:grid-cols-[1.5fr_1fr] z-0">
           <div className="w-full z-10">
             <SectionLabel>À propos</SectionLabel>
@@ -83,7 +83,7 @@ export default function About() {
                 />
               </div>
             </div>
-            <div className="md:hidden float-right mt-6 overflow-hidden bg-secondary/80 rounded-full w-fit">
+            <div className="md:hidden float-right mt-6 mr-2 overflow-hidden bg-secondary/80 rounded-full w-fit">
               <Image
                 src="/tutur_gros_plan.svg"
                 alt="Photo de Arthur-Henri Michalland"
@@ -117,7 +117,7 @@ export default function About() {
           <motion.div
             ref={containerRef}
             style={{ y }}
-            className="absolute -top-50 md:right-5 -right-7.5 w-50 h-50"
+            className="absolute -top-50 lg:right-70 md:right-50 right-50"
           >
             <MotionLogo
               color="logo-fill-animate"

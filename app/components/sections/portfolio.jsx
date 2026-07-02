@@ -68,7 +68,7 @@ export default function Portfolio({ init, anim, duree }) {
       initial="hidden"
       animate={isInView ? "show" : undefined}
       id="portfolio"
-      className="relative pt-20 pb-40 bg-secondary/20 text-secondary"
+      className="relative container-perso-y padding-bottom-container-perso bg-secondary/20 text-secondary"
     >
       <motion.div
         className="absolute inset-0 w-full h-full bg-secondary hidden md:block"
@@ -121,7 +121,7 @@ export default function Portfolio({ init, anim, duree }) {
         }}
       >
       </motion.div> */}
-      <div className="mx-auto px-6 md:px-10 lg:px-12 max-w-6xl">
+      <div className="container-perso-x">
         <motion.div variants={item}>
           <SectionLabel>Portfolio</SectionLabel>
           <SectionTitle>Un aperçu de mon travail</SectionTitle>

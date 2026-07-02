@@ -21,7 +21,7 @@ export default function Expertise() {
   return (
     <section
       id="expertise"
-      className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24 lg:px-12"
+      className="container-perso-x container-perso-y padding-bottom-container-perso"
     >
       {/* UTILISER https://motion.dev/examples/js-spring-follow-cursor */}
       {/* UTILISER https://motion.dev/examples/react-follow-pointer-with-spring */}

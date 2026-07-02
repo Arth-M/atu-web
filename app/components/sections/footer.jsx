@@ -52,9 +52,9 @@ export function Footer() {
 
   return (
     <footer
-      className={`not-arrow-up text-bg pb-10 ${theme === "dark" ? "bg-bg border" : "pt-20 bg-primary"}`}
+      className={`not-arrow-up text-bg pb-7 ${theme === "dark" ? "bg-bg border" : "pt-20 bg-primary"}`}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
+      <div className="container-perso-x">
         {theme === "dark" && (
           <div className="border-t border-primary/30 mb-20"></div>
         )}
@@ -64,7 +64,8 @@ export function Footer() {
               color={theme === "dark" ? "logo-fill" : "logo-fill-animate"}
             />
             <span
-              className={`${theme === "dark" ? "text-primary" : "text-bg"} logo-size absolute lg:left-21 lg:top-15.5 md:left-21.5 sm:left-21 left-21 top-15.5 block  leading-5 tracking-tighter stack-sans-notch font-semibold`}
+              className={`${theme === "dark" ? "text-primary" : "text-bg"} tracking-tighter
+              logo-size absolute left-24.5 top-16.5 block leading-5.5 stack-sans-notch font-semibold`}
             >
               <span className="text-logo">atu</span>
               <br />
@@ -137,7 +138,7 @@ export function Footer() {
         </div>
 
         <div
-          className={`mt-12 border-t ${theme === "dark" ? "border-primary/10" : "border-bg/30"} pt-8 md:flex md:items-center md:justify-between dark:border-white/10`}
+          className={`mt-20 border-t ${theme === "dark" ? "border-primary/10" : "border-bg/30"} pt-8 md:flex md:items-center md:justify-between dark:border-white/10`}
         >
           <div className="flex gap-x-6 md:order-2">
             {navigation.social.map((item) => (
