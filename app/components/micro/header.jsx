@@ -38,10 +38,11 @@ export default function Header() {
   return (
     // UTILISER https://motion.dev/examples/react-variants
     // sur bouton de contact: https://motion.dev/examples/react-confetti
-    <nav className="bg-transparent relative flex justify-between md:mt-5 mt-7 font-semibold w-[90%] mx-auto">
-      <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1 relative">
+    <nav className="bg-transparent relative flex justify-between md:mt-8 mt-10
+    font-semibold container-perso-x w-full">
+      <Link href="/" className="w-fit relative">
         <Logo color="logo-fill" />
-        <span className="logo-size absolute lg:left-33.5 lg:top-15 sm:left-23.5 left-21.5 top-15.5 block leading-5 text-primary stack-sans-notch font-semibold">
+        <span className="tracking-tighter logo-size absolute left-24.5 top-16.5 block leading-5.5 text-primary stack-sans-notch font-semibold">
           <span className="text-logo">atu</span>
           <br />
           web

@@ -33,23 +33,25 @@ export default function Hero({ init, anim, duree }) {
       id="accueil"
       className="not-arrow-up relative overflow-hidden"
     >
-      <div className="pt-20 relative mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+      <div className="relative lg:pt-20 pt-10 container-perso-x">
         <div className="flex flex-wrap items-center md:justify-between">
           <div className="lg:w-2/3">
-            <motion.h1
+            <h1>
+              <span
               variants={item}
               className="mb-6 font-medium uppercase tracking-[0.2em] text-secondary"
             >
               Développeur web · Docteur en psychologie cognitive
-            </motion.h1>
-            <motion.h5
+            </span>
+            <span
               variants={item}
-              className={`${theme === "colorful" ? "text-shadow-[3px_1px_0px] text-shadow-secondary" : "tracking-tight"} font-secondary font-medium leading-[1.08] text-primary sm:`}
-            >
+              className={`large-text-hero block mt-6 ${theme === "colorful" ? "text-shadow-[3px_1px_0px] text-shadow-secondary" : "tracking-tight"} font-secondary font-medium leading-[1.08] text-primary sm:`}
+              >
               Un seul interlocuteur pour vos projets - de l&apos;élaboration au
               code en production.
-            </motion.h5>
-            <motion.div variants={item} className="pt-6 pb-8">
+            </span>
+            </h1>
+            <motion.div variants={item} className="pt-6">
               <p className=" leading-relaxed text-primary/75">
                 Expert dans le développement d'applications web et IA sur
                 mesure, ma formation en psychologie cognitive me permet aussi de
