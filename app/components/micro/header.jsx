@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -19,7 +18,6 @@ export default function Header() {
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
   ];
-
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -40,19 +38,17 @@ export default function Header() {
   return (
     // UTILISER https://motion.dev/examples/react-variants
     // sur bouton de contact: https://motion.dev/examples/react-confetti
-    <nav
-      className="bg-transparent relative flex justify-between md:mt-5 mt-7 font-semibold w-[90%] mx-auto"
-    >
+    <nav className="bg-transparent relative flex justify-between md:mt-5 mt-7 font-semibold w-[90%] mx-auto">
       <Link href="/" className="w-fit lg:pl-13 sm:pl-3 pl-1 relative">
-        <Logo color="logo-fill"/>
-        <span className="absolute lg:left-33.5 lg:top-15 sm:left-23.5 left-21.5 top-15.5 block text-4xl leading-5 text-primary stack-sans-notch font-semibold">
+        <Logo color="logo-fill" />
+        <span className="logo-size absolute lg:left-33.5 lg:top-15 sm:left-23.5 left-21.5 top-15.5 block leading-5 text-primary stack-sans-notch font-semibold">
           <span className="text-logo">atu</span>
           <br />
           web
         </span>
       </Link>
       <div className="hidden text-primary lg:flex items-center justify-end">
-        <div className="justify-end items-center font-primary text-lg font-normal">
+        <div className="justify-end items-center font-primary  font-normal">
           {navigation.map((item) => (
             <a
               key={item.name}

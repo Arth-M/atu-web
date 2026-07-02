@@ -1,20 +1,15 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import {
-  motion,
-  useInView,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 
-const APPEAR_DURATION = 0.060;
-const SWEEP_DURATION = 0.800;
-const SHRINK_DURATION = 0.300;
+const APPEAR_DURATION = 0.06;
+const SWEEP_DURATION = 0.8;
+const SHRINK_DURATION = 0.3;
 const SCALE_TOTAL = APPEAR_DURATION + SWEEP_DURATION + SHRINK_DURATION;
 const SWEEP_EASE = [0.4, 0, 0.2, 1];
 
-const headingClass =
-  "mb-1 text-medium font-medium tracking-[0.2em]";
+const headingClass = "mb-1  font-medium tracking-[0.2em]";
 
 export default function AnimatedSectionLabel({ children }) {
   const containerRef = useRef(null);
@@ -47,24 +42,25 @@ export default function AnimatedSectionLabel({ children }) {
   return (
     <div ref={containerRef} className="text-secondary w-fit">
       <div className="relative">
-        <h1
+        <h2
           ref={textRef}
           className={`${headingClass} text-transparent select-none`}
           aria-hidden="true"
         >
           {children}
-        </h1>
+        </h2>
 
-        <motion.h1
+        <motion.h2
           className={`absolute inset-0 ${headingClass}`}
           initial={{ clipPath: "inset(0 100% 0 0)" }}
-          animate={
-            isInView ? { clipPath: "inset(0 0% 0 0)" } : undefined
-          }
-          transition={{ duration: APPEAR_DURATION + SWEEP_DURATION, ease: SWEEP_EASE }}
+          animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : undefined}
+          transition={{
+            duration: APPEAR_DURATION + SWEEP_DURATION,
+            ease: SWEEP_EASE,
+          }}
         >
           {children}
-        </motion.h1>
+        </motion.h2>
 
         <motion.div
           className="absolute top-1/2 -translate-y-1/2 w-10 h-10 bg-tertiary z-10 pointer-events-none"
@@ -75,8 +71,16 @@ export default function AnimatedSectionLabel({ children }) {
               : undefined
           }
           transition={{
-            x: { duration: SWEEP_DURATION, delay: APPEAR_DURATION, ease: SWEEP_EASE },
-            rotate: { duration: SWEEP_DURATION, delay: APPEAR_DURATION, ease: SWEEP_EASE },
+            x: {
+              duration: SWEEP_DURATION,
+              delay: APPEAR_DURATION,
+              ease: SWEEP_EASE,
+            },
+            rotate: {
+              duration: SWEEP_DURATION,
+              delay: APPEAR_DURATION,
+              ease: SWEEP_EASE,
+            },
             scale: {
               duration: SCALE_TOTAL,
               times: [
@@ -94,11 +98,13 @@ export default function AnimatedSectionLabel({ children }) {
       <motion.hr
         className="border-secondary ml-auto mr-1 mt-2"
         initial={{ scaleX: 0, opacity: 1 }}
-        animate={
-          isInView ? { scaleX:1,width: "75%", opacity: 1 } : undefined
-        }
+        animate={isInView ? { scaleX: 1, width: "75%", opacity: 1 } : undefined}
         style={{ transformOrigin: "left center" }}
-        transition={{ duration: 0.5, delay: SWEEP_DURATION+APPEAR_DURATION, ease: "easeInOut" }}
+        transition={{
+          duration: 0.5,
+          delay: SWEEP_DURATION + APPEAR_DURATION,
+          ease: "easeInOut",
+        }}
       />
     </div>
   );

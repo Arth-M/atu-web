@@ -137,16 +137,14 @@ export default function Portfolio({ init, anim, duree }) {
               variants={item}
               className="flex flex-col"
             >
-              <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
+              <p className=" font-medium uppercase tracking-wide text-tertiary">
                 {project.tag}
               </p>
-              <h3 className="mt-3 font-secondary text-xl font-medium">
+              <h4 className="mt-3 font-secondary  font-medium">
                 {project.title}
-              </h3>
+              </h4>
 
-              <p className="mt-3 flex-1 text-sm leading-relaxed ">
-                {project.body}
-              </p>
+              <p className="mt-3 flex-1  leading-relaxed ">{project.body}</p>
               <Image
                 key={project.image}
                 src={project.image}
@@ -166,7 +164,7 @@ export default function Portfolio({ init, anim, duree }) {
           ))}
         </div>
         <motion.div variants={item}>
-          <p className="mt-15 font-secondary text-xl text-primary/80">
+          <p className="mt-15 font-secondary  text-primary/80">
             Votre projet pourrait être le prochain.
           </p>
           <div className="mt-4">

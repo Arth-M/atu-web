@@ -58,15 +58,13 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6 py-20 md:px-10 md:py-28 lg:px-12">
         {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
         {/* quand email envoyé : https://motion.dev/examples/react-notifications-list */}
-            <SectionLabel>Premier contact</SectionLabel>
+        <SectionLabel>Premier contact</SectionLabel>
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20 items-start">
           {/* UTILISER https://motion.dev/examples/react-color-interpolation */}
           <div>
             <SectionTitle id="contact">Discutons de votre projet</SectionTitle>
 
-            <p className="mt-4 text-sm text-primary/50">
-
-            </p>
+            <p className="mt-4  text-primary/50"></p>
             <div className="grid grid-cols-2 items-center justify-start">
               {theme === "dark" ? (
                 <Image
@@ -77,37 +75,42 @@ export default function Contact() {
                   className="w-80 h-auto"
                 />
               ) : (
-              <Image
-                src="/coding_ok.svg"
-                alt="Image de l'entreprise"
-                width={500}
-                height={500}
-                className="w-80 h-auto"
-              />
+                <Image
+                  src="/coding_ok.svg"
+                  alt="Image de l'entreprise"
+                  width={500}
+                  height={500}
+                  className="w-80 h-auto"
+                />
               )}
               <div className="flex flex-col space-y-5 font-secondary">
                 <a
                   href={`mailto:${PERSON.email}`}
-                  className=" text-xl text-secondary underline-offset-4 hover:underline"
-                  >
+                  className="  text-secondary underline-offset-4 hover:underline"
+                >
                   {PERSON.email}
                 </a>
                 <a
                   href={`tel:${PERSON.tel}`}
-                  className=" text-xl text-secondary underline-offset-4 hover:underline"
-                >{PERSON.tel}
+                  className="  text-secondary underline-offset-4 hover:underline"
+                >
+                  {PERSON.tel}
                 </a>
-                  <a href={PERSON.maps}
+                <a
+                  href={PERSON.maps}
                   target="_blank"
-                  className="block  text-xl text-secondary underline-offset-4 hover:underline"
-                  >{PERSON.location}
-                  </a>
+                  className="block   text-secondary underline-offset-4 hover:underline"
+                >
+                  {PERSON.location}
+                </a>
               </div>
             </div>
           </div>
 
-          <div className={`w-4/5 mx-auto border-secondary/80 shadow-secondary/80 hover:scale-105 transition-all duration-300 rounded-xl border p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}>
-            <p className="mt-5 text-base leading-relaxed text-primary/70 mb-5">
+          <div
+            className={`w-4/5 mx-auto border-secondary/80 shadow-secondary/80 hover:scale-105 transition-all duration-300 rounded-xl border p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}
+          >
+            <p className="mt-5  leading-relaxed text-primary/70 mb-5">
               Décrivez-moi votre besoin en quelques lignes. Je reviens vers vous
               sous 48 h.
             </p>
@@ -119,7 +122,7 @@ export default function Contact() {
                 {/* <div>
                   <label
                     htmlFor="name"
-                    className="mb-1.5 block text-sm font-medium"
+                    className="mb-1.5 block  font-medium"
                   >
                     Nom *
                   </label>
@@ -130,13 +133,13 @@ export default function Contact() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full text-primary rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
+                    className="w-full text-primary rounded-lg border border-primary/15 bg-bg px-4 py-2.5  outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   />
                 </div> */}
                 <div>
                   {/* <label
                     htmlFor="project"
-                    className="mb-1.5 block text-sm font-medium"
+                    className="mb-1.5 block  font-medium"
                   >
                     Votre projet
                   </label> */}
@@ -145,7 +148,7 @@ export default function Contact() {
                     name="project"
                     value={project}
                     onChange={(e) => setProject(e.target.value)}
-                    className="w-full rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
+                    className="w-full rounded-lg border border-primary/15 bg-bg px-4 py-2.5  text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   >
                     <option>Site vitrine</option>
                     <option>Application web</option>
@@ -156,7 +159,7 @@ export default function Contact() {
                 <div>
                   {/* <label
                     htmlFor="email"
-                    className="mb-1.5 block text-sm font-medium"
+                    className="mb-1.5 block  font-medium"
                   >
                     Email *
                   </label> */}
@@ -168,14 +171,14 @@ export default function Contact() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Votre email"
-                    className="w-full text-primary rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
+                    className="w-full text-primary rounded-lg border border-primary/15 bg-bg px-4 py-2.5  outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   />
                 </div>
 
                 <div>
                   {/* <label
                     htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium"
+                    className="mb-1.5 block  font-medium"
                   >
                     Message *
                   </label> */}
@@ -187,19 +190,19 @@ export default function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Votre message"
-                    className="w-full text-primary resize-y rounded-lg border border-primary/15 bg-bg px-4 py-2.5 text-sm outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
+                    className="w-full text-primary resize-y rounded-lg border border-primary/15 bg-bg px-4 py-2.5  outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   />
                 </div>
               </div>
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-6 w-full rounded-lg border border-tertiary bg-tertiary px-6 py-3 text-sm font-medium text-white shadow-sm shadow-tertiary/30 transition hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:hover:translate-y-0"
+                className="mt-6 w-full rounded-lg border border-tertiary bg-tertiary px-6 py-3  font-medium text-white shadow-sm shadow-tertiary/30 transition hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:hover:translate-y-0"
               >
                 {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
               </button>
               {error && (
-                <p className="mt-2 text-sm text-bg">
+                <p className="mt-2  text-bg">
                   ⚠ Impossible d&apos;envoyer le message. Vérifiez les champs ou
                   réessayez plus tard.
                 </p>
