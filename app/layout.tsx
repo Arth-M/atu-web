@@ -131,12 +131,14 @@ export default async function RootLayout({
         className={`bg-bg w-full flex flex-col min-h-screen font-primary antialiased`}
       >
         <JsonLd />
-        <ThemeProvider initialTheme={theme as (typeof THEMES)[number]}>
-          <Header />
-          {children}
-          <ThemeSwitch />
-          <Footer />
-        </ThemeProvider>
+        <main role="main">
+          <ThemeProvider initialTheme={theme as (typeof THEMES)[number]}>
+            <Header />
+            {children}
+            <ThemeSwitch />
+            <Footer />
+          </ThemeProvider>
+        </main>
       </body>
     </html>
   );

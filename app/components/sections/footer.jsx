@@ -53,6 +53,7 @@ export function Footer() {
   return (
     <footer
       className={`not-arrow-up text-bg pb-7 ${theme === "dark" ? "bg-bg border" : "pt-20 bg-primary"}`}
+      role="contentinfo"
     >
       <div className="container-header-footer-x">
         {theme === "dark" && (
