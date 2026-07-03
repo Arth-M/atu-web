@@ -64,9 +64,9 @@ export default function Services() {
                 <ArtificialIntel />
               )}
             </div>
-            <h4 className=" font-semibold tracking-wider text-primary font-secondary">
+            <h3 className="h4 font-semibold tracking-wider text-primary font-secondary">
               {service.title}
-            </h4>
+            </h3>
             <p className="md:h-[220px] text-primary/80  mb-5">
               {service.description}
             </p>

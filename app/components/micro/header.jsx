@@ -38,8 +38,9 @@ export default function Header() {
   return (
     // UTILISER https://motion.dev/examples/react-variants
     // sur bouton de contact: https://motion.dev/examples/react-confetti
-    <nav className="bg-transparent relative flex justify-between md:mt-8 mt-10
-    font-semibold container-header-footer-x w-full">
+    <header className="bg-transparent relative flex justify-between md:mt-8 mt-10
+    font-semibold container-header-footer-x w-full"
+    role="banner">
       <Link href="/" className="w-fit relative">
         <Logo color="logo-fill" />
         <span className="tracking-tighter logo-size absolute left-24.5 top-16.5 block leading-5.5 text-primary stack-sans-notch font-semibold">
@@ -49,7 +50,8 @@ export default function Header() {
         </span>
       </Link>
       <div className="hidden text-primary lg:flex items-center justify-end">
-        <div className="justify-end items-center font-primary  font-normal">
+        <nav className="justify-end items-center font-primary  font-normal"
+        role="navigation">
           {navigation.map((item) => (
             <a
               key={item.name}
@@ -68,7 +70,7 @@ export default function Header() {
               Contact
             </a>
           </div> */}
-        </div>
+        </nav>
       </div>
 
       {/* Mobile menu button with hamburger icon */}
@@ -113,7 +115,8 @@ export default function Header() {
       <div
         className={`z-90 lg:hidden absolute shadow rounded border border-gray-200 right-0 max-w-2/3 ${isMobileMenuOpen ? "block" : "hidden"} flex justify-end`}
       >
-        <div className="z-90 space-y-1 px-2 pt-2 pb-3 bg-gray-50 w-fit">
+        <nav className="z-90 space-y-1 px-2 pt-2 pb-3 bg-gray-50 w-fit"
+        role="navigation">
           {navigation.map((item) => (
             <a
               key={item.name}
@@ -123,8 +126,8 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-        </div>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 }

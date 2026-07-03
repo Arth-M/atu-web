@@ -153,11 +153,13 @@ export default function Contact({ init, anim, duree }) {
                   >
                     Votre projet
                   </label> */}
+
                   <select
                     id="project"
                     name="project"
                     value={project}
                     onChange={(e) => setProject(e.target.value)}
+                    aria-label="Type de projet"
                     className="w-full rounded-lg border border-primary/15 bg-bg px-4 py-2.5  text-primary outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   >
                     <option>Site vitrine</option>
@@ -181,6 +183,7 @@ export default function Contact({ init, anim, duree }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Votre email"
+                    aria-label="Entrez votre email"
                     className="w-full text-primary rounded-lg border border-primary/15 bg-bg px-4 py-2.5  outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   />
                 </div>
@@ -200,6 +203,7 @@ export default function Contact({ init, anim, duree }) {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Votre message"
+                    aria-label="Entrez votre message"
                     className="w-full text-primary resize-y rounded-lg border border-primary/15 bg-bg px-4 py-2.5  outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/15"
                   />
                 </div>
