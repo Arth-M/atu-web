@@ -12,7 +12,7 @@ export default function Hero({ init, anim, duree }) {
     show: {
       transition: {
         // startDelay = délai avant le 1er enfant ; ensuite +staggerStep à chaque enfant
-        delayChildren: stagger(0.3, { startDelay: 0 }),
+        delayChildren: stagger(0.3, { startDelay: 0.36 }),
       },
     },
   };
@@ -36,23 +36,23 @@ export default function Hero({ init, anim, duree }) {
       <div className="relative lg:pt-20 pt-10 container-perso-x">
         <div className="flex flex-wrap items-center md:justify-between">
           <div className="lg:w-2/3">
-            <motion.h1>
-              <span
-
+            <h1>
+              <motion.span
+                variants={item}
                 className="mb-6 font-medium uppercase tracking-[0.2em] text-secondary"
               >
                 Développeur web · Docteur en psychologie cognitive
-              </span>
-              <span
-
+              </motion.span>
+              <motion.span
+                variants={item}
                 className={`large-text-hero block mt-6 ${theme === "colorful" ? "text-shadow-[3px_1px_0px] text-shadow-secondary" : "tracking-tight"} font-secondary font-medium leading-[1.08] text-primary sm:`}
               >
                 Un seul interlocuteur pour vos projets - de l&apos;élaboration
                 au code en production.
-              </span>
-            </motion.h1>
+              </motion.span>
+            </h1>
             <motion.div variants={item} className="pt-6">
-              <p className="leading-relaxed text-primary/75">
+              <p className=" leading-relaxed text-primary/75">
                 Expert dans le développement d'applications web et IA sur
                 mesure, ma formation en psychologie cognitive me permet aussi de
                 concevoir des interfaces qui accompagnent la perception, la
