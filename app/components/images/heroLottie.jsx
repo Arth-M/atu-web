@@ -18,11 +18,8 @@ export default function HeroLottie({ init, anim, duree, delay }) {
       initial={init}
       animate={anim}
       transition={{ duration: duree, delay: delay }}
-     >
-      <DotLottieReact
-        key={src} src={src}
-        loop autoplay
-        className="h-70 w-70" />
+    >
+      <DotLottieReact key={src} src={src} loop autoplay className="h-70 w-70" />
     </motion.div>
   );
 }

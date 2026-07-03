@@ -23,7 +23,7 @@ export default function ArrowUp() {
         });
         setShowArrow(visible.size === 0);
       },
-      { threshold: 0.2},
+      { threshold: 0.2 },
     );
 
     sections.forEach((section) => observer.observe(section));

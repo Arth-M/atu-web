@@ -28,10 +28,15 @@ const temoignages = [
   {
     name: "Kevin",
     company: "Psychologue",
-    text: (<>
-    Ce fut un réel plaisir de travailler avec Arthur. Et surtout quel résultat! 😄 <span className="font-bold">Tout s’est fait en concertation</span>, avec <span className="font-bold">fluidité</span> et <span className="font-bold">grande efficacité</span> !
-    Je recommande vivement !
-    </>
+    text: (
+      <>
+        Ce fut un réel plaisir de travailler avec Arthur. Et surtout quel
+        résultat! 😄{" "}
+        <span className="font-bold">Tout s’est fait en concertation</span>, avec{" "}
+        <span className="font-bold">fluidité</span> et{" "}
+        <span className="font-bold">grande efficacité</span> ! Je recommande
+        vivement !
+      </>
     ),
   },
   // {

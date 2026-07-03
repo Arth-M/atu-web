@@ -113,8 +113,11 @@ export default function Contact() {
               shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2
               sm:hover:shadow-[-15px_17px_0px_-5px_shadow-primary]
               hover:shadow-[-10px_12px_0px_-5px_shadow-primary]
-              ${theme === "dark" ? "shadow-secondary border-secondary" :
-                " border-primary shadow-primary"}`}
+              ${
+                theme === "dark"
+                  ? "shadow-secondary border-secondary"
+                  : " border-primary shadow-primary"
+              }`}
           >
             <p className="mt-5  leading-relaxed text-primary/70 mb-5">
               Décrivez votre besoin en quelques lignes. Je reviens vers vous

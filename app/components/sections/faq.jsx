@@ -61,7 +61,10 @@ export default function Faq() {
   }, [theme, animate, listRef]);
 
   return (
-    <section id="faq" className="container-perso-y container-perso-x padding-bottom-container-perso">
+    <section
+      id="faq"
+      className="container-perso-y container-perso-x padding-bottom-container-perso"
+    >
       {/* UTILISER https://motion.dev/examples/react-accordion */}
       <div className="mx-auto max-w-3xl">
         <div className="text-center">

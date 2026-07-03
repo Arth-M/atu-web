@@ -32,10 +32,7 @@ const services = [
 export default function Services() {
   const { theme } = useTheme();
   return (
-    <section
-      id="services"
-      className="container-perso-x container-perso-y"
-    >
+    <section id="services" className="container-perso-x container-perso-y">
       {/* UTILISER https://motion.dev/examples/js-spring-follow-cursor */}
       {/* UTILISER https://motion.dev/examples/react-follow-pointer-with-spring */}
 
@@ -49,9 +46,13 @@ export default function Services() {
               border-secondary/80 shadow-secondary/80 p-4
               shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2
               hover:shadow-[-15px_17px_0px_-5px_shadow-primary]
-              ${theme === "dark" ? "shadow-secondary border-secondary" : theme === "colorful" ?
-                " border-primary shadow-primary" :
-                " border-primary shadow-primary"}`}
+              ${
+                theme === "dark"
+                  ? "shadow-secondary border-secondary"
+                  : theme === "colorful"
+                    ? " border-primary shadow-primary"
+                    : " border-primary shadow-primary"
+              }`}
           >
             <div className="sm:h-[210px] overflow-hidden">
               {service.id === "site" ? (

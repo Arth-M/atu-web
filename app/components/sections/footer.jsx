@@ -16,7 +16,7 @@ export function Footer() {
       { name: "Témoignages", href: "#temoignages" },
     ],
     questions: [
-      { name: "Contactez-nous !", href: "#contact" },
+      { name: "Contactez-nous", href: "#contact" },
       { name: "FAQ", href: "#faq" },
     ],
     social: [
@@ -58,7 +58,7 @@ export function Footer() {
         {theme === "dark" && (
           <div className="border-t border-primary/30 mb-20"></div>
         )}
-        <div className="grid grid-cols-2 gap-8 xl:col-span-2 small-footer">
+        <div className="grid grid-cols-2 small-footer">
           <div className="relative max-w-55">
             <Logo
               color={theme === "dark" ? "logo-fill" : "logo-fill-animate"}
@@ -85,7 +85,7 @@ export function Footer() {
             </a>
           </div>
           <div
-            className={`md:grid md:grid-cols-3 md:gap-8 mt-5 ${theme === "dark" ? "text-primary" : "text-bg"}`}
+            className={`justify-self-center md:grid md:grid-cols-3 md:gap-8 mt-5 ${theme === "dark" ? "text-primary" : "text-bg"}`}
           >
             <div>
               <h4 className="base font-secondary font-semibold">Solutions</h4>
@@ -118,7 +118,7 @@ export function Footer() {
               </ul>
             </div>
             <div className="mt-10 md:mt-0">
-              <h4 className="base font-secondary font-semibold">
+              <h4 className="base font-secondary font-semibold ">
                 Une question ?
               </h4>
               <ul role="list" className="mt-3 space-y-4">

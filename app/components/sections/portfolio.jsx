@@ -10,7 +10,7 @@ import useIsMobile from "../theme/isMobile";
 import { useTheme } from "../theme/ThemeProvider";
 
 export default function Portfolio({ init, anim, duree }) {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   const sectionRef = useRef(null);
   const isMobile = useIsMobile();
   const isInView = useInView(sectionRef, {
@@ -139,13 +139,13 @@ export default function Portfolio({ init, anim, duree }) {
               variants={item}
               className={`flex flex-col ${index != 0 ? "mt-10 md:mt-0" : ""}`}
             >
-              <p className="text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
-              text-shadow-secondary/70 font-medium uppercase tracking-wide">
+              <p
+                className="text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
+              text-shadow-secondary/70 font-medium uppercase tracking-wide"
+              >
                 {project.tag}
               </p>
-              <h4 className="font-secondary  font-medium">
-                {project.title}
-              </h4>
+              <h4 className="font-secondary  font-medium">{project.title}</h4>
 
               <p className="mt-2 flex-1  leading-relaxed ">{project.body}</p>
               <Image
