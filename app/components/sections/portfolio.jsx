@@ -162,6 +162,7 @@ export default function Portfolio({ init, anim, duree }) {
                 }
                   transition-transform ease-in-out duration-500
                   md:hover:scale-115 hover:scale-110`}
+                preload={false}
               />
             </motion.article>
           ))}

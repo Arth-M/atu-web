@@ -34,7 +34,7 @@ export default function Expertise() {
           width={400}
           height={400}
           className="lg:h-12 lg:w-12 h-13 w-13 mt-5 md:mt-0"
-          loading="lazy"
+          preload={false}
         />
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-2 md:flex md:flex-wrap md:space-x-7 mb-7 lg:mb-0  grid grid-cols-2 gap-x-14 gap-y-2">
           {STACK1.map((tech) => (
@@ -45,7 +45,7 @@ export default function Expertise() {
               width={400}
               height={400}
               className={`h-25 w-25 ${tech.mono ? "stack-icon-mono" : ""}`}
-              loading="lazy"
+              preload={false}
             />
           ))}
         </div>
@@ -70,7 +70,7 @@ export default function Expertise() {
               width={400}
               height={400}
               className="h-15 w-15"
-              loading="lazy"
+              preload={false}
             />
           ))}
         </div>
@@ -80,7 +80,7 @@ export default function Expertise() {
           width={400}
           height={400}
           className="lg:h-15 lg:w-15 h-13 w-13 mt-5 md:mt-0"
-          loading="lazy"
+          preload={false}
         />
       </div>
     </section>

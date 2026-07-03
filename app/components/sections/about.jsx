@@ -79,6 +79,7 @@ export default function About() {
                   alt="Photo de Arthur-Henri Michalland"
                   width={800}
                   height={800}
+                  preload={false}
                   className="w-35 h-35 object-[0%-10%] inline "
                 />
               </div>
@@ -89,7 +90,7 @@ export default function About() {
                 alt="Photo de Arthur-Henri Michalland"
                 width={800}
                 height={800}
-                preload={true}
+                preload={false}
                 className="w-35 h-35 object-[0%-10%] inline "
               />
             </div>
