@@ -19,7 +19,6 @@ type ContactErrorBody = {
 };
 
 type ContactPayload = {
-  name: string;
   email: string;
   project: string;
   message: string;
@@ -33,11 +32,55 @@ function escapeHtml(text: string) {
     .replace(/"/g, "&quot;");
 }
 
+function serializeError(err: unknown) {
+  if (err instanceof Error) {
+    return { cause: err.message, stack: err.stack };
+  }
+  return { cause: String(err) };
+}
+
+function redactEmail(email: string) {
+  const [local, domain] = email.split("@");
+  if (!domain) return "[invalid]";
+  return `${local.slice(0, 1)}***@${domain}`;
+}
+
+function redactPayload(raw: unknown) {
+  if (!raw || typeof raw !== "object") return raw;
+  const body = raw as Record<string, unknown>;
+  return {
+    ...body,
+    email:
+      typeof body.email === "string" ? redactEmail(body.email) : body.email,
+    message:
+      typeof body.message === "string"
+        ? `[${body.message.length} chars]`
+        : body.message,
+  };
+}
+
+function logContactEvent(
+  level: "info" | "error",
+  code: string,
+  details: Record<string, unknown> = {},
+) {
+  const payload = { code, ...details };
+  if (level === "error") {
+    console.error("[contact]", payload);
+  } else {
+    console.info("[contact]", payload);
+  }
+}
+
 function logContactError(
   code: ContactErrorCode,
   details: Record<string, unknown> = {},
 ) {
-  console.error("[contact]", { code, ...details });
+  logContactEvent("error", code, details);
+}
+
+function logContactSuccess(details: Record<string, unknown> = {}) {
+  logContactEvent("info", "SUCCESS", details);
 }
 
 function errorResponse(
@@ -51,7 +94,7 @@ function errorResponse(
     fields: body.fields,
     ...logDetails,
   });
-  return NextResponse.json(body, { status });
+  return NextResponse.json({ success: false }, { status });
 }
 
 function validatePayload(raw: unknown): ContactPayload | ContactErrorBody {
@@ -65,7 +108,6 @@ function validatePayload(raw: unknown): ContactPayload | ContactErrorBody {
   const body = raw as Record<string, unknown>;
   const fields: Record<string, string> = {};
 
-  const name = typeof body.name === "string" ? body.name.trim() : "";
   const email = typeof body.email === "string" ? body.email.trim() : "";
   const project =
     typeof body.project === "string" && body.project.trim()
@@ -73,7 +115,6 @@ function validatePayload(raw: unknown): ContactPayload | ContactErrorBody {
       : "Non précisé";
   const message = typeof body.message === "string" ? body.message.trim() : "";
 
-  if (!name) fields.name = "Le nom est requis";
   if (!email) fields.email = "L'email est requis";
   else if (!EMAIL_RE.test(email)) fields.email = "L'email n'est pas valide";
   if (!message) fields.message = "Le message est requis";
@@ -86,7 +127,7 @@ function validatePayload(raw: unknown): ContactPayload | ContactErrorBody {
     };
   }
 
-  return { name, email, project, message };
+  return { email, project, message };
 }
 
 async function mapBrevoError(response: Response): Promise<{
@@ -185,6 +226,8 @@ async function mapBrevoError(response: Response): Promise<{
 }
 
 export async function POST(request: Request) {
+  logContactEvent("info", "REQUEST_RECEIVED");
+
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
     return errorResponse(
@@ -204,9 +247,7 @@ export async function POST(request: Request) {
     return errorResponse(
       { error: "Format de requête invalide (JSON attendu)", code: "INVALID_JSON" },
       400,
-      {
-        parseError: err instanceof Error ? err.message : String(err),
-      },
+      serializeError(err),
     );
   }
 
@@ -217,15 +258,20 @@ export async function POST(request: Request) {
         rawBody && typeof rawBody === "object"
           ? Object.keys(rawBody as Record<string, unknown>)
           : [],
+      payload: redactPayload(rawBody),
     });
   }
 
-  const { name, email, project, message } = validated;
+  const { email, project, message } = validated;
+  logContactEvent("info", "VALIDATED", {
+    project,
+    email: redactEmail(email),
+    messageLength: message.length,
+  });
   const senderEmail = process.env.BREVO_SENDER_EMAIL ?? PERSON.email;
   const senderName = process.env.BREVO_SENDER_NAME ?? SITE_NAME;
 
   const htmlContent = `<html><body>
-<p><strong>Nom :</strong> ${escapeHtml(name)}</p>
 <p><strong>Email :</strong> ${escapeHtml(email)}</p>
 <p><strong>Projet :</strong> ${escapeHtml(project)}</p>
 <p><strong>Message :</strong></p>
@@ -242,10 +288,10 @@ export async function POST(request: Request) {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        sender: { name: senderName, email: senderEmail },
+        sender: { email: senderEmail },
         to: [{ email: PERSON.email, name: PERSON.name }],
-        replyTo: { email, name },
-        subject: `[${SITE_NAME}] Demande de contact — ${name}`,
+        replyTo: { email },
+        subject: `[${SITE_NAME}] Demande de contact`,
         htmlContent,
       }),
     });
@@ -258,7 +304,7 @@ export async function POST(request: Request) {
       },
       503,
       {
-        cause: err instanceof Error ? err.message : String(err),
+        ...serializeError(err),
         senderEmail,
       },
     );
@@ -275,6 +321,8 @@ export async function POST(request: Request) {
 
     return errorResponse(body, status, { brevo, senderEmail });
   }
+
+  logContactSuccess({ project, email: redactEmail(email) });
 
   return NextResponse.json({ success: true });
 }
