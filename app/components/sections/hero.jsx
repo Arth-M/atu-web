@@ -12,7 +12,7 @@ export default function Hero({ init, anim, duree }) {
     show: {
       transition: {
         // startDelay = délai avant le 1er enfant ; ensuite +staggerStep à chaque enfant
-        delayChildren: stagger(0.3, { startDelay: 0.36 }),
+        delayChildren: stagger(0.3, { startDelay: 0 }),
       },
     },
   };

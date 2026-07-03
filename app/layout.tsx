@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
 import { ThemeSwitch } from "./components/theme/ThemeSwitch";
 import { JsonLd } from "./components/JsonLd";
@@ -9,7 +8,6 @@ import Script from "next/script";
 import { PERSON, SITE_NAME, SITE_URL } from "../lib/site";
 import "./globals.css";
 
-const THEMES = ["classic", "dark", "colorful"] as const;
 import {
   Stack_Sans_Notch,
   Arimo,
@@ -18,7 +16,7 @@ import {
   Spicy_Rice,
   Luxurious_Roman,
   Lora,
-  Dancing_Script,
+  // Dancing_Script,
   Bitter,
 } from "next/font/google";
 
@@ -27,11 +25,11 @@ const lora = Lora({
   variable: "--lora",
   display: "swap",
 });
-const dancing = Dancing_Script({
-  subsets: ["latin"],
-  variable: "--dancing-script",
-  display: "swap",
-});
+// const dancing = Dancing_Script({
+//   subsets: ["latin"],
+//   variable: "--dancing-script",
+//   display: "swap",
+// });
 const bitter = Bitter({
   subsets: ["latin"],
   variable: "--lato",
@@ -111,19 +109,13 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
-  const stored = cookieStore.get("theme")?.value;
-  const theme = THEMES.includes(stored as (typeof THEMES)[number])
-    ? stored
-    : "classic";
-
   return (
-    <html lang="fr" data-theme={theme} suppressHydrationWarning>
+    <html lang="fr" data-theme="classic" suppressHydrationWarning>
       <head>
         <Script src="/theme-init.js" strategy="beforeInteractive" />
       </head>
@@ -132,7 +124,7 @@ export default async function RootLayout({
       >
         <JsonLd />
         <main role="main">
-          <ThemeProvider initialTheme={theme as (typeof THEMES)[number]}>
+          <ThemeProvider>
             <Header />
             {children}
             <ThemeSwitch />

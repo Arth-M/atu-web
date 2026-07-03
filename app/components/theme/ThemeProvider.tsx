@@ -25,14 +25,8 @@ export function useTheme() {
   return ctx;
 }
 
-export function ThemeProvider({
-  children,
-  initialTheme = "classic",
-}: {
-  children: ReactNode;
-  initialTheme?: Theme;
-}) {
-  const [theme, setThemeState] = useState<Theme>(initialTheme);
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>("classic");
 
   // Reconcile with theme-init / localStorage after hydration
   useEffect(() => {
@@ -46,7 +40,6 @@ export function ThemeProvider({
     setThemeState(t);
     document.documentElement.dataset.theme = t;
     localStorage.setItem("theme", t);
-    document.cookie = `theme=${t};path=/;max-age=2592000;SameSite=Lax`;
   }
 
   return (
