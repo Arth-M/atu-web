@@ -139,6 +139,9 @@
   .padding-bottom-container-perso {
     @apply lg:pb-25 pb-20;
   }
+  .padding-bottom-container-large {
+    @apply md:pb-25 pb-35;
+  }
 }
 
  html {
@@ -201,8 +204,8 @@ code, .code {
   font-size: clamp(1.50rem, calc(0.909rem + 2.955vw), 3.13rem);
 }
 
-footer > h4 {
-  font-size: clamp(1.0rem, calc(0.910rem + 2.182vw), 1.0rem);
+.small-footer {
+  font-size: clamp(0.90rem, calc(0.75rem + 0.398vw), 1.1rem);
 }
 
 .secondary-links {
