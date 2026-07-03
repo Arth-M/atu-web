@@ -28,13 +28,22 @@ const temoignages = [
   {
     name: "Kevin",
     company: "Psychologue",
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+    text: (
+      <>
+        Ce fut un réel plaisir de travailler avec Arthur. Et surtout quel
+        résultat! 😄{" "}
+        <span className="font-bold">Tout s’est fait en concertation</span>, avec{" "}
+        <span className="font-bold">fluidité</span> et{" "}
+        <span className="font-bold">grande efficacité</span> ! Je recommande
+        vivement !
+      </>
+    ),
   },
-  {
-    name: "Céline",
-    company: "Psychologue",
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-  },
+  // {
+  //   name: "Céline",
+  //   company: "Psychologue",
+  //   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+  // },
 ];
 
 export default function Temoignages() {
@@ -88,7 +97,7 @@ export default function Temoignages() {
   return (
     <section
       id="temoignages"
-      className="z-0 container-perso-x container-perso-y"
+      className={`z-0 container-perso-x container-perso-y ${theme === "dark" ? "padding-bottom-container-perso" : ""}`}
     >
       <SectionLabel>Témoignages</SectionLabel>
       <SectionTitle>Ils nous font confiance</SectionTitle>
@@ -103,7 +112,7 @@ export default function Temoignages() {
         }}
       >
         <div
-          className="relative min-h-[280px] overflow-hidden sm:min-h-[335px]"
+          className="md:min-h-[330px] sm:min-h-[310px] min-h-[445px] overflow-hidden flex items-center"
           aria-live="polite"
           aria-atomic="true"
         >
@@ -119,7 +128,7 @@ export default function Temoignages() {
                 duration: reduceMotion ? 0 : 0.45,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mx-auto max-w-3xl px-9 text-center"
+              className="mx-auto max-w-3xl sm:px-9 px-3 text-center align-middle"
             >
               <div className="relative w-fit py-2 z-10">
                 <span
@@ -147,7 +156,7 @@ export default function Temoignages() {
         </div>
 
         {temoignages.length > 1 && (
-          <div className="mt-10 flex items-center justify-center gap-6">
+          <div className="mt-5 flex items-center justify-center gap-6">
             <button
               type="button"
               onClick={prev}

@@ -37,27 +37,29 @@ export default function Hero({ init, anim, duree }) {
         <div className="flex flex-wrap items-center md:justify-between">
           <div className="lg:w-2/3">
             <h1>
-              <span
-              variants={item}
-              className="mb-6 font-medium uppercase tracking-[0.2em] text-secondary"
-            >
-              Développeur web · Docteur en psychologie cognitive
-            </span>
-            <span
-              variants={item}
-              className={`large-text-hero block mt-6 ${theme === "colorful" ? "text-shadow-[3px_1px_0px] text-shadow-secondary" : "tracking-tight"} font-secondary font-medium leading-[1.08] text-primary sm:`}
+              <motion.span
+                variants={item}
+                className="mb-6 font-medium uppercase tracking-[0.2em] text-secondary"
               >
-              Un seul interlocuteur pour vos projets - de l&apos;élaboration au
-              code en production.
-            </span>
+                Développeur web · Docteur en psychologie cognitive
+              </motion.span>
+              <motion.span
+                variants={item}
+                className={`large-text-hero block mt-6 ${theme === "colorful" ? "text-shadow-[3px_1px_0px] text-shadow-secondary" : "tracking-tight"} font-secondary font-medium leading-[1.08] text-primary sm:`}
+              >
+                Un seul interlocuteur pour vos projets - de l&apos;élaboration
+                au code en production.
+              </motion.span>
             </h1>
             <motion.div variants={item} className="pt-6">
               <p className=" leading-relaxed text-primary/75">
                 Expert dans le développement d'applications web et IA sur
                 mesure, ma formation en psychologie cognitive me permet aussi de
                 concevoir des interfaces qui accompagnent la perception, la
-                mémoire et la décision.<br/>L'objectif : des applications qui vous
-                ressemblent, pensées pour vos utilisateurs.
+                mémoire et la décision.
+                <br />
+                L'objectif : des applications qui vous ressemblent, pensées pour
+                vos utilisateurs.
               </p>
               <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
                 <SecondaryLink href="#portfolio">

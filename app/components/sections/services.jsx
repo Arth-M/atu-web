@@ -32,21 +32,29 @@ const services = [
 export default function Services() {
   const { theme } = useTheme();
   return (
-    <section
-      id="services"
-      className="container-perso-x container-perso-y"
-    >
+    <section id="services" className="container-perso-x container-perso-y">
       {/* UTILISER https://motion.dev/examples/js-spring-follow-cursor */}
       {/* UTILISER https://motion.dev/examples/react-follow-pointer-with-spring */}
 
       <SectionLabel>Services</SectionLabel>
-      <div className="flex flex-wrap lg:grid lg:grid-cols-3 lg:gap-2 items-start justify-center lg:mt-7 mt-12 px-10 md:px-0">
+      <div className="flex flex-wrap lg:grid lg:grid-cols-3 lg:gap-2 items-start justify-center mt-7 px-3 md:px-0">
         {services.map((service) => (
           <div
             key={service.id}
-            className={`md:w-[300px] mx- sm:mx-3 my-6 lg:max-w-full z-20 hover:scale-105 transition-all duration-300 rounded-xl border border-secondary/80 shadow-secondary/80 p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}
+            className={`relativemd:w-[300px] mx-auto sm:mx-3 my-6 lg:max-w-full z-20
+              hover:scale-105 transition-all duration-300 rounded-xl border
+              border-secondary/80 shadow-secondary/80 p-4
+              shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2
+              hover:shadow-[-15px_17px_0px_-5px_shadow-primary]
+              ${
+                theme === "dark"
+                  ? "shadow-secondary border-secondary"
+                  : theme === "colorful"
+                    ? " border-primary shadow-primary"
+                    : " border-primary shadow-primary"
+              }`}
           >
-            <div className="h-[210px] overflow-hidden">
+            <div className="sm:h-[210px] overflow-hidden">
               {service.id === "site" ? (
                 <Coding />
               ) : service.id === "accompagnement" ? (
@@ -58,10 +66,12 @@ export default function Services() {
             <h4 className=" font-semibold tracking-wider text-primary font-secondary">
               {service.title}
             </h4>
-            <p className="md:h-[196px] text-primary/80  mb-5">
+            <p className="md:h-[220px] text-primary/80  mb-5">
               {service.description}
             </p>
-            <SecondaryLink href={service.href}>En savoir plus</SecondaryLink>
+            <div className="mb-0 mt-auto">
+              <SecondaryLink href={service.href}>En savoir plus</SecondaryLink>
+            </div>
           </div>
         ))}
       </div>

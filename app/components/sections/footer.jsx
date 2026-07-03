@@ -16,7 +16,7 @@ export function Footer() {
       { name: "Témoignages", href: "#temoignages" },
     ],
     questions: [
-      { name: "Contactez-nous !", href: "#contact" },
+      { name: "Contactez-nous", href: "#contact" },
       { name: "FAQ", href: "#faq" },
     ],
     social: [
@@ -54,11 +54,11 @@ export function Footer() {
     <footer
       className={`not-arrow-up text-bg pb-7 ${theme === "dark" ? "bg-bg border" : "pt-20 bg-primary"}`}
     >
-      <div className="container-perso-x">
+      <div className="container-header-footer-x">
         {theme === "dark" && (
           <div className="border-t border-primary/30 mb-20"></div>
         )}
-        <div className="grid grid-cols-2 gap-8 xl:col-span-2">
+        <div className="grid grid-cols-2 small-footer">
           <div className="relative max-w-55">
             <Logo
               color={theme === "dark" ? "logo-fill" : "logo-fill-animate"}
@@ -85,16 +85,16 @@ export function Footer() {
             </a>
           </div>
           <div
-            className={`md:grid md:grid-cols-3 md:gap-8 mt-5 ${theme === "dark" ? "text-primary" : "text-bg"}`}
+            className={`justify-self-center md:grid md:grid-cols-3 md:gap-8 mt-5 ${theme === "dark" ? "text-primary" : "text-bg"}`}
           >
             <div>
-              <h4 className="/6 font-secondary font-semibold">Solutions</h4>
+              <h4 className="base font-secondary font-semibold">Solutions</h4>
               <ul role="list" className="mt-3 space-y-4">
                 {navigation.solutions.map((item) => (
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className={`/6 font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
+                      className={`small-footer font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
                     >
                       {item.name}
                     </a>
@@ -103,13 +103,13 @@ export function Footer() {
               </ul>
             </div>
             <div className="mt-10 md:mt-0">
-              <h4 className="/6 font-secondary font-semibold">Focus</h4>
+              <h4 className="base font-secondary font-semibold">Focus</h4>
               <ul role="list" className="mt-3 space-y-4">
                 {navigation.plus.map((item) => (
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className={`/6 font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
+                      className={`small-footer font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
                     >
                       {item.name}
                     </a>
@@ -118,7 +118,7 @@ export function Footer() {
               </ul>
             </div>
             <div className="mt-10 md:mt-0">
-              <h4 className="/6 font-secondary font-semibold">
+              <h4 className="base font-secondary font-semibold ">
                 Une question ?
               </h4>
               <ul role="list" className="mt-3 space-y-4">
@@ -126,7 +126,7 @@ export function Footer() {
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className={`/6 font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
+                      className={`small-footer font-secondary ${theme === "dark" ? "text-primary/70 hover:text-primary" : "text-bg/70 hover:text-bg"}`}
                     >
                       {item.name}
                     </a>

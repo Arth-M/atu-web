@@ -7,8 +7,10 @@ import { PrimaryButton } from "../micro/PageLinks";
 import { LINKS } from "../../../lib/site";
 import Image from "next/image";
 import useIsMobile from "../theme/isMobile";
+import { useTheme } from "../theme/ThemeProvider";
 
 export default function Portfolio({ init, anim, duree }) {
+  const { theme } = useTheme();
   const sectionRef = useRef(null);
   const isMobile = useIsMobile();
   const isInView = useInView(sectionRef, {
@@ -68,7 +70,7 @@ export default function Portfolio({ init, anim, duree }) {
       initial="hidden"
       animate={isInView ? "show" : undefined}
       id="portfolio"
-      className="relative container-perso-y padding-bottom-container-perso bg-secondary/20 text-secondary"
+      className="z-0 relative container-perso-y padding-bottom-container-large bg-secondary/20 text-secondary"
     >
       <motion.div
         className="absolute inset-0 w-full h-full bg-secondary hidden md:block"
@@ -121,7 +123,7 @@ export default function Portfolio({ init, anim, duree }) {
         }}
       >
       </motion.div> */}
-      <div className="container-perso-x">
+      <div className="container-perso-x z-90">
         <motion.div variants={item}>
           <SectionLabel>Portfolio</SectionLabel>
           <SectionTitle>Un aperçu de mon travail</SectionTitle>
@@ -131,20 +133,21 @@ export default function Portfolio({ init, anim, duree }) {
         </motion.p>
 
         <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
-          {PROJECTS.map((project) => (
+          {PROJECTS.map((project, index) => (
             <motion.article
               key={project.title}
               variants={item}
-              className="flex flex-col"
+              className={`flex flex-col ${index != 0 ? "mt-10 md:mt-0" : ""}`}
             >
-              <p className=" font-medium uppercase tracking-wide text-tertiary">
+              <p
+                className="text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
+              text-shadow-secondary/70 font-medium uppercase tracking-wide"
+              >
                 {project.tag}
               </p>
-              <h4 className="mt-3 font-secondary  font-medium">
-                {project.title}
-              </h4>
+              <h4 className="font-secondary  font-medium">{project.title}</h4>
 
-              <p className="mt-3 flex-1  leading-relaxed ">{project.body}</p>
+              <p className="mt-2 flex-1  leading-relaxed ">{project.body}</p>
               <Image
                 key={project.image}
                 src={project.image}
@@ -163,8 +166,8 @@ export default function Portfolio({ init, anim, duree }) {
             </motion.article>
           ))}
         </div>
-        <motion.div variants={item}>
-          <p className="mt-15 font-secondary  text-primary/80">
+        <motion.div variants={item} className="z-90">
+          <p className="z-50 mt-15 font-secondary text-primary/80">
             Votre projet pourrait être le prochain.
           </p>
           <div className="mt-4">

@@ -19,7 +19,7 @@ import {
   Luxurious_Roman,
   Lora,
   Dancing_Script,
-  Bitter
+  Bitter,
 } from "next/font/google";
 
 const lora = Lora({
@@ -57,7 +57,7 @@ const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-oswald",
   display: "swap",
-  weight: [ "600"],
+  weight: ["600"],
 });
 const spicyRice = Spicy_Rice({
   subsets: ["latin"],
@@ -121,7 +121,6 @@ export default async function RootLayout({
   const theme = THEMES.includes(stored as (typeof THEMES)[number])
     ? stored
     : "classic";
-
 
   return (
     <html lang="fr" data-theme={theme} suppressHydrationWarning>

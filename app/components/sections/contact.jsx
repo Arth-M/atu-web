@@ -108,10 +108,19 @@ export default function Contact() {
           </div>
 
           <div
-            className={`w-4/5 mx-auto border-secondary/80 shadow-secondary/80 hover:scale-105 transition-all duration-300 rounded-xl border p-4 shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2 hover:shadow-[-15px_17px_0px_-5px_shadow-primary] ${theme === "dark" ? "shadow-secondary border-secondary" : " border-primary shadow-primary"}`}
+            className={`sm:w-4/5 md:w-3/4 lg:w-full mx-auto border-secondary/80 shadow-secondary/80
+              hover:scale-105 transition-all duration-300 rounded-xl border p-4
+              shadow-[-7px_7px_0px_shadow-primary] hover:-translate-y-2
+              sm:hover:shadow-[-15px_17px_0px_-5px_shadow-primary]
+              hover:shadow-[-10px_12px_0px_-5px_shadow-primary]
+              ${
+                theme === "dark"
+                  ? "shadow-secondary border-secondary"
+                  : " border-primary shadow-primary"
+              }`}
           >
             <p className="mt-5  leading-relaxed text-primary/70 mb-5">
-              Décrivez-moi votre besoin en quelques lignes. Je reviens vers vous
+              Décrivez votre besoin en quelques lignes. Je reviens vers vous
               sous 48 h.
             </p>
             <form
