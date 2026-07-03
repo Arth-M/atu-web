@@ -26,6 +26,7 @@ const services = [
     description:
       "L'IA devient gage de compétitivité et de modernité. Je vous accompagne dans cette transition avec des objectifs simples : qualité UX, utilité, maîtrise des coûts.",
     id: "ia",
+    href: "/services#ia",
   },
 ];
 
