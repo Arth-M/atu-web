@@ -86,20 +86,20 @@ export default function Contact() {
               <div className="flex flex-col space-y-5 font-secondary">
                 <a
                   href={`mailto:${PERSON.email}`}
-                  className="  text-secondary underline-offset-4 hover:underline"
+                  className="text-secondary tracking-wide underline-offset-4 hover:underline"
                 >
                   {PERSON.email}
                 </a>
                 <a
                   href={`tel:${PERSON.tel}`}
-                  className="  text-secondary underline-offset-4 hover:underline"
+                  className="text-secondary tracking-wide underline-offset-4 hover:underline"
                 >
                   {PERSON.tel}
                 </a>
                 <a
                   href={PERSON.maps}
                   target="_blank"
-                  className="block   text-secondary underline-offset-4 hover:underline"
+                  className="block text-secondary tracking-wide underline-offset-4 hover:underline"
                 >
                   {PERSON.location}
                 </a>
