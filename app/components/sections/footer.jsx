@@ -54,7 +54,7 @@ export function Footer() {
     <footer
       className={`not-arrow-up text-bg pb-7 ${theme === "dark" ? "bg-bg border" : "pt-20 bg-primary"}`}
     >
-      <div className="container-perso-x">
+      <div className="container-header-footer-x">
         {theme === "dark" && (
           <div className="border-t border-primary/30 mb-20"></div>
         )}

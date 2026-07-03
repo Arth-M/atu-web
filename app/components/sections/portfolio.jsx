@@ -139,7 +139,7 @@ export default function Portfolio({ init, anim, duree }) {
               variants={item}
               className={`flex flex-col ${index != 0 ? "mt-10 md:mt-0" : ""}`}
             >
-              <p className="text-tertiary text-shadow-[0.5px_0.5px_0px]
+              <p className="text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
               text-shadow-secondary/70 font-medium uppercase tracking-wide">
                 {project.tag}
               </p>

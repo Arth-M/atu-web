@@ -63,7 +63,7 @@ export default function Faq() {
   return (
     <section id="faq" className="container-perso-y container-perso-x padding-bottom-container-perso">
       {/* UTILISER https://motion.dev/examples/react-accordion */}
-      <div className="mx-auto max-w-3xl px-6 md:px-10 lg:px-12">
+      <div className="mx-auto max-w-3xl">
         <div className="text-center">
           <SectionLabel>FAQ</SectionLabel>
           <SectionTitle>Questions fréquentes</SectionTitle>
