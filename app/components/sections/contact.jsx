@@ -6,19 +6,20 @@ import SectionLabel from "../micro/SectionLabel";
 import SectionTitle from "../micro/sectionTitle";
 import { PERSON } from "../../../lib/site";
 import { useTheme } from "../theme/ThemeProvider";
+import { motion } from "motion/react";
 
-export default function Contact() {
+export default function Contact({ init, anim, duree }) {
   const { theme } = useTheme();
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [project, setProject] = useState("Site Vitrine");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name === "" || email === "" || message === "") {
+    if (email === "" || message === "") {
       setError(true);
       return;
     }
@@ -30,7 +31,7 @@ export default function Contact() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, project, message }),
+        body: JSON.stringify({ email, project, message }),
       });
 
       if (!response.ok) {
@@ -38,13 +39,13 @@ export default function Contact() {
         return;
       }
 
-      setName("");
       setEmail("");
       setProject("Site vitrine");
       setMessage("");
-    } catch {
+      setSubmitted(response);
+    } catch (error) {
       setError(true);
-      console.warning(error);
+      console.warn(error);
     } finally {
       setSubmitting(false);
     }
@@ -205,16 +206,29 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                disabled={submitting}
-                className="mt-6 w-full rounded-lg border border-tertiary bg-tertiary px-6 py-3  font-medium text-white shadow-sm shadow-tertiary/30 transition hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:hover:translate-y-0"
+                disabled={submitting || submitted}
+                className={`${theme === "dark" ? "rounded border-white/20 bg-white/20" : "rounded-lg border-tertiary bg-tertiary"}
+                  border mt-6 w-full rounded-lg border-tertiary
+                  bg-tertiary px-6 py-3 font-medium text-white shadow-sm
+                  shadow-tertiary/30 transition hover:-translate-y-0.5
+                  hover:shadow-lg disabled:opacity-60 disabled:hover:translate-y-0`}
               >
                 {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
               </button>
+              {submitted && (
+                <motion.p className="code mt-4 text-secondary text-center"
+                initial={init}
+                animate={anim}
+                transition={{ duration: duree }}
+                >
+                 Message envoyé ! 👍
+                </motion.p>
+              )}
               {error && (
-                <p className="mt-2  text-bg">
+                <motion.p className="mt-2 text-secondary">
                   ⚠ Impossible d&apos;envoyer le message. Vérifiez les champs ou
                   réessayez plus tard.
-                </p>
+                </motion.p>
               )}
             </form>
           </div>

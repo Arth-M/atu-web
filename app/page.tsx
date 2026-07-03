@@ -105,7 +105,7 @@ export default function Home() {
 
       <Temoignages />
 
-      <Contact />
+      <Contact init={init} anim={anim} duree={DUREE} />
 
       <Faq />
     </div>
