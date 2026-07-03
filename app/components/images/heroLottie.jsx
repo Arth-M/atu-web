@@ -11,7 +11,7 @@ export default function HeroLottie({ init, anim, duree, delay }) {
     dark: "/hero/hero_dark_purple.lottie",
     colorful: "/hero/hero_colorful.lottie",
   };
-  const src = LOTTIE_BY_THEME[theme] ?? "/hero.lottie";
+  const src = LOTTIE_BY_THEME[theme];
 
   return (
     <motion.div

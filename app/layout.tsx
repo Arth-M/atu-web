@@ -16,7 +16,7 @@ import {
   Spicy_Rice,
   Luxurious_Roman,
   Lora,
-  Dancing_Script,
+  // Dancing_Script,
   Bitter,
 } from "next/font/google";
 
@@ -25,11 +25,11 @@ const lora = Lora({
   variable: "--lora",
   display: "swap",
 });
-const dancing = Dancing_Script({
-  subsets: ["latin"],
-  variable: "--dancing-script",
-  display: "swap",
-});
+// const dancing = Dancing_Script({
+//   subsets: ["latin"],
+//   variable: "--dancing-script",
+//   display: "swap",
+// });
 const bitter = Bitter({
   subsets: ["latin"],
   variable: "--lato",

@@ -99,17 +99,7 @@
   --color-primary: var(--color-prim);
   --color-secondary: var(--color-second);
   --color-tertiary: var(--color-tert);
-  --color-bg-soft: var(--color-bg-soft);
-  --color-bg-muted: var(--color-bg-muted);
-  --color-text: var(--color-text);
-  --color-text-soft: var(--color-text-soft);
-  --color-text-muted: var(--color-text-muted);
-  --color-accent: var(--color-accent);
-  --color-border: var(--color-border);
-  --color-surface: var(--color-surface);
   --color-surface-hover: var(--color-surface-hover);
-  --color-contact-1: rgb(74, 160, 231);
-  --color-contact-2: rgb(217, 46, 223);
 }
 
 /* ----------------------------------------------------------------
@@ -159,17 +149,17 @@
  */
 
  /* Typography Sizes */
- h1, .h1 {
+ h1 {
    /* font-size: clamp(1.80rem, calc(1.205rem + 2.977vw), 3.44rem); */
    font-size: clamp(0.79rem, calc(0.795rem + 0.398vw), 1.02rem);
  }
 
- h2, .h2 {
+ h2 {
    /* font-size: clamp(1.50rem, calc(0.909rem + 2.955vw), 3.13rem); */
    font-size: clamp(1.0rem, calc(0.930rem + 1.227vw), 1.30rem);
  }
 
- h3, .h3 {
+ h3 {
    font-size: clamp(1.40rem, calc(0.886rem + 2.568vw), 2.81rem);
 
  }
@@ -178,7 +168,7 @@
    font-size: clamp(1.10rem, calc(0.930rem + 2.182vw), 1.40rem);
  }
 
- h5, .h5 {
+ h5 {
    font-size: clamp(1.10rem, calc(0.932rem + 0.841vw), 1.56rem);
  }
 
@@ -221,23 +211,12 @@ code, .code {
   font-style: normal;
 }
 
-.dancing-script {
+/* .dancing-script {
   font-family: "Dancing Script", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-}
+} */
 
 .logo-fill-animate {
   fill: var(--color-bg);
-}
-
-.hr-biseau {
-  height: 5px;
-  width: 100%;
-  clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
-}
-.hr-biseau-inverse {
-  height: 5px;
-  width: 100%;
-  clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
 }

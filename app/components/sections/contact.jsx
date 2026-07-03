@@ -65,7 +65,6 @@ export default function Contact({ init, anim, duree }) {
           <div>
             <SectionTitle id="contact">Discutons de votre projet</SectionTitle>
 
-            <p className="mt-4  text-primary/50"></p>
             <div className="grid grid-cols-2 items-center justify-start">
               {theme === "dark" ? (
                 <Image
