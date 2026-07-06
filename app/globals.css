@@ -16,14 +16,14 @@
     transition: fill 0.3s ease;
   }
   .font-primary {
-    font-family: "Arimo", sans-serif;
+    font-family: var(--font-arimo), sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     letter-spacing: 0px;
     transition: letter-spacing 0.3s ease;
   }
   .font-secondary {
-    font-family: "Bitter", sans-serif;
+    font-family: var(--font-bitter), sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     letter-spacing: 1px;
@@ -47,14 +47,14 @@
     filter: brightness(0) invert(1);
   }
   .font-primary {
-    font-family: "Lora", sans-serif;
+    font-family: var(--font-lora), sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     letter-spacing: 1px;
     transition: letter-spacing 0.3s ease;
   }
   .font-secondary {
-    font-family: "Playfair Display", sans-serif;
+    font-family: var(--font-playfair-display), sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     transition: letter-spacing 0.3s ease;
@@ -73,7 +73,7 @@
     transition: fill 0.3s ease;
   }
   .font-secondary {
-    font-family: "Spicy Rice", sans-serif;
+    font-family: var(--font-spicy-rice), sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     letter-spacing: 4px;
@@ -81,7 +81,7 @@
     /* text-shadow: 3px 1px 0px var(--color-second); */
   }
   .font-primary {
-    font-family: "Oswald", sans-serif;
+    font-family: var(--font-oswald), sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     letter-spacing: 1px;

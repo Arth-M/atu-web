@@ -14,7 +14,7 @@ import {
   Playfair_Display,
   Oswald,
   Spicy_Rice,
-  Luxurious_Roman,
+  // Luxurious_Roman,
   Lora,
   // Dancing_Script,
   Bitter,
@@ -22,7 +22,7 @@ import {
 
 const lora = Lora({
   subsets: ["latin"],
-  variable: "--lora",
+  variable: "--font-lora",
   display: "swap",
 });
 // const dancing = Dancing_Script({
@@ -32,7 +32,7 @@ const lora = Lora({
 // });
 const bitter = Bitter({
   subsets: ["latin"],
-  variable: "--lato",
+  variable: "--font-bitter",
   display: "swap",
   // weight: ["100", "300", "400", "700", "900"],
 });
@@ -63,12 +63,12 @@ const spicyRice = Spicy_Rice({
   display: "swap",
   weight: ["400"],
 });
-const luxuriousRoman = Luxurious_Roman({
-  subsets: ["latin"],
-  variable: "--font-syne-mono",
-  display: "swap",
-  weight: "400",
-});
+// const luxuriousRoman = Luxurious_Roman({
+//   subsets: ["latin"],
+//   variable: "--font-syne-mono",
+//   display: "swap",
+//   weight: "400",
+// });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -115,7 +115,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" data-theme="classic" suppressHydrationWarning>
+    <html lang="fr" data-theme="classic" suppressHydrationWarning
+      className={[
+        arimo.variable,
+        bitter.variable,
+        lora.variable,
+        playfair.variable,
+        oswald.variable,
+        spicyRice.variable,
+        stackSansNotch.variable,
+      ].join(" ")}
+    >
       <head>
         <Script src="/theme-init.js" strategy="beforeInteractive" />
       </head>
