@@ -26,7 +26,7 @@ export default function Expertise() {
       {/* UTILISER https://motion.dev/examples/js-spring-follow-cursor */}
       {/* UTILISER https://motion.dev/examples/react-follow-pointer-with-spring */}
 
-      <AnimatedSectionLabel>Expertises techniques</AnimatedSectionLabel>
+      <AnimatedSectionLabel>Expertise technique</AnimatedSectionLabel>
       <div className="flex flex-nowrap flex-col lg:flex-row items-center lg:mt-7 mt-12">
         <Image
           src="/dev/typescript.svg"
@@ -58,7 +58,7 @@ export default function Expertise() {
             <span className="font-semibold"> maintenabilité</span> et
             <span className="font-semibold"> sécurité</span>.
           </p>
-          
+
         </div>
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-9 md:flex md:flex-wrap md:space-x-7 mt-14 lg:mt-0 grid grid-cols-2 gap-x-18 gap-y-7">
