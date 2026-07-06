@@ -43,7 +43,7 @@ export default function Portfolio({ init, anim, duree }) {
       body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
       href: LINKS.numdiag,
       hrefLabel: "NumDiag.fr",
-      image: "/sites/numdiag.svg",
+      image: "/sites/numdiag.webp",
     },
     {
       title: "Kevin Nicolas",
@@ -51,7 +51,7 @@ export default function Portfolio({ init, anim, duree }) {
       body: "Site personnalisé pour un psychologue basé à Baillargues.",
       href: LINKS.kevin,
       hrefLabel: "Psychologue-Baillargues.fr",
-      image: "/sites/kev_site.svg",
+      image: "/sites/kev_site.webp",
     },
     {
       title: "Recherche & publications",
@@ -59,7 +59,7 @@ export default function Portfolio({ init, anim, duree }) {
       body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
       href: LINKS.scholar,
       hrefLabel: "Google Scholar",
-      image: "/sites/publis.svg",
+      image: "/sites/publis.webp",
     },
   ];
 
