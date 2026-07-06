@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const pathname = usePathname();
+  const closeMenuRef=useRef(null);
   const navigation = [
     { name: "Services", href: "/#services" },
     { name: "Expertise", href: "#expertise" },
@@ -21,17 +21,17 @@ export default function Header() {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMobileMenuOpen(false);
+      if (menuRef.current && !menuRef.current.contains(event.target) || closeMenuRef.current?.contains(target)) {
       }
+      setIsMobileMenuOpen(false);
     }
 
     if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("click", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [isMobileMenuOpen]);
 
@@ -74,31 +74,23 @@ export default function Header() {
       </div>
 
       {/* Mobile menu button with hamburger icon */}
-      <div className="absolute md:right-13 sm:right-9 right-5 top-11 text-primary flex items-center justify-center lg:hidden">
-        {/* <div className="mr-7">
-          <a
-            href="#contact"
-            className="inline-block px-4 py-2 rounded border border-tertiary bg-tertiary shadow-sm shadow-tertiary/40 text-white transition ease-in-out duration-700 hover:-translate-y-0.5 hover:shadow-lg"
-          >
-            Contact
-          </a>
-        </div> */}
+      <div className="absolute md:right-10 right-6 top-11 lg:hidden z-30">
         <button
-          type="button"
+          className="z-50"
           onClick={(e) => {
             e.stopPropagation();
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }}
-          className="relative inline-flex items-center justify-center content-center rounded-md my-auto px-0 text-gray-600  focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500 z-50"
+          ref={closeMenuRef}
         >
           <span className="sr-only">Open main menu</span>
           {/* Hamburger Icon */}
           <svg
-            className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
+            className={`h-6 w-6 z-50 ${isMobileMenuOpen ? "stroke-secondary" : "text-primary"}`}
           >
             <path
               strokeLinecap="round"
@@ -113,15 +105,20 @@ export default function Header() {
         </button>
       </div>
       <div
-        className={`z-90 lg:hidden absolute shadow rounded border border-gray-200 right-0 max-w-2/3 ${isMobileMenuOpen ? "block" : "hidden"} flex justify-end`}
+        className={`z-10 lg:hidden absolute shadow shadow-secondary/50 rounded-xl border
+           border-secondary/50 bg-bg/40 backdrop-blur-lg sm:right-7 right-3 top-7 max-w-2/3
+           ${isMobileMenuOpen ? "block" : "hidden"}
+            flex justify-end`}
+            ref={menuRef}
       >
-        <nav className="z-90 space-y-1 px-2 pt-2 pb-3 bg-gray-50 w-fit"
-        role="navigation">
+        <nav className="z-10 pt-10 space-y-1 px-4 pb-4 w-fit text-secondary font-secondary"
+        role="navigation"
+        >
           {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="rounded hover:scale-102 px-2 py-1"
+              className="block rounded hover:scale-102 px-2 py-1"
             >
               {item.name}
             </a>
