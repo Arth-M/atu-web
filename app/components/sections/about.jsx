@@ -75,23 +75,23 @@ export default function About() {
               <SectionTitle>atuWeb, c&apos;est moi</SectionTitle>
               <div className="hidden md:block md:absolute -top-20 md:right-0 md:left-auto left-75 overflow-hidden bg-secondary/80 rounded-full w-fit">
                 <Image
-                  src="/tutur_gros_plan.svg"
+                  src="/tutur_gros_plan.webp"
                   alt="Photo de Arthur-Henri Michalland"
                   width={800}
                   height={800}
                   preload={false}
-                  className="w-35 h-35 object-[0%-10%] inline "
+                  className="w-35 h-35 object-contain inline "
                 />
               </div>
             </div>
             <div className="md:hidden float-right mt-6 mr-2 overflow-hidden bg-secondary/80 rounded-full w-fit">
               <Image
-                src="/tutur_gros_plan.svg"
+                src="/tutur_gros_plan.webp"
                 alt="Photo de Arthur-Henri Michalland"
                 width={800}
                 height={800}
                 preload={false}
-                className="w-35 h-35 object-[0%-10%] inline "
+                className="w-35 h-35 object-contain inline "
               />
             </div>
             <p className="mt-6  leading-relaxed text-primary/75">
