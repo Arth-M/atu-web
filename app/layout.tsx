@@ -5,7 +5,7 @@ import { JsonLd } from "./components/JsonLd";
 import Header from "./components/micro/header";
 import { Footer } from "./components/sections/footer";
 import Script from "next/script";
-import { PERSON, SITE_NAME, SITE_URL } from "../lib/site";
+import { PERSON, SITE_NAME, SITE_URL, logo } from "../lib/site";
 import "./globals.css";
 
 import {
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Développeur web freelance & docteur en psychologie cognitive. Sites vitrines et applications web pensés pour l'utilisateur. Des interfaces et un code clairs (Ruby on Rails, Node, React, Next.js). Montpellier · France.",
+    "Développeur web freelance & docteur en psychologie cognitive. Un seul interlocuteur pour vos projets - de l'élaboration au code en production.",
   keywords: [
     "développeur web freelance",
     "Ruby on Rails",
@@ -98,12 +98,14 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} — Sites web & applications sur mesure`,
     description:
       "Du code et des interfaces pensés pour l'utilisateur. Un seul interlocuteur pour vos projets web.",
+    images: [logo],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — Arthur-Henri Michalland`,
     description:
       "Développeur web · Doctorat psychologie cognitive · Rails · Node · React · Next.js",
+    images: [logo],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: SITE_URL },

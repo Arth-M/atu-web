@@ -1,4 +1,4 @@
-import { LINKS, PERSON, SAME_AS, SITE_NAME, SITE_URL } from "../../lib/site";
+import { LINKS, PERSON, SAME_AS, SITE_NAME, SITE_URL, logo } from "../../lib/site";
 
 export function JsonLd() {
   const data = {
@@ -10,7 +10,7 @@ export function JsonLd() {
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          "Sites web et applications sur mesure — Ruby on Rails, Node, React, Next.js. Choisissez un développeur qui est aussi docteur en psychologie cognitive.",
+          "Développeur web freelance & docteur en psychologie cognitive - Sites et applications sur mesure - Ruby on Rails, Node, React, Next.js.",
         inLanguage: "fr-FR",
         publisher: { "@id": `${SITE_URL}/#organization` },
       },
@@ -19,6 +19,7 @@ export function JsonLd() {
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
         url: SITE_URL,
+        logo: { "@type": "ImageObject", url: logo },
         sameAs: [LINKS.linkedinCompany],
         founder: { "@id": `${SITE_URL}/#person` },
       },
@@ -57,14 +58,13 @@ export function JsonLd() {
         name: SITE_NAME,
         url: SITE_URL,
         description:
-          "Création de sites vitrines et applications web sur mesure.",
+          "Sites vitrines, applications web sur mesure et intégration IA.",
         provider: { "@id": `${SITE_URL}/#person` },
         areaServed: { "@type": "Country", name: "France" },
         serviceType: [
-          "Développement web",
-          "Application web sur mesure",
-          "Refonte de site web",
-          "Audit UX",
+          "Sites & applications web",
+          "Accompagnement et maintenance",
+          "Intégration IA",
         ],
       },
     ],

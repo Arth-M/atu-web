@@ -1,10 +1,9 @@
 export const SITE_NAME = "AtuWeb";
-export const SITE_URL = "https://atuweb.fr"
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://atuweb.fr";
+export const SITE_URL = "https://www.atuweb.fr"
 
 export const PERSON = {
   name: "Arthur-Henri Michalland",
-  jobTitle: "Développeur web freelance",
+  jobTitle: "Développeur web freelance & docteur en psychologie cognitive",
   email: "contact@atuweb.fr",
   location: "74 place André Leroi Gourhan, 34070 Montpellier",
   tel: "+33 6.15.43.51.99",
@@ -33,3 +32,5 @@ export const LINKS = {
   numdiag: "https://numdiag.fr/",
   kevin: "https://psychologue-baillargues.fr",
 } as const;
+
+export const logo = `${SITE_URL}/logo.png`
