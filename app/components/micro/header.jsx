@@ -11,12 +11,12 @@ export default function Header() {
   const closeMenuRef=useRef(null);
   const navigation = [
     { name: "Services", href: "/#services" },
-    { name: "Expertise", href: "#expertise" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "À propos", href: "#about" },
-    { name: "Témoignages", href: "#temoignages" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "Expertise", href: "/#expertise" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "À propos", href: "/#about" },
+    { name: "Témoignages", href: "/#temoignages" },
+    { name: "FAQ", href: "/#faq" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   useEffect(() => {

@@ -7,17 +7,17 @@ export function Footer() {
   const { theme } = useTheme();
   const navigation = {
     solutions: [
-      { name: "Expertise", href: "#expertise" },
-      { name: "Nos services", href: "#services" },
+      { name: "Expertise", href: "/#expertise" },
+      { name: "Nos services", href: "/#services" },
     ],
     plus: [
-      { name: "Portfolio", href: "#portfolio" },
-      { name: "À propos", href: "#about" },
-      { name: "Témoignages", href: "#temoignages" },
+      { name: "Portfolio", href: "/#portfolio" },
+      { name: "À propos", href: "/#about" },
+      { name: "Témoignages", href: "/#temoignages" },
     ],
     questions: [
-      { name: "Contactez-nous", href: "#contact" },
-      { name: "FAQ", href: "#faq" },
+      { name: "Contactez-nous", href: "/#contact" },
+      { name: "FAQ", href: "/#faq" },
     ],
     social: [
       {
