@@ -38,17 +38,28 @@ export default function Portfolio({ init, anim, duree }) {
 
   const PROJECTS = [
     {
+      title: "K-Yoga",
+      tag: "Application web · RGPD",
+      body: "Plateforme de Yoga - pratique en ligne, cours live et replays sur abonnement. ",
+      realisation:"Gestion des failles de sécurité, modernisation de l'application, optimisation de la base de donnée, migration vers Render, ajout de fonctionnalités",
+      href: LINKS.kyoga,
+      hrefLabel: "k-yoga.fr",
+      image: "/sites/k-yoga.webp",
+    },
+    {
       title: "NumDiag",
       tag: "Application web · RGPD",
       body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
+      realisation: "De la conception à la mise en ligne, avec SEO. Hébergement machine virtuelle CNRS",
       href: LINKS.numdiag,
       hrefLabel: "NumDiag.fr",
       image: "/sites/numdiag.webp",
     },
     {
-      title: "Kevin Nicolas",
+      title: "K. Nicolas",
       tag: "Site web · Psychologue",
-      body: "Site personnalisé pour un psychologue basé à Baillargues.",
+      body: "Site personnalisé pour un psychologue basé à Baillargues",
+      realisation: "De la conception à la mise en ligne, avec SEO. Hébergement Vercel",
       href: LINKS.kevin,
       hrefLabel: "Psychologue-Baillargues.fr",
       image: "/sites/kev_site.webp",
@@ -56,7 +67,8 @@ export default function Portfolio({ init, anim, duree }) {
     {
       title: "Recherche & publications",
       tag: "Cognition · Interaction humain–machine",
-      body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents — publiés et cités internationalement.",
+      body: "Travaux sur l'expérience utilisateur, le langage et les environnements intelligents.",
+      realisation:"Publiés et cités internationalement.",
       href: LINKS.scholar,
       hrefLabel: "Google Scholar",
       image: "/sites/publis.webp",
@@ -132,7 +144,7 @@ export default function Portfolio({ init, anim, duree }) {
           Jetez un oeil !
         </motion.p>
 
-        <div className="mt-7 grid lg:grid-cols-3 md:grid-cols-2 gap-x-15">
+        <div className="mt-7 grid lg:grid-cols-2 md:grid-cols-2 gap-x-15 gap-y-15">
           {PROJECTS.map((project, index) => (
             <motion.article
               key={project.title}
@@ -148,6 +160,8 @@ export default function Portfolio({ init, anim, duree }) {
               <h4 className="font-secondary  font-medium">{project.title}</h4>
 
               <p className="mt-2 flex-1  leading-relaxed ">{project.body}</p>
+              <p className="mt-1 flex-1 leading-relaxed text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
+              text-shadow-secondary/70">{project.realisation}</p>
               <Image
                 key={project.image}
                 src={project.image}
