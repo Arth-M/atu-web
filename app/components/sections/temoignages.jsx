@@ -10,6 +10,22 @@ const INTERVAL_MS = 4000;
 
 const temoignages = [
   {
+    name: "Sylvain",
+    company: "K-Yoga",
+    text: (
+      <>
+        Arthur a repris l'application K-Yoga (Ruby on Rails),
+        une plateforme d'abonnement yoga et méditation développée au fil des
+        années par plusieurs développeurs successifs.
+        Il a <span className="font-bold">mené la montée de version</span> de Ruby et de Rails,
+        {" "}<span className="font-bold">la migration</span> de l'hébergement et {" "}<span className="font-bold">une documentation</span> du projet.
+        Ce travail de modernisation m'a <span className="font-bold">
+          permis de repartir sur une base saine</span>{" "}
+        et documentée. Merci Arthur !
+      </>
+    ),
+  },
+  {
     name: "Gwenaëlle",
     company: "NumDiag",
     text: (
