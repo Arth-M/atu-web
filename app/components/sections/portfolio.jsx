@@ -152,23 +152,23 @@ export default function Portfolio({ init, anim, duree }) {
               className={`flex flex-col ${index != 0 ? "mt-10 md:mt-0" : ""}`}
             >
               <p
-                className="text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
-              text-shadow-secondary/70 font-medium uppercase tracking-wide"
+                className="text-tertiary/90 text-shadow-[0.5px_0.5px_0px]
+              text-shadow-secondary/60 font-medium uppercase tracking-wide"
               >
                 {project.tag}
               </p>
               <h4 className="font-secondary  font-medium">{project.title}</h4>
 
               <p className="mt-2 flex-1  leading-relaxed ">{project.body}</p>
-              <p className="mt-1 flex-1 leading-relaxed text-tertiary/70 text-shadow-[0.5px_0.5px_0px]
-              text-shadow-secondary/70">{project.realisation}</p>
+              <p className="mt-1 flex-1 leading-relaxed text-tertiary/90 text-shadow-[0.5px_0.5px_0px]
+              text-shadow-secondary/60">{project.realisation}</p>
               <Image
                 key={project.image}
                 src={project.image}
                 alt={project.title}
                 width={400}
                 height={400}
-                className={`md:w-auto md:h-[400px] w-[80%] h-90 mx-auto md:mx-0 mt-7
+                className={`md:w-auto md:h-[400px] md:w-[80%] h-90 mx-auto md:mx-0 md:mt-9 mt-3
                 rounded ${
                   project.image === "/publis.svg"
                     ? "object-contain"
