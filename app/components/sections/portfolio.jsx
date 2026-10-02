@@ -152,16 +152,16 @@ export default function Portfolio({ init, anim, duree }) {
               className={`flex flex-col ${index != 0 ? "mt-10 md:mt-0" : ""}`}
             >
               <p
-                className="text-tertiary/90 text-shadow-[0.5px_0.5px_0px]
-              text-shadow-secondary/60 font-medium uppercase tracking-wide"
+                className="text-secondary font-medium uppercase tracking-wide"
               >
                 {project.tag}
               </p>
-              <h4 className="font-secondary  font-medium">{project.title}</h4>
+              <h4 className="font-secondary text-tertiary/30 text-shadow-[0.5px_0.5px_0px]
+              text-shadow-secondary/90">{project.title}</h4>
 
-              <p className="mt-2 flex-1  leading-relaxed ">{project.body}</p>
-              <p className="mt-1 flex-1 leading-relaxed text-tertiary/90 text-shadow-[0.5px_0px_0px]
-              text-shadow-secondary/60">{project.realisation}</p>
+              <p className="mt-1 flex-1 text-tertiary/30 text-shadow-[0.2px_0px_0px]
+              text-shadow-secondary/90 leading-normal">{project.body}</p>
+              <p className="font-secondary mt-2 flex-1 leading-relaxed">{project.realisation}</p>
               <Image
                 key={project.image}
                 src={project.image}
