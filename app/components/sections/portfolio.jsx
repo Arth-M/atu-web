@@ -39,7 +39,7 @@ export default function Portfolio({ init, anim, duree }) {
   const PROJECTS = [
     {
       title: "K-Yoga",
-      tag: "Application web · RGPD",
+      tag: "Application web · Yoga",
       body: "Plateforme de Yoga - pratique en ligne, cours live et replays sur abonnement. ",
       realisation:"Gestion des failles de sécurité, modernisation de l'application, optimisation de la base de donnée, migration vers Render, ajout de fonctionnalités",
       href: LINKS.kyoga,
