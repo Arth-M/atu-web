@@ -160,7 +160,7 @@ export default function Portfolio({ init, anim, duree }) {
               <h4 className="font-secondary  font-medium">{project.title}</h4>
 
               <p className="mt-2 flex-1  leading-relaxed ">{project.body}</p>
-              <p className="mt-1 flex-1 leading-relaxed text-tertiary/90 text-shadow-[0.5px_0.5px_0px]
+              <p className="mt-1 flex-1 leading-relaxed text-tertiary/90 text-shadow-[0.5px_0px_0px]
               text-shadow-secondary/60">{project.realisation}</p>
               <Image
                 key={project.image}
