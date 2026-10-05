@@ -158,6 +158,13 @@ export function Footer() {
             className={`${theme === "dark" ? "text-primary/70" : "text-bg/60"} small mt-8 /6 md:order-1 md:mt-0`}
           >
             &copy; 2026 atuWeb, Tous droits reservés.
+            <span className="mx-2">·</span>
+            <a
+              href="/mentions-legales"
+              className={`underline underline-offset-4 ${theme === "dark" ? "hover:text-primary" : "hover:text-bg"}`}
+            >
+              Mentions légales
+            </a>
           </p>
         </div>
       </div>

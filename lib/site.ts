@@ -10,6 +10,26 @@ export const PERSON = {
   maps: "https://share.google/ix2SBXpANZpyNdOO0",
 } as const;
 
+export const LEGAL = {
+  status: "Entrepreneur individuel (EI) — micro-entreprise",
+  siret: "933 810 848 00012",
+  vat: "TVA non applicable, art. 293 B du CGI",
+  host: {
+    name: "OVHcloud",
+    company: "OVH SAS",
+    address: "2 rue Kellermann, 59100 Roubaix, France",
+    siret: "424 761 419 00045",
+    rcs: "RCS Lille Métropole 424 761 419",
+    tel: "+33 9 72 10 10 07",
+    url: "https://www.ovhcloud.com",
+  },
+  mailer: {
+    name: "Brevo (Sendinblue SAS)",
+    address: "9-17 rue Salneuve, 75017 Paris, France",
+    url: "https://www.brevo.com",
+  },
+} as const;
+
 export const SAME_AS = [
   "https://orcid.org/0000-0003-2530-3211",
   "https://github.com/Arth-M",
