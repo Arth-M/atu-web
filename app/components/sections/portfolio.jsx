@@ -49,17 +49,26 @@ export default function Portfolio({ init, anim, duree }) {
     {
       title: "NumDiag",
       tag: "Application web · RGPD",
-      body: "Start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
+      body: "Création de l'application vitrine d'une start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
       realisation: "De la conception à la mise en ligne, avec SEO. Hébergement machine virtuelle CNRS",
       href: LINKS.numdiag,
       hrefLabel: "NumDiag.fr",
       image: "/sites/numdiag.webp",
     },
     {
+      title: "NumDiag",
+      tag: "Application web · Recherche métier",
+      body: "Création de l'application métier de NumDiag : création de questionnaires, calcul de score, passation par les utilisateurs externes, association à des thèmes et publics, affichage de logos partenaires.",
+      realisation: "De la conception à la mise en ligne. Hébergement machine virtuelle CNRS",
+      href: LINKS.numdiag,
+      hrefLabel: "NumDiag.fr",
+      image: "/sites/numdiag_questionnaires.webp",
+    },
+    {
       title: "K. Nicolas",
       tag: "Site web · Psychologue",
       body: "Site personnalisé pour un psychologue basé à Baillargues",
-      realisation: "De la conception à la mise en ligne, avec SEO. Hébergement Vercel",
+      realisation: "De la conception à la mise en ligne, avec SEO. Création de logo, accompagnement à la gestion du nom de domaine et maintenance. Hébergement Vercel",
       href: LINKS.kevin,
       hrefLabel: "Psychologue-Baillargues.fr",
       image: "/sites/kev_site.webp",
@@ -147,7 +156,7 @@ export default function Portfolio({ init, anim, duree }) {
         <div className="mt-7 grid lg:grid-cols-2 md:grid-cols-2 gap-x-15 gap-y-15">
           {PROJECTS.map((project, index) => (
             <motion.article
-              key={project.title}
+              key={`${project.title}+${project.tag}`}
               variants={item}
               className={`flex flex-col ${index != 0 ? "mt-10 md:mt-0" : ""}`}
             >
@@ -161,7 +170,7 @@ export default function Portfolio({ init, anim, duree }) {
 
               <p className="mt-1 flex-1 text-tertiary/30 text-shadow-[0.2px_0px_0px]
               text-shadow-secondary/90 leading-normal">{project.body}</p>
-              <p className="font-secondary mt-2 flex-1 leading-relaxed">{project.realisation}</p>
+              <p className="font-secondary mt-2 flex-1 leading-relaxed self-end">{project.realisation}</p>
               <Image
                 key={project.image}
                 src={project.image}
