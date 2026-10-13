@@ -47,6 +47,15 @@ export default function Portfolio({ init, anim, duree }) {
       image: "/sites/k-yoga.webp",
     },
     {
+      title: "Novurba",
+      tag: "Site web · Urbanisme",
+      body: "Site personnalisé pour un urbaniste indépendant.",
+      realisation: "De la conception à la mise en ligne, avec SEO. Reprise du logo et adaptation de la colorimétrie et de la police. Hébergement Vercel",
+      href: LINKS.kevin,
+      hrefLabel: "novurba.fr",
+      image: "/sites/novurba.webp",
+    },
+    {
       title: "NumDiag",
       tag: "Application web · RGPD",
       body: "Création de l'application vitrine d'une start-up CNRS dédiée à la sensibilisation et au diagnostique des risques liés à la confidentialité des données personnelles.",
@@ -66,8 +75,8 @@ export default function Portfolio({ init, anim, duree }) {
     },
     {
       title: "K. Nicolas",
-      tag: "Site web · Psychologue",
-      body: "Site personnalisé pour un psychologue basé à Baillargues",
+      tag: "Site web · Psychologie",
+      body: "Site personnalisé pour un psychologue.",
       realisation: "De la conception à la mise en ligne, avec SEO. Création de logo, accompagnement à la gestion du nom de domaine et maintenance. Hébergement Vercel",
       href: LINKS.kevin,
       hrefLabel: "Psychologue-Baillargues.fr",
