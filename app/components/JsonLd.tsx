@@ -10,7 +10,7 @@ export function JsonLd() {
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          "Développeur web freelance & docteur en psychologie cognitive - Sites et applications sur mesure - Ruby on Rails, Node, React, Next.js.",
+          "Développeur web freelance & docteur en psychologie cognitive - Sites et applications sur mesure - Node, React, Next.js, Ruby on Rails.",
         inLanguage: "fr-FR",
         publisher: { "@id": `${SITE_URL}/#organization` },
       },
@@ -32,10 +32,10 @@ export function JsonLd() {
         email: PERSON.email,
         sameAs: [...SAME_AS],
         knowsAbout: [
-          "Ruby on Rails",
           "Node.js",
           "React",
           "Next.js",
+          "Ruby on Rails",
           "Psychologie cognitive",
           "UX",
           "Développement web",

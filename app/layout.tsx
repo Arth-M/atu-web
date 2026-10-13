@@ -73,16 +73,17 @@ const spicyRice = Spicy_Rice({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${PERSON.name} | Développeur web · Rails · Node React · Next.js`,
+    default: `${SITE_NAME} — ${PERSON.name} | Développeur web · Node React · Next.js · Rails`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
     "Développeur web freelance & docteur en psychologie cognitive. Un seul interlocuteur pour vos projets - de l'élaboration au code en production.",
   keywords: [
     "développeur web freelance",
-    "Ruby on Rails",
+    "Node",
     "React",
     "Next.js",
+    "Ruby on Rails",
     "psychologie cognitive",
     "UX",
     "Montpellier",
@@ -104,7 +105,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} — Arthur-Henri Michalland`,
     description:
-      "Développeur web · Doctorat psychologie cognitive · Rails · Node · React · Next.js",
+      "Développeur web · Doctorat psychologie cognitive · Node · React · Next.js · Rails",
     images: [logo],
   },
   robots: { index: true, follow: true },

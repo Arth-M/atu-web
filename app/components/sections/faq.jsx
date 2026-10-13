@@ -13,7 +13,7 @@ const FAQ = [
   },
   {
     q: "Quelles technologies utilisez-vous ?",
-    a: "Ruby on Rails, Node.js, React, Next.js, Vite, et bien d'autres ! Le choix dépend de votre projet, pas de ma préférence.",
+    a: "Node.js, React, Next.js, Vite, Ruby on Rails, et bien d'autres ! Le choix dépend de votre projet, pas de ma préférence.",
   },
   {
     q: "Travaillez-vous seul ?",
