@@ -1,3 +1,9 @@
+// TODO: retirer le noindex et ajouter /services au sitemap quand la page sera terminée
+export const metadata = {
+  title: "Services",
+  robots: { index: false, follow: true },
+};
+
 export default function Services() {
   return (
     <div className="container-perso-x container-perso-y min-h-[550px]">

@@ -11,7 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/mentions-legales`,
-      lastModified: new Date(),
+      // À mettre à jour à la main quand le contenu des mentions légales change
+      lastModified: new Date("2026-10-12T09:08:56.033Z"),
       changeFrequency: "yearly",
       priority: 0.1,
     },
