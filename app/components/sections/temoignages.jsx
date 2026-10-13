@@ -10,6 +10,19 @@ const INTERVAL_MS = 4000;
 
 const temoignages = [
   {
+    name: "Raphaël",
+    company: "Novurba",
+    text: (
+      <>
+        J'ai fait réaliser mon site par ATU Web, je recommande vivement !
+        Arthur est une personne <span className="font-bold">réactive</span>,
+        il {" "}<span className="font-bold">prend le temps d'écouter les besoins</span>
+        {" "}et ils ont été <span className="font-bold">parfaitement retranscrits</span> dans le cadre de la création
+        de mon site web !
+      </>
+    ),
+  },
+  {
     name: "Sylvain",
     company: "K-Yoga",
     text: (
