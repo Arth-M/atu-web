@@ -53,4 +53,10 @@ export const LINKS = {
   kevin: "https://psychologue-baillargues.fr",
 } as const;
 
+// TODO: renseigner la date d'adhésion et l'URL de la fiche Activateur sur francenum.gouv.fr
+export const FRANCENUM = {
+  joined: "Novembre 2026",
+  profile: "https://www.francenum.gouv.fr/activateurs/atuweb",
+} as const;
+
 export const logo = `${SITE_URL}/logo.png`

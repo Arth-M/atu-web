@@ -252,6 +252,7 @@ export default function Temoignages() {
           </div>
         )}
       </div>
+      <hr className="text-secondary mt-20 w-1/3 mx-auto"/>
     </section>
   );
 }

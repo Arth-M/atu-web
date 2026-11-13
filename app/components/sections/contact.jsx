@@ -56,7 +56,7 @@ export default function Contact({ init, anim, duree }) {
       id="contact"
       className={` ${theme === "dark" ? "bg-tertiary padding-bottom-container-perso" : "bg-bg"}`}
     >
-      <div className="container-perso-x container-perso-y">
+      <div className="container-perso-x">
         {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
         {/* quand email envoyé : https://motion.dev/examples/react-notifications-list */}
         <SectionLabel>Premier contact</SectionLabel>

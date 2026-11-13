@@ -11,6 +11,7 @@ import About from "./components/sections/about";
 import Temoignages from "./components/sections/temoignages";
 import Contact from "./components/sections/contact";
 import Faq from "./components/sections/faq";
+import FranceNum from "./components/sections/francenum";
 
 import {
   DUREE,
@@ -38,9 +39,12 @@ export default function Home() {
 
       <Temoignages />
 
+      <FranceNum />
+
       <Contact init={init} anim={anim} duree={DUREE} />
 
       <Faq />
+
     </div>
   );
 }

@@ -1,9 +1,11 @@
 "use client";
 
 import { motion, stagger } from "motion/react";
+import Image from "next/image";
 import HeroLottie from "../images/heroLottie";
 import { SecondaryLink } from "../micro/PageLinks";
 import { useTheme } from "../theme/ThemeProvider";
+import Link from "next/link";
 
 export default function Hero({ init, anim, duree }) {
   const { theme } = useTheme();
@@ -61,12 +63,23 @@ export default function Hero({ init, anim, duree }) {
                 L'objectif : des applications qui vous ressemblent, pensées pour
                 vos utilisateurs.
               </p>
-              <p className=" leading-relaxed text-primary/75 italic">Référencé Activateur FranceNum</p>
-              <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
+              <div className="lg:mt-1 mt-5 flex flex-wrap items-center gap-4">
                 <SecondaryLink href="#portfolio">
                   Voir mes réalisations
                 </SecondaryLink>
               </div>
+              <a href="/#francenum">
+                <div className="lg:mt-5 mt-5 items-end" >
+                  <Image
+                    src="/Activateur_FranceNum.jpg"
+                    alt="Logo Activateur France Num"
+                    width={907}
+                    height={826}
+                    className="h-22 w-auto"
+                  />
+                  <p className="text-primary/75 text-sm">Référencé Activateur FranceNum</p>
+                </div>
+                </a>
             </motion.div>
           </div>
           <motion.div
