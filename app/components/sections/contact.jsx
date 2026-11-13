@@ -54,7 +54,7 @@ export default function Contact({ init, anim, duree }) {
   return (
     <section
       id="contact"
-      className={` ${theme === "dark" ? "bg-tertiary padding-bottom-container-perso" : "bg-bg"}`}
+      className={` ${theme === "dark" ? "bg-tertiary padding-bottom-container-perso container-perso-y" : "bg-bg"}`}
     >
       <div className="container-perso-x">
         {/* POUR BOuTON D'ENVOI MAIL : https://motion.dev/examples/react-multi-state-badge */}
