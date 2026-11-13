@@ -61,6 +61,7 @@ export default function Hero({ init, anim, duree }) {
                 L'objectif : des applications qui vous ressemblent, pensées pour
                 vos utilisateurs.
               </p>
+              <p className=" leading-relaxed text-primary/75 italic">Référencé Activateur FranceNum</p>
               <div className="lg:mt-5 mt-5 flex flex-wrap items-center gap-4">
                 <SecondaryLink href="#portfolio">
                   Voir mes réalisations
